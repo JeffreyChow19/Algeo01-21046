@@ -1,5 +1,11 @@
+package codes;
+
+import codes.ADT.constructor.createMtrx;
+import codes.ADT.Matrix;
+
 public class mainProgram {
     public static void main(String[] args) {
-        System.out.println("Hello, Tubes 1.");
+        Matrix matrix = createMtrx.createMatrix();
+        createMtrx.printMatrix(matrix);
     }
 }
