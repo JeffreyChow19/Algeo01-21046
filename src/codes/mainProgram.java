@@ -4,6 +4,7 @@ package codes;
 import codes.ADT.Matrix;
 // import codes.ADT.constructor.Transpose;
 import codes.ADT.constructor.*;
+import codes.ADT.method.*;
 
 public class mainProgram {
     public static void main(String[] args) {
@@ -13,5 +14,7 @@ public class mainProgram {
         System.out.println("\n");
         double timesDiag = TimesDiagonal.timesDiagonal(matrix, IsSquare.isSquare(matrix));
         System.out.println("Product of diagonal: "+timesDiag);
+        double det = detCofactor.determinant(matrix, matrix.rows , IsSquare.isSquare(matrix));
+        System.out.println("Determinant: "+ det);
     }
 }

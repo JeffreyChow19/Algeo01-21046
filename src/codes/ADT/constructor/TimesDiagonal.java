@@ -17,7 +17,7 @@ public class TimesDiagonal{
         return result;
         }
         else{
-            return 0;
+            return -9999;
         }
     }
 }
