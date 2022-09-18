@@ -3,9 +3,10 @@ package codes.ADT.constructor;
 import codes.ADT.Matrix;
 
 public class TimesDiagonal{
-    public static int timesDiagonal(Matrix matrix, boolean isSquare) {
+    public static double timesDiagonal(Matrix matrix, boolean isSquare) {
         if (isSquare){
-        int i, j, result = 1;
+        int i, j;
+        double result = 1;
         for (i = 0; i < matrix.rows ; i++){
             for (j = 0; j < matrix.cols ; j++){
                 if (i == j){

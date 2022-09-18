@@ -25,7 +25,7 @@ public class createMtrx {
         for (i = 0; i < rows; i++) {
             for (j = 0; j < cols; j++) {
                 System.out.print("El of [" + i + "] [" + j + "] : ");
-                dataMtrx.Mtrx[i][j] = in.nextInt();
+                dataMtrx.Mtrx[i][j] = in.nextDouble();
                 in.nextLine();// Clear scanner for nextInt
             }
         }
@@ -39,10 +39,12 @@ public class createMtrx {
         // F.S. Matrix tercetak di layar
         int i, j;
         for (i = 0; i < matrix.Mtrx.length; i++) {
+            // System.out.print("|");
             for (j = 0; j < matrix.Mtrx[i].length; j++) {
-                System.out.printf("%5d", matrix.Mtrx[i][j]);
+                System.out.printf("%5.2f", matrix.Mtrx[i][j]);
             }
-            System.out.println("");
+            System.out.println();
+            // System.out.printf("|\n");
         }
     }
 

@@ -4,6 +4,8 @@ dir : src/codes/ADT
 - Matrix.java -> constructor for typedef Matrix
 
 1. Matrix.java [
+    - Matrix of float elements (double)
+
     - Constructor params : rows, cols (int)
 
     - How to construct Matrix type => Matrix test = new Matrix(3, 4)

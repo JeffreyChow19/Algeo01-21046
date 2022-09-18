@@ -11,7 +11,7 @@ public class mainProgram {
         matrix = Transpose.transpose(matrix);
         createMtrx.printMatrix(matrix);
         System.out.println("\n");
-        int timesDiag = TimesDiagonal.timesDiagonal(matrix, IsSquare.isSquare(matrix));
+        double timesDiag = TimesDiagonal.timesDiagonal(matrix, IsSquare.isSquare(matrix));
         System.out.println("Product of diagonal: "+timesDiag);
     }
 }
