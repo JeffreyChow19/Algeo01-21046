@@ -1,6 +1,6 @@
 How to compile:
 1. Go to src : `cd src`
-2. Compile in bin : `javac -d ../bin /codes/*.java` 
+2. Compile in bin : `javac -d ../bin ./codes/*.java` 
 3. `cd..`
 4. Go to bin : `cd bin`
 5. Run in bin : `java codes.mainProgram`
