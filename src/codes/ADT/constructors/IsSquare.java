@@ -1,4 +1,4 @@
-package codes.ADT.constructor;
+package codes.ADT.constructors;
 
 import codes.ADT.Matrix;
 

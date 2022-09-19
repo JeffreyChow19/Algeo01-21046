@@ -1,4 +1,4 @@
-package codes.ADT.constructor;
+package codes.ADT.constructors;
 
 import java.util.Scanner;
 import codes.ADT.Matrix;

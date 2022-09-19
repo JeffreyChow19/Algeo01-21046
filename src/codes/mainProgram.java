@@ -3,8 +3,8 @@ package codes;
 // import codes.ADT.constructor.createMtrx;
 import codes.ADT.Matrix;
 // import codes.ADT.constructor.Transpose;
-import codes.ADT.constructor.*;
-import codes.ADT.method.*;
+import codes.ADT.constructors.*;
+import codes.ADT.primitives.*;
 
 public class mainProgram {
     public static void main(String[] args) {
