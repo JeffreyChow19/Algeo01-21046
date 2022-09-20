@@ -1,10 +1,14 @@
 package codes.methods;
 
+import codes.ADT.constructors.*;
 import codes.ADT.*;
 
-public class Gauss {
-    public static Matrix gauss(Matrix m) {
-
+public class GaussVoid {
+    public static void gauss(Matrix m) {
+        String whitespace = "-";
+        for (int h = 0; h <= 100; h++){
+            whitespace += "-";
+        }
         for (int j = 0; j < m.cols; j++) {
             for (int i = j + 1; i < m.rows; i++) {
                 double pem = m.Mtrx[i][j];
@@ -19,9 +23,10 @@ public class Gauss {
                 for (int k = 0; k < m.cols; k++) {
                     m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);
                 }
+                printMtrx.printMatrix(m);
+                System.out.println(whitespace);
             }
         }
 
-        return m;
     }
 }
