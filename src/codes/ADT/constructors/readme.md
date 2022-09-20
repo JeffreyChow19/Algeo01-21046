@@ -19,7 +19,7 @@ dir : src/codes/ADT/constructor
 2. IsSquare.java [
     function : return type boolean
     - isSquare(Matrix matrix) : return true if matrix size is square.
-    * How to use isSquare => `isSquare(Matrix test)`;
+    * How to use isSquare => `isSquare(Matrix test);`
 ]
 
 3. TimesDiagonal.java [

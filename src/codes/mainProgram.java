@@ -13,10 +13,10 @@ public class mainProgram {
     public static void main(String[] args) {
         Matrix matrix = createMtrx.createMatrix();
         // matrix = Transpose.transpose(matrix);
+        
+        // Templates
         printMtrx.printMatrix(matrix);
         System.out.println("\n");
-        // double timesDiag = TimesDiagonal.timesDiagonal(matrix, IsSquare.isSquare(matrix));
-        // System.out.println("Product of diagonal: "+timesDiag);
         System.out.println("Proses OBE : ");
         GaussVoid.gauss(matrix);
         System.out.println();
@@ -34,6 +34,8 @@ public class mainProgram {
             double detGauss = determinant.detGauss(matrix, IsSquare.isSquare(matrix));
             System.out.println("Determinant-Gauss: "+ detGauss);
         }
+        // Templates
+        
         // printMtrx.printMatrix(Gauss.gauss(matrix));
 
     }
