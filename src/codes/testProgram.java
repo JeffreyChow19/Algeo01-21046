@@ -9,11 +9,11 @@ import codes.ADT.primitives.determinant;
 import codes.methods.*;
 import java.util.Scanner;
 
-public class mainProgram {
+public class testProgram {
     public static void main(String[] args) {
         Matrix matrix = createMtrxConsole.createMatrix();
         // matrix = Transpose.transpose(matrix);
-        
+
         // Templates
         printMtrx.printMatrix(matrix);
         System.out.println("\n");
@@ -26,16 +26,16 @@ public class mainProgram {
         System.out.println("Choice: ");
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();
-        if (choice == 1){
-        double detCofac = determinant.detCofactor(matrix, matrix.rows , IsSquare.isSquare(matrix));
-        System.out.println("Determinant-Cofactor: "+ detCofac);
+        if (choice == 1) {
+            double detCofac = determinant.detCofactor(matrix, matrix.rows, IsSquare.isSquare(matrix));
+            System.out.println("Determinant-Cofactor: " + detCofac);
         }
-        if (choice == 2){
+        if (choice == 2) {
             double detGauss = determinant.detGauss(matrix, IsSquare.isSquare(matrix));
-            System.out.println("Determinant-Gauss: "+ detGauss);
+            System.out.println("Determinant-Gauss: " + detGauss);
         }
         // Templates
-        
+
         // printMtrx.printMatrix(Gauss.gauss(matrix));
 
     }

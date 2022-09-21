@@ -4,7 +4,7 @@ import java.util.Scanner;
 import codes.ADT.Matrix;
 
 // Module : create Matriks, printMatriks
-public class createMtrx {
+public class createMtrxConsole {
     public static Matrix createMatrix() {
         // I.S. Matrix sembarang dengan row dan cols sembarang
         // F.S. Matrix terdefinisi
