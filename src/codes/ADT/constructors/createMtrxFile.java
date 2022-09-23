@@ -5,6 +5,6 @@ import codes.ADT.Matrix;;
 public class createMtrxFile {
     public static Matrix createMatrix() {
         Matrix mat;
-        return mat;
+        return null;
     }
 }

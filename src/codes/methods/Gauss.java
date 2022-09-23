@@ -6,11 +6,12 @@ import codes.ADT.*;
 public class Gauss{
     
     public static Matrix gauss(Matrix m) {
-
+        int sign = 0;
         for (int j = 0; j < m.cols; j++) {
             for (int i = j + 1; i < m.rows; i++) {
                 if (count0(m, j, i) > count0(m, j + 1, i)) {
                     switchRows(m, j, j + 1);
+                    sign++;
                 }
                 double pem = m.Mtrx[i][j];
                 double pen = m.Mtrx[j][j];
@@ -25,7 +26,7 @@ public class Gauss{
                 }
             }
         }
-
+        m.sign = sign;
         return m;
     }
     public static int count0(Matrix m, int row, int limit) {

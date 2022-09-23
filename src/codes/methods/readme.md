@@ -4,5 +4,5 @@ this directory is dedicated to methods such as:
 | --- | ------------- | ----------- |
 | 1.  | Gauss         | Completed   |
 | 2.  | Gauss Jordan  | Incompleted |
-| 3.  | Invers        | Incompleted |
+| 3.  | Invers        | Completed   |
 | 4.  | Cramer        | Incompleted |

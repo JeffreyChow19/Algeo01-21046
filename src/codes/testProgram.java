@@ -14,13 +14,14 @@ public class testProgram {
     public static void main(String[] args) {
         Matrix matrix = createMtrxConsole.createMatrix();
         // matrix = Transpose.transpose(matrix);
+        Matrix matrix2 = new Matrix(matrix.rows, matrix.cols);
 
         // Templates
         printMtrx.printMatrix(matrix);
+        matrix2 = CopyMtrx.copyMtrx(matrix);
         System.out.println("\n");
         System.out.println("Proses OBE : ");
         GaussVoid.gauss(matrix);
-        System.out.println();
         System.out.println("Pilih metode pencarian determinan : ");
         System.out.println("[1] Cofactor ");
         System.out.println("[2] Gauss ");
@@ -28,11 +29,11 @@ public class testProgram {
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();
         if (choice == 1) {
-            double detCofac = determinant.detCofactor(matrix, matrix.rows, IsSquare.isSquare(matrix));
+            double detCofac = determinant.detCofactor(matrix2, matrix2.rows, IsSquare.isSquare(matrix));
             System.out.println("Determinant-Cofactor: " + detCofac);
         }
         if (choice == 2) {
-            double detGauss = determinant.detGauss(matrix, IsSquare.isSquare(matrix));
+            double detGauss = determinant.detGauss(matrix2, IsSquare.isSquare(matrix));
             System.out.println("Determinant-Gauss: " + detGauss);
         }
         // System.out.println("Inverse Matrix? (1/0): ");

@@ -1,5 +1,7 @@
 package codes.ADT.primitives;
 
+import java.lang.Math;
+
 import codes.ADT.Matrix;
 import codes.ADT.constructors.TimesDiagonal;
 import codes.ADT.primitives.*;
@@ -33,25 +35,26 @@ public class determinant {
             return -9999;
         }
     }
-    public static double detGauss (Matrix m, boolean isSquare) 
-    { 
+
+    public static double detGauss(Matrix m, boolean isSquare) {
         // init new matrix
         Matrix detGaussMtrx = new Matrix(m.rows, m.cols);
         // store m to new matrix
         detGaussMtrx = Gauss.gauss(m);
+        int sign = (m.sign % 2) == 0 ? 1 : -1;
         // get the times diagonal of echelon row matrix
-        double result = TimesDiagonal.timesDiagonal(detGaussMtrx, isSquare);
+        double result = sign * TimesDiagonal.timesDiagonal(detGaussMtrx, isSquare);
         return result;
     }
 
-    // public static double detGaussJordan (Matrix m, boolean isSquare) 
-    // { 
-    //     // init new matrix
-    //     Matrix detGaussMtrx = new Matrix(m.rows, m.cols);
-    //     // store m to new matrix
-    //     detGaussMtrx = Gauss.gauss(m);
-    //     // get the times diagonal of echelon row matrix
-    //     double result = TimesDiagonal.timesDiagonal(detGaussMtrx, isSquare);
-    //     return result;
+    // public static double detGaussJordan (Matrix m, boolean isSquare)
+    // {
+    // // init new matrix
+    // Matrix detGaussMtrx = new Matrix(m.rows, m.cols);
+    // // store m to new matrix
+    // detGaussMtrx = Gauss.gauss(m);
+    // // get the times diagonal of echelon row matrix
+    // double result = TimesDiagonal.timesDiagonal(detGaussMtrx, isSquare);
+    // return result;
     // }
 }
