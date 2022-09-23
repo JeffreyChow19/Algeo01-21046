@@ -3,8 +3,7 @@ package codes.methods;
 import codes.ADT.constructors.*;
 import codes.ADT.*;
 
-
-public class GaussVoid extends Gauss{
+public class GaussVoid extends Gauss {
     public static Matrix gauss(Matrix m) {
         String whitespace = "-";
         for (int h = 0; h <= 100; h++) {
