@@ -1,8 +1,9 @@
 package codes.inputs;
 
 import java.util.Scanner;
-
-import javax.sound.sampled.SourceDataLine;
+import codes.mainProgram;
+import codes.ADT.constructors.*;
+import codes.ADT.Matrix;
 
 public class inputSPL {
     public static void main(String[] args) {
@@ -34,6 +35,32 @@ public class inputSPL {
             scanner.nextLine();
         }
 
+        System.out.println("Input Type:");
+        System.out.println("[1] Console");
+        System.out.println("[2] File txt");
+
+        int inputType = -9999;
+        while (inputType < 1 || inputType > 2){
+            if (inputType != -9999){
+                System.out.println("Input not valid, try again.");
+            }
+
+            inputType = scanner.nextInt();
+            scanner.nextLine();
+        }
+
+        Matrix matrix;
+
+        switch(inputType){
+            case 1:
+                matrix = createMtrxConsole.createMatrix();
+                break;
+            case 2:
+                matrix = createMtrxFile.createMatrix();
+                break;
+            default: break;
+        }
+
         switch (choice) {
             case 1:
                 break;
@@ -44,7 +71,7 @@ public class inputSPL {
             case 4:
                 break;
             case 5:
-                break;
+                mainProgram.main(args);
             default:
                 break;
         }

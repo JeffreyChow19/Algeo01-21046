@@ -1,6 +1,7 @@
 package codes;
 
 import java.util.Scanner;
+import codes.inputs.*;
 
 public class mainProgram {
     public static void main(String[] args) {
@@ -32,6 +33,7 @@ public class mainProgram {
 
         switch (choice) {
             case 1:
+                inputSPL.main(args);
                 break;
             case 2:
                 break;
