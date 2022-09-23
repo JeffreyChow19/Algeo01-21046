@@ -9,7 +9,6 @@ import codes.ADT.primitives.determinant;
 import codes.methods.*;
 import java.util.Scanner;
 
-
 public class testProgram {
     public static void main(String[] args) {
         Matrix matrix = createMtrxConsole.createMatrix();
@@ -22,9 +21,11 @@ public class testProgram {
         System.out.println("\n");
         System.out.println("Proses OBE : ");
         GaussVoid.gauss(matrix);
+        matrix = CopyMtrx.copyMtrx(matrix2);
         System.out.println("Pilih metode pencarian determinan : ");
         System.out.println("[1] Cofactor ");
         System.out.println("[2] Gauss ");
+        System.out.println("[3] Gauss-Jordan ");
         System.out.println("Choice: ");
         Scanner in = new Scanner(System.in);
         int choice = in.nextInt();
@@ -36,15 +37,19 @@ public class testProgram {
             double detGauss = determinant.detGauss(matrix2, IsSquare.isSquare(matrix));
             System.out.println("Determinant-Gauss: " + detGauss);
         }
-        // System.out.println("Inverse Matrix? (1/0): ");
-        // int choice_2 = in.nextInt();
-        // Matrix m = new Matrix(matrix.rows, matrix.cols);
-        // if (choice_2 == 1){
-        //     m = Inverse.inverse(matrix);
-        //     printMtrx.printMatrix(m);
-        // } else {
-        //     System.exit(1);
-        // }
+        if (choice == 3) {
+            double detGaussJordan = determinant.detGaussJordan(matrix2, IsSquare.isSquare(matrix));
+            System.out.println("Determinant-Gauss-Jordan: " + detGaussJordan);
+        }
+        System.out.println("Inverse Matrix? (1/0): ");
+        int choice_2 = in.nextInt();
+        Matrix m = new Matrix(matrix.rows, matrix.cols);
+        if (choice_2 == 1) {
+            m = InverseCofactor.inverse(matrix);
+            printMtrx.printMatrix(m);
+        } else {
+            System.exit(1);
+        }
 
         // Templates
 

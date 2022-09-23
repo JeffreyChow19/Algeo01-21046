@@ -5,6 +5,8 @@ dir : src/codes/ADT/constructor
 - `IsSquare.java` -> returning boolean for Matrix size
 - `TimesDiagonal.java` -> returning the product of diagonal
 - `Transpose.java` -> transpose of Matrix
+- `CopyMtrx.java` -> copy the given Matrix
+- `printMtrx.java` -> for displaying Matrix
 
 1. createMtrx.java [
     function : return type Matrix
@@ -34,4 +36,18 @@ dir : src/codes/ADT/constructor
     - transpose(Matrix matrix) : return new Matrix
 
     * How to use transpose => `transpose(Matrix test);`
+]
+
+5. CopyMtrx.java [
+    function : return type Matrix
+    - copyMtrx(Matrix matrix) : return new copied for given Matrix
+
+    * How to use copyMtrx => `copyMtrx(Matrix test);`
+]
+
+6. printMtrx.java [
+    procedure : display the given Matrix
+    - printMtrx(Matrix matrix) : display the given Matrix to console.
+
+    * How to use printMtrx => `printMtrx(Matrix test);`
 ]

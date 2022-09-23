@@ -1,14 +1,12 @@
 package codes.ADT.primitives;
 
-import java.lang.Math;
-
 import codes.ADT.Matrix;
 import codes.ADT.constructors.TimesDiagonal;
-import codes.ADT.primitives.*;
 import codes.methods.*;
 
 public class determinant {
     public static double detCofactor(Matrix m, int n, boolean isSquare) {
+        // Get determinant using cofactor method
         if (isSquare) {
             double result = 0;
             // Base recursion
@@ -18,15 +16,15 @@ public class determinant {
             Matrix temp = new Matrix(m.rows, m.cols); // store cofactors
 
             float sign = 1; // -1 multiplier
-
+            // Get cofactor
             for (int permitted_col = 0; permitted_col < n; permitted_col++) {
-                // Menghitung cofactor tiap col
+                // Get cofactor for every cols
                 GetCofactor.getCofactor(m, temp, 0, permitted_col, n);
 
-                // Determinant
+                // Determinant recursion
                 result += sign * m.Mtrx[0][permitted_col] * detCofactor(temp, n - 1, true);
 
-                // alternate sign
+                // alternating sign for determinant
                 sign = -sign;
             }
 
@@ -37,24 +35,24 @@ public class determinant {
     }
 
     public static double detGauss(Matrix m, boolean isSquare) {
-        // init new matrix
+        // Init new matrix
         Matrix detGaussMtrx = new Matrix(m.rows, m.cols);
-        // store m to new matrix
+        // Store m to new matrix
         detGaussMtrx = Gauss.gauss(m);
         int sign = (m.sign % 2) == 0 ? 1 : -1;
-        // get the times diagonal of echelon row matrix
+        // Get the times diagonal of echelon row matrix
         double result = sign * TimesDiagonal.timesDiagonal(detGaussMtrx, isSquare);
         return result;
     }
 
-    // public static double detGaussJordan (Matrix m, boolean isSquare)
-    // {
-    // // init new matrix
-    // Matrix detGaussMtrx = new Matrix(m.rows, m.cols);
-    // // store m to new matrix
-    // detGaussMtrx = Gauss.gauss(m);
-    // // get the times diagonal of echelon row matrix
-    // double result = TimesDiagonal.timesDiagonal(detGaussMtrx, isSquare);
-    // return result;
-    // }
+    // This still not fixed
+    public static double detGaussJordan(Matrix m, boolean isSquare) {
+        // Init new matrix
+        Matrix detGaussMtrx = new Matrix(m.rows, m.cols);
+        // Store m to new matrix
+        detGaussMtrx = GaussJordan.jordan(m);
+        // Get the times diagonal of reduced echelon row matrix
+        double result = TimesDiagonal.timesDiagonal(detGaussMtrx, isSquare);
+        return result;
+    }
 }

@@ -9,8 +9,10 @@ public class Gauss{
         int sign = 0;
         for (int j = 0; j < m.cols; j++) {
             for (int i = j + 1; i < m.rows; i++) {
+                // Switch row if current row contains more 0 then next row
                 if (count0(m, j, i) > count0(m, j + 1, i)) {
                     switchRows(m, j, j + 1);
+                    // For -1 power in determinant
                     sign++;
                 }
                 double pem = m.Mtrx[i][j];
