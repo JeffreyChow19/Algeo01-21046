@@ -33,6 +33,7 @@ public class determinant {
             return -9999;
         }
     }
+    
     public static double detGauss (Matrix m, boolean isSquare) 
     { 
         // init new matrix
