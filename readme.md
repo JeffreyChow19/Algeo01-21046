@@ -16,12 +16,17 @@ Menu 1 : SPL
     - Gauss-Jordan ✓
     - Matriks balikkan
     - Kaidah Cramer
+    
 Menu 2 : Determinant
     - Gauss ✓
     - Matriks balikkan  (cofactor) ✓
+    
 Menu 3 : Matriks balikkan
     - Gauss-Jordan
     - Cofactor ✓
+    
 Menu 4 : Interpolasi Polinom
+
 Menu 5 : Interpolasi Bicubic
+
 Menu 6 : Regresi Linier Berganda
