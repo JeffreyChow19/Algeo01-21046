@@ -20,7 +20,7 @@ Menu 2 : Determinant
     - Gauss ✓
     - Matriks balikkan  (cofactor) ✓
 Menu 3 : Matriks balikkan
-    - Gauss-Jordan
+    - Gauss-Jordan ✓
     - Cofactor ✓
 Menu 4 : Interpolasi Polinom
 Menu 5 : Interpolasi Bicubic

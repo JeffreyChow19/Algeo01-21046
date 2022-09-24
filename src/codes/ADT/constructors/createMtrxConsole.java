@@ -29,6 +29,7 @@ public class createMtrxConsole {
                 in.nextLine();// Clear scanner for nextInt
             }
         }
+        in.close();
         return dataMtrx;
         // printMatrix(matrixOfInt);
     }

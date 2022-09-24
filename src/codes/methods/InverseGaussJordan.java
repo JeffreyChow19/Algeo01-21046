@@ -1,11 +1,12 @@
 package codes.methods;
 
+
 import codes.ADT.*;
 
-public class InverseGaussJordan extends Gauss{
-    public static Matrix inverse (Matrix m) {
+public class InverseGaussJordan extends Gauss {
+    public static Matrix inverse(Matrix m) {
         Matrix inversed_mtrx = new Matrix(m.rows, m.cols);
-        for (int k = 0; k < m.rows; k++){
+        for (int k = 0; k < m.rows; k++) {
             inversed_mtrx.Mtrx[k][k] = 1;
         }
         // Make to echelon row
@@ -13,27 +14,56 @@ public class InverseGaussJordan extends Gauss{
             for (int i = j + 1; i < m.rows; i++) {
                 if (count0(m, j, i) > count0(m, j + 1, i)) {
                     switchRows(m, j, j + 1);
+                    switchRows(inversed_mtrx, j, j + 1);
                 }
                 double pem1 = m.Mtrx[i][j];
                 double pen1 = m.Mtrx[j][j];
                 double factor;
-                // double pem2 = inversed_mtrx.Mtrx[i][j];
-                // double pen2 = inversed_mtrx.Mtrx[j][j];
-                // double factor1;
                 if (Double.isNaN(pem1 / pen1)) {
                     factor = 1;
                 } else {
                     factor = pem1 / pen1;
                 }
-                // Make identity Matrix become echelon row
+                // Make Matrix m become echelon row
                 for (int k = 0; k < m.cols; k++) {
                     m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);
                     inversed_mtrx.Mtrx[i][k] -= ((factor) * inversed_mtrx.Mtrx[j][k]);
                 }
             }
         }
+        // Get reverse echelon row m => reduced echelon row
+        for (int i = m.rows - 1; i >= 0; i--) {
+            for (int j = i - 1; j >= 0; j--) {
+                double factor;
+                factor = m.Mtrx[j][i] / m.Mtrx[i][i];
+                if (Double.isNaN(factor) || Double.isInfinite(factor)) {
+                    factor = 1;
+                } else {
+                    factor = m.Mtrx[j][i] / m.Mtrx[i][i];
+                }
+                for (int k = m.cols - 1; k >= 0; k--) {
+                    m.Mtrx[j][k] -= (m.Mtrx[i][k] * factor);
+                    inversed_mtrx.Mtrx[j][k] -= (inversed_mtrx.Mtrx[i][k] * factor);
+                }
+            }
+        }
+        // Make Matrix m -> identity
+        for (int i = 0; i < m.rows; i++) {
+            if (m.Mtrx[i][i] != 1) {
+                double factor;
+                if (m.Mtrx[i][i] == 0) {
+                    factor = 1;
+                } else {
+                    factor = m.Mtrx[i][i];
+                }
+                for (int j = 0; j < m.cols; j++) {
+                    inversed_mtrx.Mtrx[i][j] /= factor;
+                    m.Mtrx[i][j] /= factor;
+                }
+            }
+        }
 
-        return null;
+        return inversed_mtrx;
     }
 
 }

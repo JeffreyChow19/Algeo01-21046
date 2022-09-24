@@ -8,5 +8,4 @@ this directory is dedicated to methods such as:
 | 4.  | Cramer        | Incompleted |
 
 
-Quest :
-1. Inverse Gauss-Jordan (halfway)
+
