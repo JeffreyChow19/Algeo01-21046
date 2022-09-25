@@ -5,6 +5,7 @@ import codes.mainProgram;
 import codes.ADT.constructors.*;
 import codes.ADT.primitives.*;
 import codes.methods.Cramer;
+import codes.methods.Gauss;
 import codes.ADT.Matrix;
 
 public class inputSPL {
@@ -87,19 +88,16 @@ public class inputSPL {
     public static void processMethods (int choice, Matrix matrix) {
         switch (choice) {
             case 1:
+                Matrix ansGauss = Gauss.gauss(matrix);
+                printGauss(ansGauss);
                 break;
             case 2:
                 break;
             case 3:
                 break;
             case 4:
-                double ans[] = Cramer.cramer(matrix);
-
-                System.out.println("\nx value :");
-                for (int i = 0; i < ans.length; i++) {
-                    System.out.printf("x%d  = %.2f\n", i + 1, ans[i]);
-                }
-
+                double[] ansCramer = Cramer.cramer(matrix);
+                printCramer(ansCramer);
                 break;
             case 5:
                 break;
@@ -107,5 +105,30 @@ public class inputSPL {
                 break;
         }
     }
+
+    public static void printGauss(Matrix m){
+        int status = SPLCheck.main(m);
+
+        if (status == 0){
+            /* Solusi Unik */
+            System.out.println("SPL memiliki solusi unik");
+        } else if (status == 1){
+            /* Solusi Banyak */ 
+            System.out.println("SPL memiliki banyak solusi");
+
+        } else {
+            /* Tidak ada solusi */
+            System.out.println("Tidak ada nilai x yang memenuhi persamaan SPL.");
+        }
+    }
+
+    public static void printCramer(double[] ans ){
+        System.out.println("\nx value :");
+        for (int i = 0; i < ans.length; i++) {
+            System.out.printf("x%d  = %.2f\n", i + 1, ans[i]);
+        }
+    }
+
+
 
 }
