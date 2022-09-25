@@ -1,5 +1,6 @@
 package codes.inputs;
 
+import java.io.IOException;
 import java.util.Scanner;
 import codes.mainProgram;
 import codes.ADT.constructors.*;
@@ -23,11 +24,20 @@ public class inputSPL {
             processMethods(choice, matrix);
             
         } else {
-            Matrix matrix = createMtrxFile.createMatrix();
+            try {
+            String base = "test1.txt";
+            Matrix matrix = createMtrxFile.createMatrix(base);
             processMethods(choice, matrix);
+            } catch (IOException ex){
+                System.out.println("Filename not found!");
+            }
         }
+<<<<<<< HEAD
+        scanner.close();
+=======
 
         // scanner.close();
+>>>>>>> c2744fc0cb2d014617f6ee3802d364a681deb2fd
     }
 
     public static int chooseMethods (){
