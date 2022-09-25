@@ -115,9 +115,34 @@ public class inputSPL {
     public static void printGauss(Matrix m){
         int status = SPLCheck.main(m);
 
+        System.out.println();
         if (status == 0){
             /* Solusi Unik */
             System.out.println("SPL memiliki solusi unik");
+
+            double[] unik = new double [m.cols-1];
+
+            for (int i=m.rows-1; i >= 0; i--){
+                for (int j=m.cols-i; j >=i-1; j--){
+                    if (j==m.cols-i){
+                        unik[i] = m.Mtrx[i][j+1]/m.Mtrx[i][j];
+                    } else {
+                        unik[i] = m.Mtrx[i][m.cols-1];
+                        for (int k=i+1; k < m.cols-1; k++){
+                            unik[i] -= m.Mtrx[i][k]*unik[k];
+                        }
+
+                        unik[i] /= m.Mtrx[i][j];
+                    }
+                }
+            }
+
+            for (int i=0; i < unik.length; i++){
+                System.out.printf("\n%d\n", unik[i]);
+            }
+
+
+
         } else if (status == 1){
             /* Solusi Banyak */ 
             System.out.println("SPL memiliki banyak solusi");
