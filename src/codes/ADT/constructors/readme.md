@@ -1,21 +1,17 @@
 Documentation for this dir
 dir : src/codes/ADT/constructor
 
-- `createMtrx.java` -> read & create defined Matrix
+- `createMtrxConsole.java` -> read & create defined Matrix from console
 - `IsSquare.java` -> returning boolean for Matrix size
 - `TimesDiagonal.java` -> returning the product of diagonal
 - `Transpose.java` -> transpose of Matrix
 - `CopyMtrx.java` -> copy the given Matrix
 - `printMtrx.java` -> for displaying Matrix
+- `createMtrxFile` -> read & create defined Matrix from input File
 
-1. createMtrx.java [
+1. createMtrxConsole.java & createMtrxFile.java [
     function : return type Matrix
     - createMatrix() : return defined Matrix
-
-    procedure : 
-    - printMatrix(Matrix matrix) : printing Matrix to console
-
-    * How to use printMatrix => `printMatrix(Matrix test);`
 ]
 
 2. IsSquare.java [
