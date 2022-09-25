@@ -26,7 +26,7 @@ public class inputSPL {
             processMethods(choice, matrix);
         }
 
-        scanner.close();
+        // scanner.close();
     }
 
     public static int chooseMethods (){
