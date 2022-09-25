@@ -16,7 +16,6 @@ public class inputSPL {
         int inputType = chooseType();
         
         if (inputType == 1){
-            System.out.println("passed here 1");
 
             Matrix matrix = createMtrxConsole.createMatrix();
             
@@ -76,7 +75,7 @@ public class inputSPL {
                 System.out.println("Input not valid, try again.");
             }
 
-            System.out.printf("Input type : ");
+            System.out.printf("\nInput type : ");
             inputType = scanner.nextInt();
             scanner.nextLine();
         }
@@ -96,7 +95,7 @@ public class inputSPL {
             case 4:
                 double ans[] = Cramer.cramer(matrix);
 
-                System.out.println("x value :");
+                System.out.println("\nx value :");
                 for (int i = 0; i < ans.length; i++) {
                     System.out.printf("x%d  = %.2f\n", i + 1, ans[i]);
                 }

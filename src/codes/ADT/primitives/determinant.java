@@ -3,6 +3,7 @@ package codes.ADT.primitives;
 import codes.ADT.Matrix;
 import codes.ADT.constructors.TimesDiagonal;
 import codes.methods.*;
+import java.math.*;
 
 public class determinant {
     public static double detCofactor(Matrix m, int n, boolean isSquare) {
@@ -27,7 +28,6 @@ public class determinant {
                 // alternating sign for determinant
                 sign = -sign;
             }
-
             return result;
         } else {
             return -9999;
@@ -42,7 +42,12 @@ public class determinant {
         int sign = (m.sign % 2) == 0 ? 1 : -1;
         // Get the times diagonal of echelon row matrix
         double result = sign * TimesDiagonal.timesDiagonal(detGaussMtrx, isSquare);
-        return result;
+        if ((Math.round(result*100) / 100) == -0.0){
+            return 0.0;
+        }
+        else {
+            return result;
+        }
     }
 
     // This still not fixed
@@ -53,6 +58,11 @@ public class determinant {
         detGaussMtrx = GaussJordan.jordan(m);
         // Get the times diagonal of reduced echelon row matrix
         double result = TimesDiagonal.timesDiagonal(detGaussMtrx, isSquare);
-        return result;
+        if ((Math.round(result*100) / 100) == -0.0){
+            return 0.0;
+        }
+        else {
+            return result;
+        }
     }
 }
