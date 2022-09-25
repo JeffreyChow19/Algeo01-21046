@@ -8,7 +8,6 @@ import codes.ADT.primitives.determinant;
 // import codes.ADT.primitives.*;
 import codes.methods.*;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class testProgram {
