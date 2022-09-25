@@ -33,6 +33,7 @@ public class inputSPL {
             }
         }
 
+        // scanner.close();
     }
 
     public static int chooseMethods (){
