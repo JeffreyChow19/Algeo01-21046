@@ -7,7 +7,8 @@ public class MakeSquare {
     public static Matrix makeSquare(Matrix m) {
         int dimension = m.rows;
 
-        Matrix square = createMtrxConsole.createMatrix();
+        //error hereee
+        Matrix square = new Matrix(dimension, dimension);
         
         for (int i=0; i < dimension; i++){
             for (int j=0; j < dimension; j++){

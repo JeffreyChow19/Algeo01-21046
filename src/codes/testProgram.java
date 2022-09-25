@@ -32,8 +32,8 @@ public class testProgram {
         System.out.println("[2] Gauss ");
         System.out.println("[3] Gauss-Jordan ");
         System.out.println("Choice: ");
-        Scanner in = new Scanner(System.in);
-        int choice = in.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
         if (choice == 1) {
             double detCofac = determinant.detCofactor(matrix2, matrix2.rows, IsSquare.isSquare(matrix));
             System.out.println("Determinant-Cofactor: " + detCofac);
@@ -47,14 +47,14 @@ public class testProgram {
             System.out.println("Determinant-Gauss-Jordan: " + detGaussJordan);
         }
         System.out.println("Inverse Matrix? (1/0): ");
-        int choice_2 = in.nextInt();
-        in.nextLine();
+        int choice_2 = scanner.nextInt();
+        scanner.nextLine();
         Matrix m = new Matrix(matrix.rows, matrix.cols);
         if (choice_2 == 1) {
             System.out.println("Pilih metode pencarian inverse: ");
             System.out.println("[1] Gauss-Jordan");
             System.out.println("[2] Cofactor");
-            choice_2 = in.nextInt();
+            choice_2 = scanner.nextInt();
             if (choice_2 == 1){
                 m = InverseGaussJordan.inverse(matrix);
                 printMtrx.printMatrix(m);
@@ -65,7 +65,7 @@ public class testProgram {
         } else {
             System.exit(1);
         }
-        in.close();
+        scanner.close();
         // Templates
 
         // printMtrx.printMatrix(Gauss.gauss(matrix));
