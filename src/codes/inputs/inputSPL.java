@@ -24,8 +24,8 @@ public class inputSPL {
             processMethods(choice, matrix);
             
         } else {
-            try {
-            String base = "test1.txt";
+            try{
+            String base = "../files/test1.txt";
             Matrix matrix = createMtrxFile.createMatrix(base);
             processMethods(choice, matrix);
             } catch (IOException ex){
