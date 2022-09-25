@@ -58,6 +58,12 @@ public class mainProgram {
                 default:
                     break;
             }
+
+            System.out.println("Press enter to continue");
+            try {
+                System.in.read();
+            } catch (Exception e) {}
+            
         }
 
         scn.close();
