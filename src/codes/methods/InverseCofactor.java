@@ -39,7 +39,6 @@ public class InverseCofactor {
                 // Change sign if divisible by 2;
                 int sign = ((i + j) % 2 == 0) ? 1 : -1;
                 adjMtrx.Mtrx[i][j] = (sign) * determinant.detCofactor(temp, m.rows - 1, true);
-
             }
         }
     }
