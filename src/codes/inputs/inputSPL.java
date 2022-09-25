@@ -31,12 +31,8 @@ public class inputSPL {
                 System.out.println("Filename not found!");
             }
         }
-<<<<<<< HEAD
-        scanner.close();
-=======
 
         // scanner.close();
->>>>>>> c2744fc0cb2d014617f6ee3802d364a681deb2fd
     }
 
     public static int chooseMethods (){
