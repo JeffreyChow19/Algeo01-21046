@@ -9,7 +9,7 @@ public class InverseCofactor {
         Matrix temp_inverse = new Matrix(m.rows, m.cols);
         Matrix inversed_matrix = new Matrix(m.rows, m.cols);
         double det = determinant.detCofactor(m, m.rows, true);
-        if (det == 0) {
+        if (Double.isNaN(1/det)) {
             m.has_inversed = false;
             return m;
         } else {
