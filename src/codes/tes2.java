@@ -3,7 +3,7 @@ package codes;
 import codes.inputs.inputSPL;
 import codes.ADT.Matrix;
 import codes.ADT.constructors.createMtrxConsole;
-import codes.ADT.constructors.printMtrx;
+import codes.ADT.constructors.printMtrxConsole;
 import codes.ADT.primitives.MakeSquare;
 
 public class tes2 {
@@ -12,6 +12,6 @@ public class tes2 {
 
         a = MakeSquare.makeSquare(a);
         
-        printMtrx.printMatrix(a);
+        printMtrxConsole.printMatrix(a);
     }
 }

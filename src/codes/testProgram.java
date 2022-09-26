@@ -70,7 +70,7 @@ public class testProgram {
         // double result = InterpolasiPolinom.polynom(2, "files/test1.txt", 9.2);
         // System.out.println("Res: "+result);
             m = Gauss.gauss(m);
-            printMtrx.printMatrix(m);
+            printMtrxConsole.printMatrix(m);
 
         // Templates
 

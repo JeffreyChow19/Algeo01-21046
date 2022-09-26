@@ -1,7 +1,6 @@
 package codes.ADT.primitives;
 
 import codes.ADT.Matrix;
-import codes.ADT.constructors.TimesDiagonal;
 import codes.methods.*;
 import java.math.*;
 
