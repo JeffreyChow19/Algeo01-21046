@@ -116,13 +116,13 @@ public class inputSPL {
         System.out.println();
         if (status == 0){
             /* Solusi Unik */
-
+            
             System.out.println("SPL memiliki solusi unik");
 
             double[] unik = uniqueCase(m);
 
             for (int i=0; i < unik.length; i++){
-                System.out.printf("\n%d\n", unik[i]);
+                System.out.printf("x%d = %.2f\n", i+1, unik[i]);
             }
 
         } else if (status == 1){
@@ -137,21 +137,16 @@ public class inputSPL {
 
     public static double[] uniqueCase (Matrix m){
 
-        double[] unik = new double[m.cols - 1];
+        double[] unik = new double[m.rows];
 
         for (int i = m.rows - 1; i >= 0; i--) {
-            for (int j = m.cols - i; j >= i - 1; j--) {
-                if (j == m.cols - i) {
-                    unik[i] = m.Mtrx[i][j + 1] / m.Mtrx[i][j];
-                } else {
-                    unik[i] = m.Mtrx[i][m.cols - 1];
-                    for (int k = i + 1; k < m.cols - 1; k++) {
-                        unik[i] -= m.Mtrx[i][k] * unik[k];
-                    }
+            unik[i] = m.Mtrx[i][m.cols-1];
 
-                    unik[i] /= m.Mtrx[i][j];
-                }
+            for (int j = i+1; j <= m.cols-2 ; j++) {
+                unik[i] -= unik[j]*m.Mtrx[i][j];
             }
+            
+            unik[i] /= m.Mtrx[i][i];
         }
 
         return unik;
