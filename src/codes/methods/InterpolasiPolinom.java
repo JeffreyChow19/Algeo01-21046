@@ -6,6 +6,7 @@ import codes.ADT.*;
 import codes.ADT.constructors.*;
 import codes.ADT.primitives.*;
 import codes.methods.*;
+import codes.methods.submethods.SPLCheck;
 
 public class InterpolasiPolinom {
     public static Matrix m;

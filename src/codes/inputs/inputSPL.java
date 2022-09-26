@@ -7,6 +7,7 @@ import codes.ADT.primitives.*;
 import codes.methods.Cramer;
 import codes.methods.Gauss;
 import codes.methods.GaussJordan;
+import codes.methods.submethods.SPLCheck;
 import codes.ADT.Matrix;
 
 public class inputSPL {
