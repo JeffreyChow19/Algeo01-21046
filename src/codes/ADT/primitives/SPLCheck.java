@@ -5,7 +5,8 @@ import codes.ADT.Matrix;
 public class SPLCheck {
     public static int main(Matrix m){
         int def = 0;
-
+        // return 1 if Infinite solution
+        // return 2 if No Solution
         if (isInfinite(m)){
             def = 1;
         } else if (isNone(m)){
@@ -14,7 +15,7 @@ public class SPLCheck {
 
         return def;
     }
-
+    
     public static boolean isInfinite(Matrix m){
         boolean def = false;
 
