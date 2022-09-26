@@ -2,7 +2,6 @@ package codes.inputs;
 
 import java.io.IOException;
 import java.util.Scanner;
-import codes.mainProgram;
 import codes.ADT.constructors.*;
 import codes.ADT.primitives.*;
 import codes.methods.Cramer;
@@ -87,7 +86,6 @@ public class inputSPL {
             scanner.nextLine();
         }
         
-        // scanner.close();
         return inputType;
     }
 
@@ -118,30 +116,14 @@ public class inputSPL {
         System.out.println();
         if (status == 0){
             /* Solusi Unik */
+
             System.out.println("SPL memiliki solusi unik");
 
-            double[] unik = new double [m.cols-1];
-
-            for (int i=m.rows-1; i >= 0; i--){
-                for (int j=m.cols-i; j >=i-1; j--){
-                    if (j==m.cols-i){
-                        unik[i] = m.Mtrx[i][j+1]/m.Mtrx[i][j];
-                    } else {
-                        unik[i] = m.Mtrx[i][m.cols-1];
-                        for (int k=i+1; k < m.cols-1; k++){
-                            unik[i] -= m.Mtrx[i][k]*unik[k];
-                        }
-
-                        unik[i] /= m.Mtrx[i][j];
-                    }
-                }
-            }
+            double[] unik = uniqueCase(m);
 
             for (int i=0; i < unik.length; i++){
                 System.out.printf("\n%d\n", unik[i]);
             }
-
-
 
         } else if (status == 1){
             /* Solusi Banyak */ 
@@ -151,6 +133,28 @@ public class inputSPL {
             /* Tidak ada solusi */
             System.out.println("Tidak ada nilai x yang memenuhi persamaan SPL.");
         }
+    }
+
+    public static double[] uniqueCase (Matrix m){
+
+        double[] unik = new double[m.cols - 1];
+
+        for (int i = m.rows - 1; i >= 0; i--) {
+            for (int j = m.cols - i; j >= i - 1; j--) {
+                if (j == m.cols - i) {
+                    unik[i] = m.Mtrx[i][j + 1] / m.Mtrx[i][j];
+                } else {
+                    unik[i] = m.Mtrx[i][m.cols - 1];
+                    for (int k = i + 1; k < m.cols - 1; k++) {
+                        unik[i] -= m.Mtrx[i][k] * unik[k];
+                    }
+
+                    unik[i] /= m.Mtrx[i][j];
+                }
+            }
+        }
+
+        return unik;
     }
 
     public static void printCramer(double[] ans ){
