@@ -1,4 +1,4 @@
-package codes.inputs;
+package codes.methods;
 
 import codes.ADT.*;
 import codes.ADT.constructors.*;
