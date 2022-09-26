@@ -4,8 +4,7 @@ import java.io.IOException;
 
 import codes.ADT.*;
 import codes.ADT.constructors.*;
-import codes.ADT.primitives.*;
-import codes.methods.*;
+import codes.inputs.*;
 import codes.methods.submethods.SPLCheck;
 
 public class InterpolasiPolinom {

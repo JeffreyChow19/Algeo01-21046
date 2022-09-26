@@ -15,21 +15,23 @@ public class inputSPL {
 
     public static void main(String[] args) {
         int choice = chooseMethods();
-        
+
         int inputType = chooseType();
-        
-        if (inputType == 1){
+
+        if (inputType == 1) {
 
             Matrix matrix = createMtrxConsole.createMatrix();
-            
+
             processMethods(choice, matrix);
-            
+
         } else {
-            try{
-            String base = "../files/test1.txt";
-            Matrix matrix = createMtrxFile.createMatrix(base);
-            processMethods(choice, matrix);
-            } catch (IOException ex){
+            try {
+                // base is default path
+                // Need to create input for filename
+                String base = "../files/test1.txt";
+                Matrix matrix = createMtrxFile.createMatrix(base);
+                processMethods(choice, matrix);
+            } catch (IOException ex) {
                 System.out.println("Filename not found!");
             }
         }
@@ -37,7 +39,7 @@ public class inputSPL {
         // scanner.close();
     }
 
-    public static int chooseMethods (){
+    public static int chooseMethods() {
         // Scanner scanner = new Scanner(System.in);
 
         String[] methods = {
@@ -66,11 +68,10 @@ public class inputSPL {
             scanner.nextLine();
         }
 
-
         return choice;
     }
 
-    public static int chooseType () {
+    public static int chooseType() {
         // Scanner scanner = new Scanner(System.in);
 
         System.out.println("Input Types:");
@@ -87,11 +88,11 @@ public class inputSPL {
             inputType = scanner.nextInt();
             scanner.nextLine();
         }
-        
+
         return inputType;
     }
 
-    public static void processMethods (int choice, Matrix matrix) {
+    public static void processMethods(int choice, Matrix matrix) {
         switch (choice) {
             case 1:
                 Matrix ansGauss = Gauss.gauss(matrix);
@@ -114,26 +115,30 @@ public class inputSPL {
         }
     }
 
-    public static void printGauss(Matrix m){
+    public static void printGauss(Matrix m) {
         int status = SPLCheck.main(m);
 
         System.out.println();
-        if (status == 0){
+        if (status == 0) {
             /* Solusi Unik */
-            
+
             System.out.println("SPL memiliki solusi unik");
 
             double[] unik = uniqueCase(m);
-
-            for (int i=0; i < unik.length; i++){
-                System.out.printf("x%d = %.2f\n", i+1, unik[i]);
+            try {
+                // Need to create input filename for pathname
+                printMtrxFile.printMatrix(unik, "output_1.txt");
+            } catch (IOException ex) {
+                System.out.println("Error: "+ex);
             }
 
-        } else if (status == 1){
-            /* Solusi Banyak */ 
-            System.out.println("SPL memiliki banyak solusi");
+            for (int i = 0; i < unik.length; i++) {
+                System.out.printf("x%d = %.2f\n", i + 1, unik[i]);
+            }
 
-            printMtrxConsole.printMatrix(m);
+        } else if (status == 1) {
+            /* Solusi Banyak */
+            System.out.println("SPL memiliki banyak solusi");
             double[] banyak = infiniteCase(m);
 
             for (int i = 0; i < banyak.length; i++) {
@@ -146,24 +151,8 @@ public class inputSPL {
         }
     }
 
-    public static double[] uniqueCase (Matrix m){
+    public static double[] uniqueCase(Matrix m) {
 
-        double[] unik = new double[m.rows];
-
-        for (int i = m.rows - 1; i >= 0; i--) {
-            unik[i] = m.Mtrx[i][m.cols-1];
-
-            for (int j = i+1; j <= m.cols-2 ; j++) {
-                unik[i] -= unik[j]*m.Mtrx[i][j];
-            }
-            
-            unik[i] /= m.Mtrx[i][i];
-        }
-
-        return unik;
-    }
-
-    public static double[] infiniteCase (Matrix m){
         double[] unik = new double[m.rows];
 
         for (int i = m.rows - 1; i >= 0; i--) {
@@ -179,13 +168,27 @@ public class inputSPL {
         return unik;
     }
 
-    public static void printCramer(double[] ans ){
+    public static double[] infiniteCase(Matrix m) {
+        double[] unik = new double[m.rows];
+
+        for (int i = m.rows - 1; i >= 0; i--) {
+            unik[i] = m.Mtrx[i][m.cols - 1];
+
+            for (int j = i + 1; j <= m.cols - 2; j++) {
+                unik[i] -= unik[j] * m.Mtrx[i][j];
+            }
+            // Error here (Need handling for m.Mtrx[i][i])
+            unik[i] /= m.Mtrx[i][i];
+        }
+
+        return unik;
+    }
+
+    public static void printCramer(double[] ans) {
         System.out.println("\nx value :");
         for (int i = 0; i < ans.length; i++) {
             System.out.printf("x%d  = %.2f\n", i + 1, ans[i]);
         }
     }
-
-
 
 }

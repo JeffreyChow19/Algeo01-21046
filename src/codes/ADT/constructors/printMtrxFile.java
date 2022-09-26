@@ -6,7 +6,7 @@ import java.io.IOException;
 import codes.ADT.Matrix;
 
 public class printMtrxFile{
-    public static String base = "output/";
+    public static String base = "../output/";
     public static void printMatrix(Matrix m, String pathname) throws IOException{
         String content = "";
         for(int i = 0; i < m.rows; i++){
