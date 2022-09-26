@@ -4,7 +4,6 @@ package codes;
 import codes.ADT.Matrix;
 // import codes.ADT.constructor.Transpose;
 import codes.ADT.constructors.*;
-import codes.ADT.primitives.determinant;
 // import codes.ADT.primitives.*;
 import codes.methods.*;
 import codes.inputs.*;
