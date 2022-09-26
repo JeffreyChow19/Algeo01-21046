@@ -64,16 +64,27 @@ public class inputInvers extends inputDeterminan{
         switch (choice) {
             case 1:
                 ans = InverseGaussJordan.inverse(m);
-                printMtrxConsole.printMatrix(ans);
+
+                if (ans.has_inversed){
+                    printMtrxConsole.printMatrix(ans);
+                } else {
+                    System.out.println("Matrix has no inverse");
+                }
                 break;
             case 2:
                 ans = InverseGaussJordan.inverse(m);
-                printMtrxConsole.printMatrix(ans);
+                if (ans.has_inversed){
+                    printMtrxConsole.printMatrix(ans);
+                } else {
+                    System.out.println("Matrix has no inverse");
+                }
                 break;
             case 3:
                 break;
             default:
                 break;
         }
+         
+            
     }
 }

@@ -2,6 +2,8 @@ package codes.methods;
 
 
 import codes.ADT.*;
+import codes.ADT.constructors.printMtrx;
+import codes.ADT.constructors.printMtrxConsole;
 
 public class InverseGaussJordan extends Gauss {
     public static Matrix inverse(Matrix m) {
@@ -66,6 +68,8 @@ public class InverseGaussJordan extends Gauss {
                 }
             }
         }
+
+        printMtrxConsole.printMatrix(m);
 
         return inversed_mtrx;
     }
