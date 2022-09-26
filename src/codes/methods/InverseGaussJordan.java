@@ -76,7 +76,7 @@ public class InverseGaussJordan extends Gauss {
     public static int count0(Matrix m, int row){
         int sum = 0;
         for(int j = 0; j < m.cols; j++){
-            if (Double.isNaN(1/m.Mtrx[row][j])){
+            if (Double.isInfinite(1/m.Mtrx[row][j])){
                 sum++;
             }
         }
