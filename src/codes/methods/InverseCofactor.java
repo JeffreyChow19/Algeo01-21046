@@ -11,7 +11,7 @@ public class InverseCofactor {
         Matrix inversed_matrix = new Matrix(m.rows, m.cols);
         double det = determinant.detCofactor(m, m.rows, true);
         if (det == 0) {
-            System.out.println("Matrix is singular.");
+            m.has_inversed = false;
             return m;
         } else {
             // Get adjoint then transpose the matrix

@@ -12,6 +12,10 @@ public class InverseGaussJordan extends Gauss {
         // Make to echelon row
         for (int j = 0; j < m.cols; j++) {
             for (int i = j + 1; i < m.rows; i++) {
+                if (count0(m, j) == m.cols){
+                    m.has_inversed = false;
+                    return m;
+                }
                 if (count0(m, j, i) > count0(m, j + 1, i)) {
                     switchRows(m, j, j + 1);
                     switchRows(inversed_mtrx, j, j + 1);
@@ -64,6 +68,15 @@ public class InverseGaussJordan extends Gauss {
         }
 
         return inversed_mtrx;
+    }
+    public static int count0(Matrix m, int row){
+        int sum = 0;
+        for(int j = 0; j < m.cols; j++){
+            if (Double.isNaN(1/m.Mtrx[row][j])){
+                sum++;
+            }
+        }
+        return sum;
     }
 
 }
