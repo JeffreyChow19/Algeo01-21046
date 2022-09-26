@@ -6,6 +6,8 @@ import codes.ADT.constructors.*;
 import codes.ADT.primitives.*;
 import codes.methods.Cramer;
 import codes.methods.Gauss;
+import codes.methods.GaussJordan;
+import codes.methods.submethods.SPLCheck;
 import codes.ADT.Matrix;
 
 public class inputSPL {
@@ -96,6 +98,8 @@ public class inputSPL {
                 printGauss(ansGauss);
                 break;
             case 2:
+                Matrix ansJordan = GaussJordan.jordan(matrix);
+                printGauss(ansJordan);
                 break;
             case 3:
                 break;
@@ -129,6 +133,13 @@ public class inputSPL {
             /* Solusi Banyak */ 
             System.out.println("SPL memiliki banyak solusi");
 
+            printMtrxConsole.printMatrix(m);
+            double[] banyak = infiniteCase(m);
+
+            for (int i = 0; i < banyak.length; i++) {
+                System.out.printf("x%d = %.2f\n", i + 1, banyak[i]);
+            }
+
         } else {
             /* Tidak ada solusi */
             System.out.println("Tidak ada nilai x yang memenuhi persamaan SPL.");
@@ -146,6 +157,22 @@ public class inputSPL {
                 unik[i] -= unik[j]*m.Mtrx[i][j];
             }
             
+            unik[i] /= m.Mtrx[i][i];
+        }
+
+        return unik;
+    }
+
+    public static double[] infiniteCase (Matrix m){
+        double[] unik = new double[m.rows];
+
+        for (int i = m.rows - 1; i >= 0; i--) {
+            unik[i] = m.Mtrx[i][m.cols - 1];
+
+            for (int j = i + 1; j <= m.cols - 2; j++) {
+                unik[i] -= unik[j] * m.Mtrx[i][j];
+            }
+
             unik[i] /= m.Mtrx[i][i];
         }
 

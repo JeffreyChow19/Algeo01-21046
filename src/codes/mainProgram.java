@@ -42,8 +42,10 @@ public class mainProgram {
                     inputSPL.main(args);
                     break;
                 case 2:
+                    inputDeterminan.main(args);
                     break;
                 case 3:
+                    inputInvers.main(args);
                     break;
                 case 4:
                     break;

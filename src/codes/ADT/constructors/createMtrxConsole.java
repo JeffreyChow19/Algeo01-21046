@@ -5,10 +5,11 @@ import codes.ADT.Matrix;
 
 // Module : create Matriks, printMatriks
 public class createMtrxConsole {
+    public static Scanner in = new Scanner(System.in);
     public static Matrix createMatrix() {
         // I.S. Matrix sembarang dengan row dan cols sembarang
         // F.S. Matrix terdefinisi
-        Scanner in = new Scanner(System.in);
+        
         // Get matrix row and cols
         System.out.print("Input row: ");
         int rows = in.nextInt();
@@ -18,6 +19,13 @@ public class createMtrxConsole {
         System.out.println("");
 
         // Init matrix
+        Matrix dataMtrx = initMatrix(rows,cols);
+    
+        return dataMtrx;
+        
+    }
+
+    public static Matrix initMatrix(int rows, int cols){
         System.out.print("Initializing Matrix...\n");
         Matrix dataMtrx = new Matrix(rows, cols);
         int i, j;
@@ -29,9 +37,8 @@ public class createMtrxConsole {
                 in.nextLine();// Clear scanner for nextInt
             }
         }
-        // in.close();
+
         return dataMtrx;
-        // printMatrix(matrixOfInt);
     }
 
     

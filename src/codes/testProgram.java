@@ -4,7 +4,6 @@ package codes;
 import codes.ADT.Matrix;
 // import codes.ADT.constructor.Transpose;
 import codes.ADT.constructors.*;
-import codes.ADT.primitives.determinant;
 // import codes.ADT.primitives.*;
 import codes.methods.*;
 import codes.inputs.*;
@@ -70,7 +69,7 @@ public class testProgram {
         // double result = InterpolasiPolinom.polynom(2, "files/test1.txt", 9.2);
         // System.out.println("Res: "+result);
             m = Gauss.gauss(m);
-            printMtrx.printMatrix(m);
+            printMtrxConsole.printMatrix(m);
 
         // Templates
 
