@@ -43,7 +43,7 @@ public class printMtrx {
         if (inputType == 1) {
             printMtrxConsole.printMatrix(ans);
         } else {
-            System.out.println("Output file name: ");
+            System.out.printf("\nOutput file name: ");
             String pathname = scanner.nextLine();
             try {
                 printMtrxFile.printMatrix(ans, pathname);
