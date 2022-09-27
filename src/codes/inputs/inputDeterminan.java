@@ -4,7 +4,6 @@ import codes.ADT.Matrix;
 import codes.ADT.constructors.*;
 import java.io.IOException;
 import java.util.Scanner;
-import codes.ADT.primitives.*;
 import codes.methods.determinant;
 
 public class inputDeterminan {
