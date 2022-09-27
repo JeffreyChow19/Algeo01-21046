@@ -24,7 +24,7 @@ public class createMtrx {
             matrix = createMtrxConsole.createMatrix(square);
             return matrix;
         } else {
-            System.out.println("File name: ");
+            System.out.printf("File name: ");
             String pathname = scanner.nextLine();
             try{
                 matrix = createMtrxFile.createMatrix(pathname);
