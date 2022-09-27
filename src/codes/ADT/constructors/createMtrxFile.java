@@ -33,14 +33,24 @@ public class createMtrxFile {
             }
         }
         cols++;
-
         // Parsing content to Array of String
+        boolean loop = true;
         int index = 0;
         int max = rows * cols;
         String str = "";
         char[] temp = content.toCharArray();
         String[] file_to_string = new String[max];
-        file_to_string[index] = "" + temp[0];
+        int z = 0;
+        while (loop) {
+            if (temp[z] != ' ') {
+                str = str.concat("" + temp[z]);
+            } else {
+                file_to_string[index] = str;
+                loop = false;
+            }
+            z++;
+        }
+        str = "";
         index = 1;
         for (int k = 0; k < length; k++) {
             if (temp[k] == ' ' || temp[k] == '\n') {
@@ -59,11 +69,17 @@ public class createMtrxFile {
 
         // Parsing Array of String to Matrix
         index = 0;
+        double sign = -1;
         Matrix m = new Matrix(rows, cols);
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                m.Mtrx[i][j] = Double.parseDouble(file_to_string[index]);
-                index++;
+                if (file_to_string[index].contains("-")){
+                    String[] parts = file_to_string[index].split("-");
+                    String num_parts = parts[1];
+                    m.Mtrx[i][j] = Double.parseDouble(num_parts) * sign;
+                } else {
+                    m.Mtrx[i][j] = Double.parseDouble(file_to_string[index]);
+                }
             }
         }
         return m;

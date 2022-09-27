@@ -8,9 +8,9 @@ import codes.methods.Cramer;
 import codes.methods.Gauss;
 import codes.methods.GaussJordan;
 import codes.methods.InverseCofactor;
-import codes.methods.InverseGaussJordan;
 import codes.methods.submethods.SPLCheck;
 import codes.ADT.Matrix;
+import codes.ADT.primitives.*;
 
 public class inputSPL {
     public static Scanner scanner = new Scanner(System.in);
@@ -196,7 +196,6 @@ public class inputSPL {
         }
     }
 
-<<<<<<< HEAD
     public static double[] processInv (Matrix m){
         Matrix squared = MakeSquare.makeSquare(m);
         Matrix inversed = InverseCofactor.inverse(squared);
@@ -212,9 +211,4 @@ public class inputSPL {
 
         return ans;
     }
-
-
-
-=======
->>>>>>> 2b8b1bdb42089ece8a461b22aeae15813b2267b9
 }
