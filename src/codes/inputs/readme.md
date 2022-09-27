@@ -8,5 +8,5 @@ Contains:
 
 Quest:
 1. Interpolasi Bicubic
-2. Interpolasi Polinom
+2. Interpolasi Polinom (Still Error)
 3. Regresi Linier Berganda
