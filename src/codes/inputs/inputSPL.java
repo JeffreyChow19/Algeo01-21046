@@ -3,10 +3,12 @@ package codes.inputs;
 import java.io.IOException;
 import java.util.Scanner;
 import codes.ADT.constructors.*;
-import codes.ADT.primitives.*;
+import codes.ADT.primitives.MakeSquare;
 import codes.methods.Cramer;
 import codes.methods.Gauss;
 import codes.methods.GaussJordan;
+import codes.methods.InverseCofactor;
+import codes.methods.InverseGaussJordan;
 import codes.methods.submethods.SPLCheck;
 import codes.ADT.Matrix;
 
@@ -103,6 +105,8 @@ public class inputSPL {
                 printGauss(ansJordan);
                 break;
             case 3:
+                double[] ansInv = processInv(matrix);
+                printCramer(ansInv);
                 break;
             case 4:
                 double[] ansCramer = Cramer.cramer(matrix);
@@ -192,4 +196,25 @@ public class inputSPL {
         }
     }
 
+<<<<<<< HEAD
+    public static double[] processInv (Matrix m){
+        Matrix squared = MakeSquare.makeSquare(m);
+        Matrix inversed = InverseCofactor.inverse(squared);
+
+        double[] ans = new double[m.rows];
+
+        for (int i=0; i < inversed.rows; i++){
+            ans[i] = 0;
+            for (int j=0; j < inversed.cols; j++){
+                ans[i] += (inversed.Mtrx[i][j] * m.Mtrx[j][m.cols-1]);
+            }
+        }
+
+        return ans;
+    }
+
+
+
+=======
+>>>>>>> 2b8b1bdb42089ece8a461b22aeae15813b2267b9
 }

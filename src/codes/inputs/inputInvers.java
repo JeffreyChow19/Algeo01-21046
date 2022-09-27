@@ -2,6 +2,7 @@ package codes.inputs;
 
 import codes.ADT.Matrix;
 import codes.ADT.constructors.*;
+import codes.methods.InverseCofactor;
 import codes.methods.InverseGaussJordan;
 
 import java.io.IOException;
@@ -72,7 +73,7 @@ public class inputInvers extends inputDeterminan{
                 }
                 break;
             case 2:
-                ans = InverseGaussJordan.inverse(m);
+                ans = InverseCofactor.inverse(m);
                 if (ans.has_inversed){
                     printMtrxConsole.printMatrix(ans);
                 } else {
