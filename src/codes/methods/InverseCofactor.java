@@ -1,7 +1,6 @@
 package codes.methods;
 
 import codes.ADT.Matrix;
-import codes.ADT.constructors.Transpose;
 import codes.ADT.primitives.*;
 
 public class InverseCofactor {
@@ -10,8 +9,8 @@ public class InverseCofactor {
         Matrix temp_inverse = new Matrix(m.rows, m.cols);
         Matrix inversed_matrix = new Matrix(m.rows, m.cols);
         double det = determinant.detCofactor(m, m.rows, true);
-        if (det == 0) {
-            System.out.println("Matrix is singular.");
+        if (Double.isInfinite(1/det)) {
+            m.has_inversed = false;
             return m;
         } else {
             // Get adjoint then transpose the matrix

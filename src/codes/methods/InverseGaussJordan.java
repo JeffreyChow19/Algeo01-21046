@@ -62,8 +62,23 @@ public class InverseGaussJordan extends Gauss {
                 }
             }
         }
+        for (int i = 0; i < m.rows; i++){
+            if (count0(m, i) == m.cols){
+                m.has_inversed = false;
+                return m;
+            }
+        }
 
         return inversed_mtrx;
+    }
+    public static int count0(Matrix m, int row){
+        int sum = 0;
+        for(int j = 0; j < m.cols; j++){
+            if (Double.isInfinite(1/m.Mtrx[row][j])){
+                sum++;
+            }
+        }
+        return sum;
     }
 
 }

@@ -1,22 +1,55 @@
 package codes.ADT.constructors;
 
+import java.util.Scanner;
+import java.io.IOException;
 import codes.ADT.Matrix;
+import codes.methods.submethods.menuCheck;
 
 public class printMtrx {
-    public static void printMatrix(Matrix matrix) {
-        // I.S. Matrix terdefinisi
-        // F.S. Matrix tercetak di layar
-        int i, j;
-        for (i = 0; i < matrix.Mtrx.length; i++) {
-            // System.out.print("|");
-            for (j = 0; j < matrix.Mtrx[i].length; j++) {
-                if (matrix.Mtrx[i][j] <= (-0.0) && matrix.Mtrx[i][j] >= -0.00009) {
-                    matrix.Mtrx[i][j] = 0;
-                }
-                System.out.printf("%7.2f", matrix.Mtrx[i][j]);
+    public static Scanner scanner = new Scanner(System.in);
+    public static void main(Matrix matrix) {
+        System.out.println("Output Types:");
+
+        String[] methods = {
+                "Console",
+                "File txt"
+        };
+
+        int inputType = menuCheck.main(1, 2, methods);
+
+        if (inputType == 1){
+            printMtrxConsole.printMatrix(matrix);
+        } else {
+            System.out.println("Output file name: ");
+            String pathname = scanner.nextLine();
+            try {
+                printMtrxFile.printMatrix(matrix, pathname);
+            } catch (IOException ex) {
+                System.out.println("No such files.");
             }
-            System.out.println();
-            // System.out.printf("|\n");
+        }
+    }
+
+    public static void main(double[] ans) {
+        System.out.println("Output Types:");
+
+        String[] methods = {
+                "Console",
+                "File txt"
+        };
+
+        int inputType = menuCheck.main(1, 2, methods);
+
+        if (inputType == 1) {
+            printMtrxConsole.printMatrix(ans);
+        } else {
+            System.out.printf("\nOutput file name: ");
+            String pathname = scanner.nextLine();
+            try {
+                printMtrxFile.printMatrix(ans, pathname);
+            } catch (IOException ex) {
+                System.out.println("No such files.");
+            }
         }
     }
 }

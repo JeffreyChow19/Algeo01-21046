@@ -1,4 +1,4 @@
-package codes.ADT.constructors;
+package codes.ADT.primitives;
 
 import codes.ADT.*;
 

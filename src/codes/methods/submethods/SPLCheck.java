@@ -1,4 +1,4 @@
-package codes.ADT.primitives;
+package codes.methods.submethods;
 
 import codes.ADT.Matrix;
 

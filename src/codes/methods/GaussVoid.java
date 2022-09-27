@@ -26,7 +26,7 @@ public class GaussVoid extends Gauss {
                 for (int k = 0; k < m.cols; k++) {
                     m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);
                 }
-                printMtrx.printMatrix(m);
+                printMtrxConsole.printMatrix(m);
                 System.out.println(whitespace);
             }
         }

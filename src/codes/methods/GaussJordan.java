@@ -1,6 +1,7 @@
 package codes.methods;
 import codes.ADT.Matrix;
 // import codes.methods.Gauss;
+import codes.ADT.primitives.CheckNeg0;
 
 public class GaussJordan {
     public static Matrix jordan (Matrix m){
@@ -32,13 +33,15 @@ public class GaussJordan {
                 }
             }
         }
-        for(int i =0; i<m.rows; i++){
-            for(int j =0; j<m.cols; j++){
-                if(temp.Mtrx[i][j]==(-0)){
-                    temp.Mtrx[i][j]= 0;
-                }
-            }
-        }
-        return temp;
+        // for(int i =0; i<m.rows; i++){
+        //     for(int j =0; j<m.cols; j++){
+        //         if(temp.Mtrx[i][j]==(-0)){
+        //             temp.Mtrx[i][j]= 0;
+        //         }
+        //     }
+        // }
+        Matrix gauss_j_mtrx = new Matrix(m.rows, m.cols);
+        gauss_j_mtrx = CheckNeg0.check(temp);
+        return gauss_j_mtrx;
     }
 }

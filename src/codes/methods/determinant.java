@@ -1,9 +1,9 @@
-package codes.ADT.primitives;
+package codes.methods;
 
 import codes.ADT.Matrix;
-import codes.ADT.constructors.TimesDiagonal;
-import codes.methods.*;
-import java.math.*;
+import codes.ADT.primitives.GetCofactor;
+import codes.ADT.primitives.TimesDiagonal;
+
 
 public class determinant {
     public static double detCofactor(Matrix m, int n, boolean isSquare) {
