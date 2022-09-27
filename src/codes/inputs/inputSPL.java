@@ -78,6 +78,9 @@ public class inputSPL {
             System.out.println("SPL memiliki solusi unik");
 
             double[] unik = uniqueCase(m);
+        
+            // printMtrx.main(m);
+
             try {
                 // Need to create input filename for pathname
                 printMtrxFile.printMatrix(unik, "output_1.txt");
