@@ -164,8 +164,4 @@ public class inputSPL {
 
         return ans;
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 4b7c53321c439bd68626844155993605f550854c
 }

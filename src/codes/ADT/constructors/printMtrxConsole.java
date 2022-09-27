@@ -15,7 +15,12 @@ public class printMtrxConsole {
                 System.out.printf("%7.2f", matrix.Mtrx[i][j]);
             }
             System.out.println();
+        }
+    }
 
+    public static void printMatrix(double[] x) {
+        for (int i = 0;  i < x.length ; i++){
+            System.out.println("x"+(i+1)+": "+x[i]+"\n");
         }
     }
 }

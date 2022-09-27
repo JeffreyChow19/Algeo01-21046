@@ -29,4 +29,27 @@ public class printMtrx {
             }
         }
     }
+
+    public static void main(double[] ans) {
+        System.out.println("Output Types:");
+
+        String[] methods = {
+                "Console",
+                "File txt"
+        };
+
+        int inputType = menuCheck.main(1, 2, methods);
+
+        if (inputType == 1) {
+            printMtrxConsole.printMatrix(ans);
+        } else {
+            System.out.println("Output file name: ");
+            String pathname = scanner.nextLine();
+            try {
+                printMtrxFile.printMatrix(ans, pathname);
+            } catch (IOException ex) {
+                System.out.println("No such files.");
+            }
+        }
+    }
 }
