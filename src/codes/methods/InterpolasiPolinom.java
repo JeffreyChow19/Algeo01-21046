@@ -12,7 +12,7 @@ public class InterpolasiPolinom {
     public static double polynom(int choice, String pathname, double x) {
         double result = 0.0;
         if (choice == 1){
-            m = createMtrxConsole.createMatrix();
+            m = createMtrxConsole.createMatrix(false);
         }
         if (choice == 2){
             try {

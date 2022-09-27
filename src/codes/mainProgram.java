@@ -2,6 +2,7 @@ package codes;
 
 import java.util.Scanner;
 import codes.inputs.*;
+import codes.methods.submethods.menuCheck;
 
 public class mainProgram {
     public static Scanner scn = new Scanner(System.in); 
@@ -19,23 +20,7 @@ public class mainProgram {
             String[] menu = { "Sistem Persamaan Linear", "Determinan", "Matriks Balikan", "Interpolasi Polinom",
                     "Interpolasi Bicubic", "Regresi Linier Berganda", "Exit" };
 
-            for (int i = 1; i <= menu.length; i++) {
-                System.out.printf("[%d] %s\n", i, menu[i - 1]);
-            }
-
-            int choice = -9999;
-
-            while (choice < 1 || choice > 7) {
-                if (choice != -9999) {
-                    System.out.println("Input not valid, try again.");
-                }
-                System.out.printf("\nMenu : ");
-
-                
-                choice = scn.nextInt();
-                scn.nextLine();
-                
-            }
+            int choice = menuCheck.main(1, 7, menu);
 
             switch (choice) {
                 case 1:
@@ -61,7 +46,7 @@ public class mainProgram {
                     break;
             }
 
-            System.out.println("Press enter to continue");
+            System.out.println("\nPress enter key to continue");
             try {
                 System.in.read();
             } catch (Exception e) {}
@@ -70,10 +55,5 @@ public class mainProgram {
 
         scn.close();
 
-      
-     
-        
-
     }
-
 }
