@@ -9,7 +9,7 @@ import codes.methods.*;
 
 public class testProgram {
     public static void main(String[] args) {
-        Matrix m = createMtrxConsole.createMatrix(false);
+        // Matrix m = createMtrxConsole.createMatrix(false);
         // matrix = Transpose.transpose(matrix);
         // Matrix matrix2 = new Matrix(matrix.rows, matrix.cols);
         // Matrix matrix3 = new Matrix(matrix.rows, matrix.cols);
