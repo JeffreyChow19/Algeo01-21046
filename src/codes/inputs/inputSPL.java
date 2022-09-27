@@ -164,8 +164,9 @@ public class inputSPL {
 
             unik[i] /= m.Mtrx[i][i];
         }
-
-        return unik;
+        double[] result = new double[unik.length];
+        result = CheckNeg0.check(unik);
+        return result;
     }
 
     public static double[] infiniteCase(Matrix m) {

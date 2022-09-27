@@ -39,7 +39,7 @@ public class InterpolasiPolinom {
     public static double polynom(double[] ans, double x) {
         // Matrix m (Mx2)
         double result = 0.0;
-        for (int i = 0; i<ans.length; i++){
+        for (int i = 0; i < ans.length; i++){
             result += ans[i] * Math.pow(x, i);
         }
         return result;
