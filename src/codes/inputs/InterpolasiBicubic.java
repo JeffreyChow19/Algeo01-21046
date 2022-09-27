@@ -1,7 +1,8 @@
 package codes.inputs;
+import codes.ADT.Matrix;
 
 public class InterpolasiBicubic {
-    public static void main(String[] args) {
+    public static double bicubic (Matrix m) {
         
     }   
 }
