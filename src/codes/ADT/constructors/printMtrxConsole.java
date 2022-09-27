@@ -9,6 +9,7 @@ public class printMtrxConsole {
         int i, j;
         for (i = 0; i < matrix.Mtrx.length; i++) {
             for (j = 0; j < matrix.Mtrx[i].length; j++) {
+                // Potential error here
                 if (matrix.Mtrx[i][j] <= (-0.0) && matrix.Mtrx[i][j] >= -0.00009) {
                     matrix.Mtrx[i][j] = 0;
                 }
