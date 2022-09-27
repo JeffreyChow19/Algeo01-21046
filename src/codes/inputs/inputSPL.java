@@ -10,6 +10,7 @@ import codes.methods.GaussJordan;
 import codes.ADT.primitives.*;
 import codes.methods.InverseCofactor;
 import codes.methods.submethods.SPLCheck;
+import codes.methods.submethods.menuCheck;
 import codes.ADT.Matrix;
 
 public class inputSPL {
@@ -37,20 +38,7 @@ public class inputSPL {
         System.out.println("\nMethods");
         System.out.println("=======\n");
 
-        for (int i = 1; i <= methods.length; i++) {
-            System.out.printf("[%d] %s\n", i, methods[i - 1]);
-        }
-
-        int choice = -9999;
-
-        while (choice < 1 || choice > 7) {
-            if (choice != -9999) {
-                System.out.println("Input not valid, try again.");
-            }
-            System.out.printf("\nMethods : ");
-            choice = scanner.nextInt();
-            scanner.nextLine();
-        }
+        int choice = menuCheck.main(1, 5, methods);
 
         return choice;
     }

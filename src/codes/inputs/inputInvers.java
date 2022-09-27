@@ -4,6 +4,7 @@ import codes.ADT.Matrix;
 import codes.ADT.constructors.*;
 import codes.methods.InverseCofactor;
 import codes.methods.InverseGaussJordan;
+import codes.methods.submethods.menuCheck;
 
 public class inputInvers extends inputDeterminan{
     public static void main(String[] args) {
@@ -26,20 +27,7 @@ public class inputInvers extends inputDeterminan{
         System.out.println("\nMethods");
         System.out.println("=======\n");
 
-        for (int i = 1; i <= methods.length; i++) {
-            System.out.printf("[%d] %s\n", i, methods[i - 1]);
-        }
-
-        int choice = -9999;
-
-        while (choice < 1 || choice > 3) {
-            if (choice != -9999) {
-                System.out.println("Input not valid, try again.");
-            }
-            System.out.printf("\nMethods : ");
-            choice = scanner.nextInt();
-            scanner.nextLine();
-        }
+        int choice = menuCheck.main(1, 3, methods);
 
         return choice;
     }
