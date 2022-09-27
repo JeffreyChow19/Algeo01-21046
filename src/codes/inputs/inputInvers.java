@@ -5,29 +5,13 @@ import codes.ADT.constructors.*;
 import codes.methods.InverseCofactor;
 import codes.methods.InverseGaussJordan;
 
-import java.io.IOException;
-
-
 public class inputInvers extends inputDeterminan{
     public static void main(String[] args) {
         int choice = chooseMethods();
 
-        int inputType = chooseType();
+        Matrix matrix = createMtrx.main(true);
 
-        if (inputType == 1){
-            Matrix matrix = inptDet();
-
-            processMethods(choice, matrix);
-        }
-        else {
-            try {
-                String base = "../files/test1.txt";
-                Matrix matrix = createMtrxFile.createMatrix(base);
-                processMethods(choice, matrix);
-            } catch (IOException ex) {
-                System.out.println("Filename not found!");
-            }
-        }
+        processMethods(choice, matrix);
     }
 
     public static int chooseMethods() {
