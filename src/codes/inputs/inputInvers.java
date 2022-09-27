@@ -39,7 +39,7 @@ public class inputInvers extends inputDeterminan{
                 ans = InverseGaussJordan.inverse(m);
 
                 if (ans.has_inversed){
-                    printMtrxConsole.printMatrix(ans);
+                    printMtrx.main(ans);
                 } else {
                     System.out.println("Matrix has no inverse");
                 }
@@ -47,7 +47,7 @@ public class inputInvers extends inputDeterminan{
             case 2:
                 ans = InverseCofactor.inverse(m);
                 if (ans.has_inversed){
-                    printMtrxConsole.printMatrix(ans);
+                    printMtrx.main(ans);
                 } else {
                     System.out.println("Matrix has no inverse");
                 }

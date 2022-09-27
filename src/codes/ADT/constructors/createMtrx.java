@@ -4,25 +4,20 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import codes.ADT.Matrix;
+import codes.methods.submethods.menuCheck;
 
 public class createMtrx {
     public static Scanner scanner = new Scanner(System.in);
 
     public static Matrix main(boolean square) {
         System.out.println("Input Types:");
-        System.out.println("[1] Console");
-        System.out.println("[2] File txt");
 
-        int inputType = -9999;
-        while (inputType < 1 || inputType > 2) {
-            if (inputType != -9999) {
-                System.out.println("Input not valid, try again.");
-            }
+        String[] methods = {
+            "Console",
+            "File txt"
+        };
 
-            System.out.printf("\nInput type : ");
-            inputType = scanner.nextInt();
-            scanner.nextLine();
-        } 
+        int inputType = menuCheck.main(1, 2, methods);
 
         Matrix matrix;
         if (inputType == 1){
