@@ -1,6 +1,5 @@
 package codes;
 
-import codes.inputs.inputSPL;
 import codes.ADT.Matrix;
 import codes.ADT.constructors.createMtrxConsole;
 import codes.ADT.constructors.printMtrxConsole;

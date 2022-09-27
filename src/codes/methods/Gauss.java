@@ -19,15 +19,12 @@ public class Gauss{
         // Process to echelon row here
         for (int j = 0; j < m.cols; j++) {
             for (int i = j + 1; i < m.rows; i++) {
-                // Error here (Something wrong here)
-                // for (int k = j; k < m.rows-1; k++){
                 // Switch row if current row contains more 0 then next row
                     if (count0(m, j, i) > count0(m, j+1, i)) {
                         switchRows(m, j, j + 1);
                         // For -1 power in determinant
                         sign++;
                     }
-                // }
                 double pem = m.Mtrx[i][j];
                 double pen = m.Mtrx[j][j];
                 double factor;

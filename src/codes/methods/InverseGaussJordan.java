@@ -3,7 +3,6 @@ package codes.methods;
 
 import codes.ADT.*;
 
-
 public class InverseGaussJordan extends Gauss {
     public static Matrix inverse(Matrix m) {
         Matrix inversed_mtrx = new Matrix(m.rows, m.cols);

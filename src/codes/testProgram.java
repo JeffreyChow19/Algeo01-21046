@@ -6,9 +6,6 @@ import codes.ADT.Matrix;
 import codes.ADT.constructors.*;
 // import codes.ADT.primitives.*;
 import codes.methods.*;
-import codes.inputs.*;
-
-import java.util.Scanner;
 
 public class testProgram {
     public static void main(String[] args) {
@@ -66,10 +63,10 @@ public class testProgram {
         //     System.exit(1);
         // }
         // scanner.close();
-        // double result = InterpolasiPolinom.polynom(2, "files/test1.txt", 9.2);
-        // System.out.println("Res: "+result);
-            m = Gauss.gauss(m);
-            printMtrxConsole.printMatrix(m);
+        double result = InterpolasiPolinom.polynom(2, "files/test1.txt", 9.2);
+        System.out.println("Res: "+result);
+            // m = Gauss.gauss(m);
+            // printMtrxConsole.printMatrix(m);
 
         // Templates
 

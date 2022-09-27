@@ -3,8 +3,7 @@ package codes.methods;
 import codes.ADT.Matrix;
 import codes.ADT.primitives.GetCofactor;
 import codes.ADT.primitives.TimesDiagonal;
-import codes.methods.*;
-import java.math.*;
+
 
 public class determinant {
     public static double detCofactor(Matrix m, int n, boolean isSquare) {
