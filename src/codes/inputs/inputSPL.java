@@ -12,7 +12,6 @@ import codes.methods.InverseCofactor;
 import codes.methods.submethods.SPLCheck;
 import codes.methods.submethods.menuCheck;
 import codes.ADT.Matrix;
-import codes.ADT.primitives.*;
 
 public class inputSPL {
     public static Scanner scanner = new Scanner(System.in);
