@@ -25,13 +25,16 @@ public class Gauss{
                         // For -1 power in determinant
                         sign++;
                     }
-                double pem = Double.isInfinite(1/m.Mtrx[i][j]) ? m.Mtrx[i][j+1] : m.Mtrx[i][j];
+                double pem = m.Mtrx[i][j];
                 double pen = m.Mtrx[j][j];
                 double factor;
                 if (Double.isInfinite(1/pen)) {
                     factor = 1;
                 } else {
                     factor = pem / pen;
+                }
+                if (Double.isNaN(pem/pen)){
+                    factor = m.Mtrx[i][j+1] / m.Mtrx[j][j+1];
                 }
                 for (int k = 0; k < m.cols; k++) {
                     m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);
