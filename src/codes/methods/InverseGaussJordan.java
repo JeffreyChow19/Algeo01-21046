@@ -1,7 +1,8 @@
 package codes.methods;
 
-
 import codes.ADT.*;
+import codes.ADT.constructors.printMtrx;
+import codes.ADT.constructors.printMtrxConsole;
 
 public class InverseGaussJordan extends Gauss {
     public static Matrix inverse(Matrix m) {
@@ -10,21 +11,33 @@ public class InverseGaussJordan extends Gauss {
             inversed_mtrx.Mtrx[k][k] = 1;
         }
         // Make to echelon row
-        for (int j = 0; j < m.cols; j++) {
+        for (int k = 0; k < m.rows; k++) {
+            for (int h = k; h < m.rows; h++) {
+                if (count0(m, k, m.cols - 1) > count0(m, h, m.cols - 1)) {
+                    switchRows(m, k, h);
+                    switchRows(inversed_mtrx, k, h);
+                }
+            }
+        }
+        // Process to echelon row here
+        for (int j = 0; j < m.rows; j++) {
             for (int i = j + 1; i < m.rows; i++) {
-                if (count0(m, j, i) > count0(m, j + 1, i)) {
+                // Switch row if current row contains more 0 then next row
+                if (count0(m, j, m.cols - 1) > count0(m, j + 1, m.cols - 1)) {
                     switchRows(m, j, j + 1);
                     switchRows(inversed_mtrx, j, j + 1);
                 }
-                double pem1 = m.Mtrx[i][j];
-                double pen1 = m.Mtrx[j][j];
+                double pem = m.Mtrx[i][j];
+                double pen = m.Mtrx[j][j];
                 double factor;
-                if (Double.isNaN(pem1 / pen1)) {
+                if (Double.isInfinite(1 / pen)) {
                     factor = 1;
                 } else {
-                    factor = pem1 / pen1;
+                    factor = pem / pen;
                 }
-                // Make Matrix m become echelon row
+                if (Double.isNaN(pem / pen)) {
+                    factor = m.Mtrx[i][j + 1] / m.Mtrx[j][j + 1];
+                }
                 for (int k = 0; k < m.cols; k++) {
                     m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);
                     inversed_mtrx.Mtrx[i][k] -= ((factor) * inversed_mtrx.Mtrx[j][k]);
@@ -34,36 +47,61 @@ public class InverseGaussJordan extends Gauss {
         // Get reverse echelon row m => reduced echelon row
         for (int i = m.rows - 1; i >= 0; i--) {
             for (int j = i - 1; j >= 0; j--) {
-                double factor;
-                factor = m.Mtrx[j][i] / m.Mtrx[i][i];
-                if (Double.isNaN(factor) || Double.isInfinite(factor)) {
-                    factor = 1;
+                double factor = 0;
+                int c = i;
+                if (Double.isInfinite(1/m.Mtrx[i][c])) {
+                    boolean condition = false;
+                    while (!condition) {
+                        if (c < m.cols - 1 && Double.isInfinite(1/m.Mtrx[i][c])) {
+                            c++;
+                        } else if (c < m.cols - 1 && !Double.isInfinite(1/m.Mtrx[i][c])) {
+                            factor = m.Mtrx[j][c] / m.Mtrx[i][c];
+                            condition = true;
+                        } else {
+                            factor = 1;
+                            condition = true;
+                        }
+                    }
                 } else {
-                    factor = m.Mtrx[j][i] / m.Mtrx[i][i];
+                    factor = m.Mtrx[j][c] / m.Mtrx[i][c];
                 }
                 for (int k = m.cols - 1; k >= 0; k--) {
                     m.Mtrx[j][k] -= (m.Mtrx[i][k] * factor);
                     inversed_mtrx.Mtrx[j][k] -= (inversed_mtrx.Mtrx[i][k] * factor);
+                    // printMtrxConsole.printMatrix(temp);
+                    // System.out.println();
                 }
             }
         }
-        // Make Matrix m -> identity
         for (int i = 0; i < m.rows; i++) {
-            if (m.Mtrx[i][i] != 1) {
-                double factor;
-                if (m.Mtrx[i][i] == 0) {
-                    factor = 1;
-                } else {
-                    factor = m.Mtrx[i][i];
+            int c = i;
+            double factor = 0;
+            if (m.Mtrx[i][c] != 1 && Double.isInfinite(1/m.Mtrx[i][c])) {
+                // double factor=0;
+                if (Double.isInfinite(1/m.Mtrx[i][c])) {
+                    boolean condition = false;
+                    while (!condition) {
+                        if (c < m.cols - 1 && Double.isInfinite(1/m.Mtrx[i][c])) {
+                            c++;
+                        } else if (c < m.cols - 1 && !Double.isInfinite(1/m.Mtrx[i][c])) {
+                            factor = m.Mtrx[i][c];
+                            condition = true;
+                        } else {
+                            factor = 1;
+                            condition = true;
+                        }
+                    }
                 }
-                for (int j = 0; j < m.cols; j++) {
-                    inversed_mtrx.Mtrx[i][j] /= factor;
-                    m.Mtrx[i][j] /= factor;
-                }
+            } else {
+                factor = m.Mtrx[i][c];
+            }
+            for (int j = 0; j < m.cols; j++) {
+                m.Mtrx[i][j] /= factor;
+                inversed_mtrx.Mtrx[i][j] /= factor;
             }
         }
-        for (int i = 0; i < m.rows; i++){
-            if (count0(m, i) == m.cols){
+        for (int i = 0; i < m.rows; i++) {
+            if (count0(m, i) == m.cols) {
                 m.has_inversed = false;
                 return m;
             }
@@ -71,10 +109,11 @@ public class InverseGaussJordan extends Gauss {
 
         return inversed_mtrx;
     }
-    public static int count0(Matrix m, int row){
+
+    public static int count0(Matrix m, int row) {
         int sum = 0;
-        for(int j = 0; j < m.cols; j++){
-            if (Double.isInfinite(1/m.Mtrx[row][j])){
+        for (int j = 0; j < m.cols; j++) {
+            if (Double.isInfinite(1 / m.Mtrx[row][j])) {
                 sum++;
             }
         }

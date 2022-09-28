@@ -7,6 +7,7 @@ import java.util.Scanner;
 import codes.ADT.Matrix;
 // import codes.ADT.constructor.Transpose;
 import codes.ADT.constructors.*;
+import codes.ADT.primitives.CopyMtrx;
 // import codes.ADT.primitives.*;
 import codes.methods.*;
 
@@ -14,15 +15,19 @@ public class testProgram {
     public static Matrix m;
     public static void main(String[] args) {
         try {
-            m = createMtrxFile.createMatrix("test1.txt");
+            m = createMtrxFile.createMatrix("test2.txt");
         } catch (IOException ex){
             System.out.println("filename not found!");
         }
 
         // m = InverseCofactor.inverse(m);
-        InterpolasiBicubic.bikubik(m);
+        // InterpolasiBicubic.bikubik(m);
+        Matrix m2 = Gauss.gauss(m);
+        // m2 = InverseCofactor.inverse(m2);
+        // m = InverseGaussJordan.inverse(m);
         // printMtrxConsole.printMatrix(m);
-        System.out.println("passed here");
+        // System.out.println("passed here");
+        printMtrxConsole.printMatrix(m2);
 
 
         // matrix = Transpose.transpose(matrix);
@@ -33,14 +38,8 @@ public class testProgram {
         // printMtrxConsole.printMatrix(matrix2);
         // System.out.println("\n");
         // // System.out.println("Proses OBE : ");
-<<<<<<< HEAD
         // GaussVoid.gauss(m);
-        // Matrix temp = GaussJordan.jordan(m);
-        // printMtrxConsole.printMatrix(temp);
-=======
-        GaussVoid.gauss(m);
-        printMtrxConsole.printMatrix(GaussJordan.jordan(m));
->>>>>>> c189a07979dcf5970d4e428acd602c7dc42690e7
+        // printMtrxConsole.printMatrix(GaussJordan.jordan(m));
         // matrix = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = GaussJordan.jordan(matrix3);
