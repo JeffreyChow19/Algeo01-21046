@@ -21,7 +21,7 @@ public class GaussJordan {
                         }else if(c< m.cols-1 &&temp.Mtrx[i][c]!=0){
                             factor = temp.Mtrx[j][c]/temp.Mtrx[i][c];
                             condition = true;
-                        }else if(temp.Mtrx[i][c] == 0 && c>=m.cols){
+                        }else{
                             factor= 1;
                             condition= true;
                         }
@@ -49,20 +49,20 @@ public class GaussJordan {
                         }else if(c< m.cols-1 &&temp.Mtrx[i][c]!=0){
                             factor = temp.Mtrx[i][c];
                             condition = true;
-                        }else if(temp.Mtrx[i][c] == 0 && c>=m.cols){
+                        }else{
                             factor= 1;
                             condition= true;
                         }
                     }
                 }
             }else{
-                factor = temp.Mtrx[i][c];
-            }
-            for(int j =c; j<m.cols; j++){
-                temp.Mtrx[i][j] /= factor;
-                printMtrxConsole.printMatrix(temp);
-                System.out.println();
-            }  
+                    factor = temp.Mtrx[i][c];
+                }
+                for(int j =c; j<m.cols; j++){
+                    temp.Mtrx[i][j] /= factor;
+                    printMtrxConsole.printMatrix(temp);
+                    System.out.println();
+                }  
         }
         // for(int i =0; i<m.rows; i++){
         //     for(int j =0; j<m.cols; j++){
