@@ -32,8 +32,8 @@ public class Gauss {
                     m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);
                 }
                 
-                printMtrxConsole.printMatrix(m);
-                System.out.println();
+                // printMtrxConsole.printMatrix(m);
+                // System.out.println();
             }
             // Switch row if current row contains more 0 then next row
             switchRows(m, j);

@@ -4,7 +4,7 @@ import codes.ADT.*;
 import codes.ADT.constructors.printMtrxConsole;
 
 public class InterpolasiBicubic {
-    public static void bikubik(Matrix matrix){
+    public static void bikubik(Matrix matrix, double indeks1, double indeks2){
         int rows = matrix.rows*matrix.cols;
         int cols = matrix.rows*matrix.cols;
         Matrix matrix_xy = new Matrix(rows, cols);
@@ -77,7 +77,27 @@ public class InterpolasiBicubic {
         // printMtrxConsole.printMatrix(matrix_gauss);
         Matrix after_reduction = new Matrix(rows, cols+1);
         after_reduction = GaussJordan.jordan(matrix_gauss);
-        printMtrxConsole.printMatrix(after_reduction);
+        // printMtrxConsole.printMatrix(after_reduction);
+
+        int k= 0;
+        Matrix matrix_a = new Matrix(matrix.rows, matrix.cols);
+        for(int i=0; i<matrix.rows; i++){
+            for(int j=0; j<matrix.cols; j++){
+                matrix_a.Mtrx[i][j] = after_reduction.Mtrx[k][cols];
+                k++;
+            }
+        }
+        // for(int i=0; i<rows; i++){
+        //     System.out.printf("%.2f\n", matrix_a[i]);
+        // }
+        // printMtrxConsole.printMatrix(matrix_a);
+        double result=0;
+        for(int i=0; i<=3; i++){
+            for(int j=0; j<=3; j++){
+                result += (matrix_a.Mtrx[i][j]*(double)(Math.pow(indeks1, i))*(double)(Math.pow(indeks2, j)));
+            }
+        }
+        System.out.printf("%.2f\n", result);
     }
 }
 

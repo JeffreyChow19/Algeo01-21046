@@ -21,7 +21,7 @@ public class testProgram {
         }
 
         // m = InverseCofactor.inverse(m);
-        // InterpolasiBicubic.bikubik(m);
+        InterpolasiBicubic.bikubik(m, 0.5, 0.5);
         // Matrix m2 = Gauss.gauss(m);
         // m2 = InverseCofactor.inverse(m2);
         // m = InverseGaussJordan.inverse(m);
@@ -38,8 +38,9 @@ public class testProgram {
         // printMtrxConsole.printMatrix(matrix2);
         // System.out.println("\n");
         // // System.out.println("Proses OBE : ");
-        GaussVoid.gauss(m);
-        printMtrxConsole.printMatrix(GaussJordan.jordan(m));
+        // GaussVoid.gauss(m);
+        // printMtrxConsole.printMatrix(Gauss.gauss(m));
+        // printMtrxConsole.printMatrix(GaussJordan.jordan(m));
         // matrix = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = GaussJordan.jordan(matrix3);

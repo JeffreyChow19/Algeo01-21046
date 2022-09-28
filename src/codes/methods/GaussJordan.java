@@ -9,9 +9,11 @@ public class GaussJordan {
         Matrix temp = Gauss.gauss(m);
         // Matrix reverse_m_rows;
         for(int i = m.rows-1; i>=0; i--){
-            for(int j= i-1; j>=0; j--){
+            int above_row = i-1;
+            for(int j= above_row; j>=0; j--){
                 double factor=0;
                 int c = i;
+                boolean isEmptyRow = false;
                 if(temp.Mtrx[i][c]==0){
                     boolean condition = false;
                     while (!condition){
@@ -21,17 +23,21 @@ public class GaussJordan {
                             factor = temp.Mtrx[j][c]/temp.Mtrx[i][c];
                             condition = true;
                         }else{
-                            factor= 1;
+                            above_row -=1;
+                            isEmptyRow = true;
                             condition= true;
                         }
                     }
-                }else{
+                }
+                else{
                     factor = temp.Mtrx[j][c]/temp.Mtrx[i][c];
                 }
-                for(int k= m.cols-1; k>=0; k--){
-                    temp.Mtrx[j][k] -= (temp.Mtrx[i][k]*factor);
-                    // printMtrxConsole.printMatrix(temp);
-                    // System.out.println();
+                if(!isEmptyRow){
+                    for(int k= m.cols-1; k>=0; k--){
+                        temp.Mtrx[j][k] -= (temp.Mtrx[i][k]*factor);
+                        // printMtrxConsole.printMatrix(temp);
+                        // System.out.println();
+                    }
                 }
             }
         }
@@ -59,8 +65,8 @@ public class GaussJordan {
                 }
                 for(int j =c; j<m.cols; j++){
                     temp.Mtrx[i][j] /= factor;
-                    printMtrxConsole.printMatrix(temp);
-                    System.out.println();
+                    // printMtrxConsole.printMatrix(temp);
+                    // System.out.println();
                 }  
         }
         // for(int i =0; i<m.rows; i++){
