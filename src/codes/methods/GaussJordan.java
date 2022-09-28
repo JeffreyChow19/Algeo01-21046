@@ -21,7 +21,7 @@ public class GaussJordan {
                         }else if(c< m.cols-1 &&temp.Mtrx[i][c]!=0){
                             factor = temp.Mtrx[j][c]/temp.Mtrx[i][c];
                             condition = true;
-                        }else{
+                        }else if(temp.Mtrx[i][c] == 0 && c>=m.cols){
                             factor= 1;
                             condition= true;
                         }
@@ -49,7 +49,7 @@ public class GaussJordan {
                         }else if(c< m.cols-1 &&temp.Mtrx[i][c]!=0){
                             factor = temp.Mtrx[i][c];
                             condition = true;
-                        }else{
+                        }else if(temp.Mtrx[i][c] == 0 && c>=m.cols){
                             factor= 1;
                             condition= true;
                         }
