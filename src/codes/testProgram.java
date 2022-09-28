@@ -7,6 +7,7 @@ import java.util.Scanner;
 import codes.ADT.Matrix;
 // import codes.ADT.constructor.Transpose;
 import codes.ADT.constructors.*;
+import codes.ADT.primitives.CopyMtrx;
 // import codes.ADT.primitives.*;
 import codes.methods.*;
 
@@ -18,6 +19,17 @@ public class testProgram {
         } catch (IOException ex){
             System.out.println("filename not found!");
         }
+
+        // m = InverseCofactor.inverse(m);
+        // InterpolasiBicubic.bikubik(m);
+        // Matrix m2 = Gauss.gauss(m);
+        // m2 = InverseCofactor.inverse(m2);
+        // m = InverseGaussJordan.inverse(m);
+        // printMtrxConsole.printMatrix(m);
+        // System.out.println("passed here");
+        // printMtrxConsole.printMatrix(m2);
+
+
         // matrix = Transpose.transpose(matrix);
         // Matrix matrix2 = new Matrix(m.rows, m.cols);
         // Matrix matrix3 = new Matrix(matrix.rows, matrix.cols);
@@ -28,7 +40,6 @@ public class testProgram {
         // // System.out.println("Proses OBE : ");
         GaussVoid.gauss(m);
         printMtrxConsole.printMatrix(GaussJordan.jordan(m));
-        // InterpolasiBicubic.bikubik(m);
         // matrix = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = GaussJordan.jordan(matrix3);

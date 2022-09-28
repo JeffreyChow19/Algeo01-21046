@@ -1,7 +1,6 @@
 package codes.methods;
 import codes.ADT.*;
 // import codes.methods.*;
-// import codes.ADT.constructors.printMtrx;
 import codes.ADT.constructors.printMtrxConsole;
 
 public class InterpolasiBicubic {
@@ -22,12 +21,12 @@ public class InterpolasiBicubic {
                     }
                 }
                 r++;
-                c=0;
+                c = 0;
             }
         }
         // for(int i=0; i< rows; i++){
-        //     for(int j= 0; j<cols; j++){
-        //         System.out.printf("%.2f ", matrix_xy.Mtrx[i][j]);
+            //     for(int j= 0; j<cols; j++){
+                //         System.out.printf("%.3f ", matrix_xy.Mtrx[i][j]);
         //     }
         //     System.out.println();
         // }
@@ -55,6 +54,13 @@ public class InterpolasiBicubic {
         //         System.out.printf("%.2f ", invers_matrix_xy.Mtrx[i][j]);
         //     }
         //     System.out.println();
+        // }
+        // invers_matrix_xy = InverseGaussJordan.inverse(matrix_xy);
+        // printMtrxConsole.printMatrix(invers_matrix_xy);
+        // for(int i=0; i< rows; i++){
+        //     for(int j= 0; j<cols; j++){
+        //         System.out.printf("%.2f ", invers_matrix_xy.Mtrx[i][j]);
+        //     }
         // }
         // for(int i= 0; i<rows; i++){
         //     System.out.printf("%d\n", matrix_y[i]);
