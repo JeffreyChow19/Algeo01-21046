@@ -3,12 +3,6 @@ import codes.ADT.*;
 import codes.methods.*;
 
 public class InterpolasiBicubic {
-<<<<<<< HEAD
-    public static double bicubic (Matrix m) {
-
-        return 0.0;
-    }   
-=======
     public static void bikubik(Matrix matrix){
         int rows = matrix.rows*matrix.cols;
         int cols = matrix.rows*matrix.cols;
@@ -60,6 +54,5 @@ public class InterpolasiBicubic {
         //     System.out.printf("%d\n", matrix_y[i]);
         // }
     }
->>>>>>> ae43b906c5a03f6cbb85d6e6c97ad025e95e30b4
 }
 
