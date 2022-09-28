@@ -47,6 +47,7 @@ public class inputSPL {
         switch (choice) {
             case 1:
                 Matrix ansGauss = Gauss.gauss(matrix);
+                printMtrxConsole.printMatrix(ansGauss);
                 printGauss(ansGauss);
                 break;
             case 2:
@@ -126,6 +127,20 @@ public class inputSPL {
     }
 
     public static double[] infiniteCase(Matrix m) {
+        int start = (int) 't';
+        double[] constants = new double[m.cols-1];
+        String[] constParam = new String[m.cols-1];
+        char[] parametrics = new char[m.cols-1];
+
+        for (int j=m.cols-1; j >= 0; j--){
+            if (j==m.cols-1){
+                parametrics[j] = (char) start;
+                start++;
+            }
+        }
+
+
+
         double[] unik = new double[m.rows];
 
         for (int i = m.rows - 1; i >= 0; i--) {
@@ -162,5 +177,15 @@ public class inputSPL {
         }
 
         return ans;
+    }
+
+    public static int count0(Matrix m, int cols) {
+        int count = 0;
+        for (int i = 0; i < m.rows; i++) {
+            if (Double.isNaN(1.0 / m.Mtrx[i][cols]) || Double.isInfinite(1.0 / m.Mtrx[i][cols])) {
+                count++;
+            }
+        }
+        return count;
     }
 }

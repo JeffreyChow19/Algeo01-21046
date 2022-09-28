@@ -10,7 +10,8 @@ public class createMtrxFile {
     public static Matrix createMatrix(String pathname) throws IOException {
         // Path for input text files
         // Must be inside the `files` folder
-        FileReader file_input = new FileReader(pathname);
+        String base = "../files/";
+        FileReader file_input = new FileReader(base + pathname);
         // Concat All text content to content String
         Scanner scan = new Scanner(file_input);
         int rows = 0, cols = 0;
@@ -80,6 +81,7 @@ public class createMtrxFile {
                 } else {
                     m.Mtrx[i][j] = Double.parseDouble(file_to_string[index]);
                 }
+                index++;
             }
         }
         return m;
