@@ -17,10 +17,10 @@ public class Gauss{
             }
         }
         // Process to echelon row here
-        for (int j = 0; j < m.cols; j++) {
+        for (int j = 0; j < m.rows - 1; j++) {
             for (int i = j + 1; i < m.rows; i++) {
                 // Switch row if current row contains more 0 then next row
-                    if (count0(m, j, i) > count0(m, j+1, i)) {
+                    if (count0(m, j, m.cols-1) > count0(m, j + 1, m.cols-1)) {
                         switchRows(m, j, j + 1);
                         // For -1 power in determinant
                         sign++;
