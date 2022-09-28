@@ -17,7 +17,7 @@ public class Gauss{
             }
         }
         // Process to echelon row here
-        for (int j = 0; j < m.rows - 1; j++) {
+        for (int j = 0; j < m.rows; j++) {
             for (int i = j + 1; i < m.rows; i++) {
                 // Switch row if current row contains more 0 then next row
                     if (count0(m, j, m.cols-1) > count0(m, j + 1, m.cols-1)) {
@@ -32,6 +32,9 @@ public class Gauss{
                     factor = 1;
                 } else {
                     factor = pem / pen;
+                }
+                if (Double.isNaN(pem/pen)){
+                    factor = m.Mtrx[i][j+1] / m.Mtrx[j][j+1];
                 }
                 for (int k = 0; k < m.cols; k++) {
                     m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);

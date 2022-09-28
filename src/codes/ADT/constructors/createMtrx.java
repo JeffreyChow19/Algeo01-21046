@@ -18,7 +18,7 @@ public class createMtrx {
         };
 
         int inputType = menuCheck.main(1, 2, methods);
-
+        
         Matrix matrix;
         if (inputType == 1){
             matrix = createMtrxConsole.createMatrix(square);
