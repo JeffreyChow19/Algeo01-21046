@@ -44,7 +44,7 @@ public class InterpolasiBicubic {
         //         invers_matrix_xy.Mtrx[i][j] = (InverseCofactor.inverse(matrix_xy)).Mtrx[i][j];
         //     }
         // }
-        invers_matrix_xy = InverseSample.inverse(matrix_xy);
+        invers_matrix_xy = InverseGaussJordan.inverse(matrix_xy);
         printMtrxConsole.printMatrix(invers_matrix_xy);
         // for(int i=0; i< rows; i++){
         //     for(int j= 0; j<cols; j++){

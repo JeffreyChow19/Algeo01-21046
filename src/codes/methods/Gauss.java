@@ -1,7 +1,6 @@
 package codes.methods;
 
 import codes.ADT.*;
-import codes.ADT.constructors.printMtrx;
 import codes.ADT.constructors.printMtrxConsole;
 import codes.ADT.primitives.CheckNeg0;
 
