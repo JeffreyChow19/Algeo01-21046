@@ -12,6 +12,7 @@ import codes.methods.InverseCofactor;
 import codes.methods.submethods.SPLCheck;
 import codes.methods.submethods.menuCheck;
 import codes.ADT.Matrix;
+import codes.ADT.Param;
 
 public class inputSPL {
     public static Scanner scanner = new Scanner(System.in);
@@ -126,33 +127,66 @@ public class inputSPL {
     }
 
     public static double[] infiniteCase(Matrix m) {
-        int start = (int) 't';
-        double[] constants = new double[m.cols-1];
-        String[] constParam = new String[m.cols-1];
-        char[] parametrics = new char[m.cols-1];
+        // int start = (int) 't';
+        // double[] constants = new double[m.cols-1];
+        // String[] constParam = new String[m.cols-1];
+        // char[] parametrics = new char[m.cols-1];
 
-        for (int j=m.cols-1; j >= 0; j--){
-            if (j==m.cols-1){
-                parametrics[j] = (char) start;
+        // for (int j=m.cols-1; j >= 0; j--){
+        //     if (j==m.cols-1){
+        //         parametrics[j] = (char) start;
+        //         start++;
+        //     }
+        // }
+
+        int start = (int) 't';
+
+        final double mark = -9999.99;
+
+        double[] unik = new double[m.rows];
+        char[] parametrics = new char[m.cols - 1];
+        String[] constParam = new String[m.cols - 1];
+
+        Param[] temp = new Param[m.cols-1];
+
+        for (int i = m.rows - 1; i >= 0; i--) {
+            unik[i] = m.Mtrx[i][m.cols - 1]; // 0
+
+            for (int j = i + 1; j <= m.cols - 2; j++) {
+                if (unik[j] != mark){
+                    unik[i] -= unik[j] * m.Mtrx[i][j];
+                    if (temp[j].angka != mark){
+                        temp[i].angka = temp[j].angka * m.Mtrx[i][j];
+                        temp[i].abjad = temp[j].abjad;
+                    }
+                } else {
+                    temp[i].angka = 1;
+                    temp[i].abjad = parametrics[j];
+                }
+            }
+
+            unik[i] /= m.Mtrx[i][i];
+
+            if (Double.isNaN(unik[i])){
+                parametrics[i] = (char) start;
+                unik[i] = mark;
                 start++;
             }
         }
+        double[] result = new double[unik.length];
+        result = CheckNeg0.check(unik);
 
-
-
-        double[] unik = new double[m.rows];
-
-        for (int i = m.rows - 1; i >= 0; i--) {
-            unik[i] = m.Mtrx[i][m.cols - 1];
-
-            for (int j = i + 1; j <= m.cols - 2; j++) {
-                unik[i] -= unik[j] * m.Mtrx[i][j];
-            }
-            // Error here (Need handling for m.Mtrx[i][i])
-            unik[i] /= m.Mtrx[i][i];
+        //check print params
+        for (int i=0; i < parametrics.length; i++){
+            System.out.println(temp[i].angka);
+            System.out.println(temp[i].abjad);
+            System.out.println();
         }
 
-        return unik;
+        printMtrxConsole.printMatrix(result);
+        System.out.println();
+
+        return result;
     }
 
     public static void printCramer(double[] ans) {

@@ -3,6 +3,7 @@ package codes;
 import java.util.Scanner;
 import codes.inputs.*;
 import codes.methods.InterpolasiPolinom;
+import codes.methods.RegresiLinierBerganda;
 import codes.methods.submethods.menuCheck;
 
 public class mainProgram {
@@ -39,6 +40,7 @@ public class mainProgram {
                 case 5:
                     break;
                 case 6:
+                    RegresiLinierBerganda.main(args);
                     break;
                 case 7:
                     running = false;
