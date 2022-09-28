@@ -43,6 +43,7 @@ public class Gauss{
         gaussed_mtrx = CheckNeg0.check(m);
         return gaussed_mtrx;
     }
+    
     public static int count0(Matrix m, int row, int limit) {
         int count = 0;
         for (int j = 0; j <= limit; j++) {
