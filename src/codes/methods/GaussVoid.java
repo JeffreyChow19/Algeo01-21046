@@ -46,6 +46,7 @@ public class GaussVoid extends Gauss {
                 System.out.println(whitespace);
             }
         }
+        m.sign = sign;
         return null;
     }
 }

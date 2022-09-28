@@ -33,6 +33,7 @@ public class mainProgram {
                     inputInvers.main(args);
                     break;
                 case 4:
+                    inputPolynom.main(args);
                     break;
                 case 5:
                     break;
