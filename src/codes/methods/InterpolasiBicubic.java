@@ -1,6 +1,6 @@
 package codes.methods;
 import codes.ADT.*;
-import codes.methods.*;
+// import codes.methods.*;
 
 public class InterpolasiBicubic {
     public static void bikubik(Matrix matrix){
@@ -46,7 +46,7 @@ public class InterpolasiBicubic {
         invers_matrix_xy = InverseCofactor.inverse(matrix_xy);
         for(int i=0; i< rows; i++){
             for(int j= 0; j<cols; j++){
-                System.out.printf("%d ", invers_matrix_xy.Mtrx[i][j]);
+                System.out.printf("%.2f ", invers_matrix_xy.Mtrx[i][j]);
             }
             System.out.println();
         }

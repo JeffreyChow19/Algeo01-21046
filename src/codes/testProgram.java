@@ -27,6 +27,7 @@ public class testProgram {
         // System.out.println("\n");
         // // System.out.println("Proses OBE : ");
         GaussVoid.gauss(m);
+        printMtrxConsole.printMatrix(GaussJordan.jordan(m));
         // matrix = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = GaussJordan.jordan(matrix3);
