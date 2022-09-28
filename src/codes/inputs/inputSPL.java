@@ -1,7 +1,6 @@
 package codes.inputs;
 
 import java.io.IOException;
-import java.lang.invoke.TypeDescriptor;
 import java.util.Scanner;
 import codes.ADT.constructors.*;
 import codes.ADT.primitives.MakeSquare;
@@ -125,7 +124,7 @@ public class inputSPL {
 
                         before = true;
                     }
-                    
+
                     if (j == ans[i].params.length - 1) {
                         System.out.printf("\n");
                     }

@@ -20,18 +20,12 @@ public class testProgram {
         }
 
         // m = InverseCofactor.inverse(m);
-<<<<<<< HEAD
-        // InterpolasiBicubic.bikubik(m);
-        Matrix m2 = Gauss.gauss(m);
-=======
         InterpolasiBicubic.bikubik(m, 0.5, 0.5);
         // Matrix m2 = Gauss.gauss(m);
->>>>>>> 22619a4ebaf71ac1249fb7dff073b996b2815110
         // m2 = InverseCofactor.inverse(m2);
         // m = InverseGaussJordan.inverse(m);
         // printMtrxConsole.printMatrix(m);
         // System.out.println("passed here");
-        printMtrxConsole.printMatrix(m2);
 
 
         // matrix = Transpose.transpose(matrix);
