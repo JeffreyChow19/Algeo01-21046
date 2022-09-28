@@ -7,7 +7,6 @@ import java.util.Scanner;
 import codes.ADT.Matrix;
 // import codes.ADT.constructor.Transpose;
 import codes.ADT.constructors.*;
-import codes.ADT.primitives.CopyMtrx;
 // import codes.ADT.primitives.*;
 import codes.methods.*;
 
@@ -15,19 +14,19 @@ public class testProgram {
     public static Matrix m;
     public static void main(String[] args) {
         try {
-            m = createMtrxFile.createMatrix("test1.txt");
+            m = createMtrxFile.createMatrix("test3.txt");
         } catch (IOException ex){
             System.out.println("filename not found!");
         }
 
         // m = InverseCofactor.inverse(m);
-        InterpolasiBicubic.bikubik(m);
-        // Matrix m2 = Gauss.gauss(m);
+        // InterpolasiBicubic.bikubik(m);
+        Matrix m2 = Gauss.gauss(m);
         // m2 = InverseCofactor.inverse(m2);
         // m = InverseGaussJordan.inverse(m);
         // printMtrxConsole.printMatrix(m);
         // System.out.println("passed here");
-        // printMtrxConsole.printMatrix(m2);
+        printMtrxConsole.printMatrix(m2);
 
 
         // matrix = Transpose.transpose(matrix);

@@ -22,7 +22,7 @@ public class printMtrxFile{
         FileWriter writer = new FileWriter(base + pathname);
         writer.write(content);
         writer.close();
-        System.out.println("Success");
+        // System.out.println("Success");
     }
     public static void printMatrix(double[] x, String pathname) throws IOException{
         String content = "";

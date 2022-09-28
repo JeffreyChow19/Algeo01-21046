@@ -1,7 +1,6 @@
 package codes.methods;
 
 import codes.ADT.*;
-import codes.ADT.constructors.printMtrxConsole;
 import codes.ADT.primitives.CheckNeg0;
 
 public class Gauss {
@@ -31,9 +30,6 @@ public class Gauss {
                 for (int k = 0; k < m.cols; k++) {
                     m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);
                 }
-                
-                printMtrxConsole.printMatrix(m);
-                System.out.println();
             }
             // Switch row if current row contains more 0 then next row
             switchRows(m, j);
