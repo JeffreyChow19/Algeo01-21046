@@ -1,5 +1,6 @@
 package codes;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 // import codes.ADT.constructor.createMtrx;
@@ -10,8 +11,13 @@ import codes.ADT.constructors.*;
 import codes.methods.*;
 
 public class testProgram {
+    public static Matrix m;
     public static void main(String[] args) {
-        // Matrix m = createMtrxConsole.createMatrix(false);
+        try {
+            m = createMtrxFile.createMatrix("test1.txt");
+        } catch (IOException ex){
+            System.out.println("filename not found!");
+        }
         // matrix = Transpose.transpose(matrix);
         // Matrix matrix2 = new Matrix(m.rows, m.cols);
         // Matrix matrix3 = new Matrix(matrix.rows, matrix.cols);
@@ -20,7 +26,7 @@ public class testProgram {
         // printMtrxConsole.printMatrix(matrix2);
         // System.out.println("\n");
         // // System.out.println("Proses OBE : ");
-        // // GaussVoid.gauss(matrix);
+        GaussVoid.gauss(m);
         // matrix = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = GaussJordan.jordan(matrix3);
@@ -31,7 +37,7 @@ public class testProgram {
         // System.out.println("[2] Gauss ");
         // System.out.println("[3] Gauss-Jordan ");
         // System.out.println("Choice: ");
-        Scanner scanner = new Scanner(System.in);
+        // Scanner scanner = new Scanner(System.in);
         // int choice = scanner.nextInt();
         // if (choice == 1) {
         //     double detCofac = determinant.detCofactor(matrix2, matrix2.rows, IsSquare.isSquare(matrix));
@@ -65,10 +71,10 @@ public class testProgram {
         //     System.exit(1);
         // }
         // scanner.close();
-        int n = scanner.nextInt();
-        scanner.nextLine();
-        double result = InterpolasiPolinom.polynom(n, "test1.txt", 9.2);
-        System.out.printf("Res: %.2f", result);
+        // int n = scanner.nextInt();
+        // scanner.nextLine();
+        // double result = InterpolasiPolinom.polynom(n, "test1.txt", 9.2);
+        // System.out.printf("Res: %.2f", result);
             // m = Gauss.gauss(m);
             // printMtrxConsole.printMatrix(m);
 

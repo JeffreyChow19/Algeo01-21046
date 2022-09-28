@@ -17,7 +17,7 @@ public class Gauss{
             }
         }
         // Process to echelon row here
-        for (int j = 0; j < m.rows - 1; j++) {
+        for (int j = 0; j < m.rows; j++) {
             for (int i = j + 1; i < m.rows; i++) {
                 // Switch row if current row contains more 0 then next row
                     if (count0(m, j, m.cols-1) > count0(m, j + 1, m.cols-1)) {
@@ -25,7 +25,7 @@ public class Gauss{
                         // For -1 power in determinant
                         sign++;
                     }
-                double pem = m.Mtrx[i][j];
+                double pem = Double.isInfinite(1/m.Mtrx[i][j]) ? m.Mtrx[i][j+1] : m.Mtrx[i][j];
                 double pen = m.Mtrx[j][j];
                 double factor;
                 if (Double.isInfinite(1/pen)) {
