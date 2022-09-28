@@ -47,7 +47,6 @@ public class inputSPL {
         switch (choice) {
             case 1:
                 Matrix ansGauss = Gauss.gauss(matrix);
-                printMtrxConsole.printMatrix(ansGauss);
                 printGauss(ansGauss);
                 break;
             case 2:
