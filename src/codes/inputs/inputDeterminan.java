@@ -6,7 +6,7 @@ import java.util.Scanner;
 import codes.methods.determinant;
 import codes.methods.submethods.menuCheck;
 
-public class inputDeterminan {
+public class inputDeterminan extends printMtrxConsole {
     public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         int choice = chooseMethods();
@@ -25,8 +25,8 @@ public class inputDeterminan {
                 "Return to Menu"
         };
 
-        System.out.println("\nMethods");
-        System.out.println("=======\n");
+        println("\nMethods");
+        println("=======\n");
 
         int choice = menuCheck.main(1, 3, methods);
 

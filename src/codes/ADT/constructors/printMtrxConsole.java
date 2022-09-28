@@ -13,15 +13,27 @@ public class printMtrxConsole {
                 if (matrix.Mtrx[i][j] <= (-0.0) && matrix.Mtrx[i][j] >= -0.00009) {
                     matrix.Mtrx[i][j] = 0;
                 }
-                System.out.printf("%7.2f", matrix.Mtrx[i][j]);
+                printf("%7.2f", matrix.Mtrx[i][j]);
             }
-            System.out.println();
+            print("\n");
         }
     }
 
     public static void printMatrix(double[] x) {
         for (int i = 0;  i < x.length ; i++){
-            System.out.println("x"+(i+1)+": "+x[i]+"\n");
+            println("x"+(i+1)+": "+x[i]+"\n");
         }
+    }
+
+    public static void printf(String format, Object args){
+        System.out.printf(format, args);
+    }
+    
+    public static void print(String str){
+        System.out.print(str);
+    }
+
+    public static void println(String str){
+        System.out.println(str);
     }
 }

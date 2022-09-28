@@ -5,10 +5,10 @@ import java.io.IOException;
 import codes.ADT.Matrix;
 import codes.methods.submethods.menuCheck;
 
-public class printMtrx {
+public class printMtrx extends printMtrxConsole {
     public static Scanner scanner = new Scanner(System.in);
     public static void main(Matrix matrix) {
-        System.out.println("Output Types:");
+        println("Output Types:");
 
         String[] methods = {
                 "Console",
@@ -20,18 +20,18 @@ public class printMtrx {
         if (inputType == 1){
             printMtrxConsole.printMatrix(matrix);
         } else {
-            System.out.println("Output file name: ");
+            println("Output file name: ");
             String pathname = scanner.nextLine();
             try {
                 printMtrxFile.printMatrix(matrix, pathname);
             } catch (IOException ex) {
-                System.out.println("No such files.");
+                println("No such files.");
             }
         }
     }
 
     public static void main(double[] ans) {
-        System.out.println("Output Types:");
+        println("Output Types:");
 
         String[] methods = {
                 "Console",
@@ -43,12 +43,12 @@ public class printMtrx {
         if (inputType == 1) {
             printMtrxConsole.printMatrix(ans);
         } else {
-            System.out.printf("\nOutput file name: ");
+            print("\nOutput file name: ");
             String pathname = scanner.nextLine();
             try {
                 printMtrxFile.printMatrix(ans, pathname);
             } catch (IOException ex) {
-                System.out.println("No such files.");
+                println("No such files.");
             }
         }
     }

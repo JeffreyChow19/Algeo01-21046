@@ -1,9 +1,10 @@
 package codes.methods;
 import codes.ADT.*;
 // import codes.methods.*;
+import codes.ADT.constructors.printMtrxConsole;
 
 public class InterpolasiBicubic {
-    public static void bikubik(Matrix matrix){
+    public static void bikubik(Matrix matrix, double indeks1, double indeks2){
         int rows = matrix.rows*matrix.cols;
         int cols = matrix.rows*matrix.cols;
         Matrix matrix_xy = new Matrix(rows, cols);
@@ -20,15 +21,16 @@ public class InterpolasiBicubic {
                     }
                 }
                 r++;
-                c=0;
+                c = 0;
             }
         }
         // for(int i=0; i< rows; i++){
-        //     for(int j= 0; j<cols; j++){
-        //         System.out.printf("%d ", matrix_xy.Mtrx[i][j]);
+            //     for(int j= 0; j<cols; j++){
+                //         System.out.printf("%.3f ", matrix_xy.Mtrx[i][j]);
         //     }
         //     System.out.println();
         // }
+        // printMtrxConsole.printMatrix(matrix_xy);
         double [] matrix_y = new double[rows];
         int row_y = 0;
         for(int i=0; i< matrix.rows; i++){
@@ -37,22 +39,65 @@ public class InterpolasiBicubic {
                 row_y++;
             }   
         }
-        Matrix invers_matrix_xy = new Matrix(rows, cols);
         // for(int i= 0; i< rows; i++){
-        //     for(int j =0; j<cols; j++){
-        //         invers_matrix_xy.Mtrx[i][j] = (InverseCofactor.inverse(matrix_xy)).Mtrx[i][j];
+        //     System.out.printf("%.2f\n", matrix_y);
+        // }
+        // Matrix invers_matrix_xy = new Matrix(rows, cols);
+        // // for(int i= 0; i< rows; i++){
+        // //     for(int j =0; j<cols; j++){
+        // //         invers_matrix_xy.Mtrx[i][j] = (InverseCofactor.inverse(matrix_xy)).Mtrx[i][j];
+        // //     }
+        // // }
+        // invers_matrix_xy = InverseCofactor.inverse(matrix_xy);
+        // for(int i=0; i< rows; i++){
+        //     for(int j= 0; j<cols; j++){
+        //         System.out.printf("%.2f ", invers_matrix_xy.Mtrx[i][j]);
+        //     }
+        //     System.out.println();
+        // }
+        // invers_matrix_xy = InverseGaussJordan.inverse(matrix_xy);
+        // printMtrxConsole.printMatrix(invers_matrix_xy);
+        // for(int i=0; i< rows; i++){
+        //     for(int j= 0; j<cols; j++){
+        //         System.out.printf("%.2f ", invers_matrix_xy.Mtrx[i][j]);
         //     }
         // }
-        invers_matrix_xy = InverseCofactor.inverse(matrix_xy);
-        for(int i=0; i< rows; i++){
-            for(int j= 0; j<cols; j++){
-                System.out.printf("%.2f ", invers_matrix_xy.Mtrx[i][j]);
-            }
-            System.out.println();
-        }
         // for(int i= 0; i<rows; i++){
         //     System.out.printf("%d\n", matrix_y[i]);
         // }
+        Matrix matrix_gauss = new Matrix(rows, cols+1);
+        for(int i =0; i< rows; i++){
+            for(int j=0; j< cols; j++){
+                matrix_gauss.Mtrx[i][j] = matrix_xy.Mtrx[i][j];
+            }
+        }
+        for(int i=0; i<rows; i++){
+            matrix_gauss.Mtrx[i][cols] = matrix_y[i];
+        }
+        // printMtrxConsole.printMatrix(matrix_gauss);
+        Matrix after_reduction = new Matrix(rows, cols+1);
+        after_reduction = GaussJordan.jordan(matrix_gauss);
+        // printMtrxConsole.printMatrix(after_reduction);
+
+        int k= 0;
+        Matrix matrix_a = new Matrix(matrix.rows, matrix.cols);
+        for(int i=0; i<matrix.rows; i++){
+            for(int j=0; j<matrix.cols; j++){
+                matrix_a.Mtrx[i][j] = after_reduction.Mtrx[k][cols];
+                k++;
+            }
+        }
+        // for(int i=0; i<rows; i++){
+        //     System.out.printf("%.2f\n", matrix_a[i]);
+        // }
+        // printMtrxConsole.printMatrix(matrix_a);
+        double result=0;
+        for(int i=0; i<=3; i++){
+            for(int j=0; j<=3; j++){
+                result += (matrix_a.Mtrx[i][j]*(double)(Math.pow(indeks1, i))*(double)(Math.pow(indeks2, j)));
+            }
+        }
+        System.out.printf("%.2f\n", result);
     }
 }
 

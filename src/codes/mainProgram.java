@@ -1,22 +1,24 @@
 package codes;
 
 import java.util.Scanner;
+
+import codes.ADT.constructors.printMtrxConsole;
 import codes.inputs.*;
 import codes.methods.RegresiLinierBerganda;
 import codes.methods.submethods.menuCheck;
 
-public class mainProgram {
+public class mainProgram extends printMtrxConsole {
     public static Scanner scn = new Scanner(System.in); 
 
     public static boolean running = true;
     public static void main(String[] args) {
         while (running){
             
-            System.out.println("\nWelcome to Matrix Processing Program");
-            System.out.println("====================================\n");
+            println("\nWelcome to Matrix Processing Program");
+            println("====================================\n");
 
             // Menu
-            System.out.println("Menu");
+            println("Menu");
 
             String[] menu = { "Sistem Persamaan Linear", "Determinan", "Matriks Balikan", "Interpolasi Polinom",
                     "Interpolasi Bicubic", "Regresi Linier Berganda", "Exit" };
@@ -49,7 +51,7 @@ public class mainProgram {
                     break;
             }
 
-            System.out.println("\nPress enter key to continue");
+            println("\nPress enter key to continue");
             try {
                 System.in.read();
             } catch (Exception e) {}

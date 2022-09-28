@@ -2,7 +2,9 @@ package codes.methods.submethods;
 
 import java.util.Scanner;
 
-public class menuCheck {
+import codes.ADT.constructors.printMtrxConsole;
+
+public class menuCheck extends printMtrxConsole {
     public static Scanner scn = new Scanner(System.in);
 
     public static int main(int min, int max, String[] methods) {
@@ -15,9 +17,9 @@ public class menuCheck {
 
         while (choice < min || choice > max) {
             if (choice != -9999) {
-                System.out.println("Input not valid, try again.");
+                println("Input not valid, try again.");
             }
-            System.out.printf("\nMenu : ");
+            print("\nMenu : ");
 
             choice = scn.nextInt();
             scn.nextLine();
