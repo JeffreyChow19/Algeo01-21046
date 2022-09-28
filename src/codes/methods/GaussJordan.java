@@ -1,6 +1,5 @@
 package codes.methods;
 import codes.ADT.Matrix;
-// import codes.methods.Gauss;
 import codes.ADT.primitives.CheckNeg0;
 
 public class GaussJordan {

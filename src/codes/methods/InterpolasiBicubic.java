@@ -1,14 +1,9 @@
 package codes.methods;
 import codes.ADT.*;
-import codes.methods.*;
+import codes.ADT.constructors.printMtrxConsole;
+
 
 public class InterpolasiBicubic {
-<<<<<<< HEAD
-    public static double bicubic (Matrix m) {
-
-        return 0.0;
-    }   
-=======
     public static void bikubik(Matrix matrix){
         int rows = matrix.rows*matrix.cols;
         int cols = matrix.rows*matrix.cols;
@@ -30,8 +25,8 @@ public class InterpolasiBicubic {
             }
         }
         // for(int i=0; i< rows; i++){
-        //     for(int j= 0; j<cols; j++){
-        //         System.out.printf("%d ", matrix_xy.Mtrx[i][j]);
+            //     for(int j= 0; j<cols; j++){
+                //         System.out.printf("%.3f ", matrix_xy.Mtrx[i][j]);
         //     }
         //     System.out.println();
         // }
@@ -42,24 +37,27 @@ public class InterpolasiBicubic {
                 matrix_y [row_y] = matrix.Mtrx[i][j];
                 row_y++;
             }   
-        }
+        }   
         Matrix invers_matrix_xy = new Matrix(rows, cols);
-        // for(int i= 0; i< rows; i++){
-        //     for(int j =0; j<cols; j++){
-        //         invers_matrix_xy.Mtrx[i][j] = (InverseCofactor.inverse(matrix_xy)).Mtrx[i][j];
-        //     }
-        // }
-        invers_matrix_xy = InverseCofactor.inverse(matrix_xy);
-        for(int i=0; i< rows; i++){
-            for(int j= 0; j<cols; j++){
-                System.out.printf("%d ", invers_matrix_xy.Mtrx[i][j]);
+        Matrix temp = new Matrix(rows, cols);
+        temp = InverseCofactor.inverse(matrix_xy);
+        for(int i= 0; i< rows; i++){
+            for(int j =0; j<cols; j++){
+                invers_matrix_xy.Mtrx[i][j] = temp.Mtrx[i][j];
             }
-            System.out.println();
         }
-        // for(int i= 0; i<rows; i++){
-        //     System.out.printf("%d\n", matrix_y[i]);
-        // }
-    }
->>>>>>> ae43b906c5a03f6cbb85d6e6c97ad025e95e30b4
-}
-
+        printMtrxConsole.printMatrix(invers_matrix_xy);
+                // invers_matrix_xy = InverseCofactor.inverse(matrix_xy);
+                // for(int i=0; i< rows; i++){
+                    //     for(int j= 0; j<cols; j++){
+                        //         System.out.printf("%.3f ", invers_matrix_xy.Mtrx[i][j]);
+                        //     }
+                        //     System.out.println();
+                        // }
+                        // for(int i= 0; i<rows; i++){
+                            //     System.out.printf("%d\n", matrix_y[i]);
+                            // }
+                        }
+                    }
+                    
+                    

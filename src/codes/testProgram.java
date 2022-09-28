@@ -18,6 +18,13 @@ public class testProgram {
         } catch (IOException ex){
             System.out.println("filename not found!");
         }
+
+        // m = InverseCofactor.inverse(m);
+        InterpolasiBicubic.bikubik(m);
+        // printMtrxConsole.printMatrix(m);
+        System.out.println("passed here");
+
+
         // matrix = Transpose.transpose(matrix);
         // Matrix matrix2 = new Matrix(m.rows, m.cols);
         // Matrix matrix3 = new Matrix(matrix.rows, matrix.cols);
@@ -26,7 +33,9 @@ public class testProgram {
         // printMtrxConsole.printMatrix(matrix2);
         // System.out.println("\n");
         // // System.out.println("Proses OBE : ");
-        GaussVoid.gauss(m);
+        // GaussVoid.gauss(m);
+        // Matrix temp = GaussJordan.jordan(m);
+        // printMtrxConsole.printMatrix(temp);
         // matrix = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = GaussJordan.jordan(matrix3);
