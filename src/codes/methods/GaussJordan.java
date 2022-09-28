@@ -1,5 +1,7 @@
 package codes.methods;
 import codes.ADT.Matrix;
+import codes.ADT.constructors.printMtrxConsole;
+// import codes.methods.Gauss;
 import codes.ADT.primitives.CheckNeg0;
 
 public class GaussJordan {
@@ -8,29 +10,58 @@ public class GaussJordan {
         // Matrix reverse_m_rows;
         for(int i = m.rows-1; i>=0; i--){
             for(int j= i-1; j>=0; j--){
-                double factor;
-                if(temp.Mtrx[i][i]==0){
-                    factor = 1;
+                double factor=0;
+                int c = i;
+                if(temp.Mtrx[i][c]==0){
+                    boolean condition = false;
+                    while (!condition){
+                        if(c< m.cols-1 && temp.Mtrx[i][c]==0){
+                            c++;
+                        }else if(c< m.cols-1 &&temp.Mtrx[i][c]!=0){
+                            factor = temp.Mtrx[j][c]/temp.Mtrx[i][c];
+                            condition = true;
+                        }else{
+                            factor= 1;
+                            condition= true;
+                        }
+                    }
                 }else{
-                    factor = temp.Mtrx[j][i]/temp.Mtrx[i][i];
+                    factor = temp.Mtrx[j][c]/temp.Mtrx[i][c];
                 }
                 for(int k= m.cols-1; k>=0; k--){
                     temp.Mtrx[j][k] -= (temp.Mtrx[i][k]*factor);
+                    // printMtrxConsole.printMatrix(temp);
+                    // System.out.println();
                 }
             }
         }
         for(int i = 0; i<m.rows; i++){
-            if(temp.Mtrx[i][i]!=1){
-                double factor;
-                if(temp.Mtrx[i][i]==0){
-                    factor = 1;
-                }else{
-                    factor = temp.Mtrx[i][i];
+            int c = i;
+            double factor = 0;
+            if(temp.Mtrx[i][c]!=1 && temp.Mtrx[i][c]==0){
+                // double factor=0;
+                if(temp.Mtrx[i][c]==0){
+                    boolean condition= false;
+                    while(!condition){
+                        if(c< m.cols-1 && temp.Mtrx[i][c]==0){
+                            c++;
+                        }else if(c< m.cols-1 &&temp.Mtrx[i][c]!=0){
+                            factor = temp.Mtrx[i][c];
+                            condition = true;
+                        }else{
+                            factor= 1;
+                            condition= true;
+                        }
+                    }
                 }
-                for(int j =i; j<m.cols; j++){
-                    temp.Mtrx[i][j] /= factor;
-                }
+            }else{
+                factor = temp.Mtrx[i][c];
             }
+            for(int j =c; j<m.cols; j++){
+                temp.Mtrx[i][j] /= factor;
+                printMtrxConsole.printMatrix(temp);
+                System.out.println();
+            }  
         }
         // for(int i =0; i<m.rows; i++){
         //     for(int j =0; j<m.cols; j++){

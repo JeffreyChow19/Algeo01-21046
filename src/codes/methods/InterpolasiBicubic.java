@@ -1,7 +1,11 @@
 package codes.methods;
 import codes.ADT.*;
+<<<<<<< HEAD
 import codes.ADT.constructors.printMtrxConsole;
 
+=======
+// import codes.methods.*;
+>>>>>>> c189a07979dcf5970d4e428acd602c7dc42690e7
 
 public class InterpolasiBicubic {
     public static void bikubik(Matrix matrix){
@@ -39,13 +43,26 @@ public class InterpolasiBicubic {
             }   
         }   
         Matrix invers_matrix_xy = new Matrix(rows, cols);
+<<<<<<< HEAD
         Matrix temp = new Matrix(rows, cols);
         temp = InverseCofactor.inverse(matrix_xy);
         for(int i= 0; i< rows; i++){
             for(int j =0; j<cols; j++){
                 invers_matrix_xy.Mtrx[i][j] = temp.Mtrx[i][j];
+=======
+        // for(int i= 0; i< rows; i++){
+        //     for(int j =0; j<cols; j++){
+        //         invers_matrix_xy.Mtrx[i][j] = (InverseCofactor.inverse(matrix_xy)).Mtrx[i][j];
+        //     }
+        // }
+        invers_matrix_xy = InverseCofactor.inverse(matrix_xy);
+        for(int i=0; i< rows; i++){
+            for(int j= 0; j<cols; j++){
+                System.out.printf("%.2f ", invers_matrix_xy.Mtrx[i][j]);
+>>>>>>> c189a07979dcf5970d4e428acd602c7dc42690e7
             }
         }
+<<<<<<< HEAD
         printMtrxConsole.printMatrix(invers_matrix_xy);
                 // invers_matrix_xy = InverseCofactor.inverse(matrix_xy);
                 // for(int i=0; i< rows; i++){
@@ -61,3 +78,11 @@ public class InterpolasiBicubic {
                     }
                     
                     
+=======
+        // for(int i= 0; i<rows; i++){
+        //     System.out.printf("%d\n", matrix_y[i]);
+        // }
+    }
+}
+
+>>>>>>> c189a07979dcf5970d4e428acd602c7dc42690e7

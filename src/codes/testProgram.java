@@ -33,9 +33,14 @@ public class testProgram {
         // printMtrxConsole.printMatrix(matrix2);
         // System.out.println("\n");
         // // System.out.println("Proses OBE : ");
+<<<<<<< HEAD
         // GaussVoid.gauss(m);
         // Matrix temp = GaussJordan.jordan(m);
         // printMtrxConsole.printMatrix(temp);
+=======
+        GaussVoid.gauss(m);
+        printMtrxConsole.printMatrix(GaussJordan.jordan(m));
+>>>>>>> c189a07979dcf5970d4e428acd602c7dc42690e7
         // matrix = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = CopyMtrx.copyMtrx(matrix2);
         // matrix3 = GaussJordan.jordan(matrix3);
