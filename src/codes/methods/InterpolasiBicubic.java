@@ -97,7 +97,7 @@ public class InterpolasiBicubic {
                 result += (matrix_a.Mtrx[i][j]*(double)(Math.pow(indeks1, i))*(double)(Math.pow(indeks2, j)));
             }
         }
-        System.out.printf("%.2f\n", result);
+        System.out.printf("f(%.2f, %.2f) = %.2f\n", indeks1, indeks2, result);
     }
 }
 

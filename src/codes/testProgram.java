@@ -10,6 +10,7 @@ import codes.ADT.constructors.*;
 import codes.ADT.primitives.CopyMtrx;
 // import codes.ADT.primitives.*;
 import codes.methods.*;
+// import codes.inputs.*;
 
 public class testProgram {
     public static Matrix m;
@@ -21,7 +22,7 @@ public class testProgram {
         }
 
         // m = InverseCofactor.inverse(m);
-        InterpolasiBicubic.bikubik(m, 0.5, 0.5);
+        // InterpolasiBicubic.bikubik(m, 0.5, 0.5);
         // Matrix m2 = Gauss.gauss(m);
         // m2 = InverseCofactor.inverse(m2);
         // m = InverseGaussJordan.inverse(m);
@@ -29,7 +30,7 @@ public class testProgram {
         // System.out.println("passed here");
         // printMtrxConsole.printMatrix(m2);
 
-
+        // inputBikubik.main();
         // matrix = Transpose.transpose(matrix);
         // Matrix matrix2 = new Matrix(m.rows, m.cols);
         // Matrix matrix3 = new Matrix(matrix.rows, matrix.cols);
