@@ -7,7 +7,6 @@ import java.util.Scanner;
 import codes.ADT.Matrix;
 // import codes.ADT.constructor.Transpose;
 import codes.ADT.constructors.*;
-import codes.ADT.primitives.CopyMtrx;
 // import codes.ADT.primitives.*;
 import codes.methods.*;
 // import codes.inputs.*;
@@ -16,7 +15,7 @@ public class testProgram {
     public static Matrix m;
     public static void main(String[] args) {
         try {
-            m = createMtrxFile.createMatrix("test1.txt");
+            m = createMtrxFile.createMatrix("test3.txt");
         } catch (IOException ex){
             System.out.println("filename not found!");
         }
@@ -28,7 +27,6 @@ public class testProgram {
         // m = InverseGaussJordan.inverse(m);
         // printMtrxConsole.printMatrix(m);
         // System.out.println("passed here");
-        // printMtrxConsole.printMatrix(m2);
 
         // inputBikubik.main();
         // matrix = Transpose.transpose(matrix);

@@ -1,7 +1,6 @@
 package codes.methods;
+
 import codes.ADT.*;
-// import codes.methods.*;
-import codes.ADT.constructors.printMtrxConsole;
 
 public class InterpolasiBicubic {
     public static void bikubik(Matrix matrix, double indeks1, double indeks2){
