@@ -64,6 +64,6 @@ public class GaussJordan {
         }
         Matrix gauss_j_mtrx = new Matrix(m.rows, m.cols);
         gauss_j_mtrx = CheckNeg0.check(temp);
-        return gauss_j_mtrx;
+        return gauss_j_mtrx;    
     }
 }

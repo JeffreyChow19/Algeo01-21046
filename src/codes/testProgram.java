@@ -9,6 +9,7 @@ import codes.ADT.Matrix;
 import codes.ADT.constructors.*;
 // import codes.ADT.primitives.*;
 import codes.methods.*;
+// import codes.inputs.*;
 
 public class testProgram {
     public static Matrix m;
@@ -20,15 +21,23 @@ public class testProgram {
         }
 
         // m = InverseCofactor.inverse(m);
+<<<<<<< HEAD
         InterpolasiBicubic.bikubik(m, 0.5, 0.5);
+=======
+        // InterpolasiBicubic.bikubik(m, 0.5, 0.5);
+>>>>>>> 66357a0320ba7c7bb6cf45c6a8220ad45638f3ff
         // Matrix m2 = Gauss.gauss(m);
         // m2 = InverseCofactor.inverse(m2);
         // m = InverseGaussJordan.inverse(m);
         // printMtrxConsole.printMatrix(m);
         // System.out.println("passed here");
+<<<<<<< HEAD
         // printMtrxConsole.printMatrix(m2);
 
+=======
+>>>>>>> 66357a0320ba7c7bb6cf45c6a8220ad45638f3ff
 
+        // inputBikubik.main();
         // matrix = Transpose.transpose(matrix);
         // Matrix matrix2 = new Matrix(m.rows, m.cols);
         // Matrix matrix3 = new Matrix(matrix.rows, matrix.cols);

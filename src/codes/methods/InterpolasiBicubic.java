@@ -1,7 +1,6 @@
 package codes.methods;
+
 import codes.ADT.*;
-// import codes.methods.*;
-import codes.ADT.constructors.printMtrxConsole;
 
 public class InterpolasiBicubic {
     public static void bikubik(Matrix matrix, double indeks1, double indeks2){
@@ -97,7 +96,7 @@ public class InterpolasiBicubic {
                 result += (matrix_a.Mtrx[i][j]*(double)(Math.pow(indeks1, i))*(double)(Math.pow(indeks2, j)));
             }
         }
-        System.out.printf("%.2f\n", result);
+        System.out.printf("f(%.2f, %.2f) = %.2f\n", indeks1, indeks2, result);
     }
 }
 

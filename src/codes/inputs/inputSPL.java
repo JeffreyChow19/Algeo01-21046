@@ -1,6 +1,5 @@
 package codes.inputs;
 
-import java.io.IOException;
 import java.util.Scanner;
 import codes.ADT.constructors.*;
 import codes.ADT.primitives.MakeSquare;
@@ -95,11 +94,40 @@ public class inputSPL extends printMtrxConsole {
 
         } else if (status == 1) {
             /* Solusi Banyak */
-            println("SPL memiliki banyak solusi");
-            double[] banyak = infiniteCase(m);
+            System.out.println("SPL memiliki banyak solusi");
+            Param[] ans = infiniteCase(m);
 
-            for (int i = 0; i < banyak.length; i++) {
-                System.out.printf("x%d = %.2f\n", i + 1, banyak[i]);
+            for (int i = 0; i < ans.length; i++) {
+                boolean before = false;
+                
+                System.out.printf("x%d = ", i + 1);
+
+                if (ans[i].val != 0){
+                    System.out.printf("%.2f", ans[i].val);
+                    before = true;
+                }
+
+                for (int j = 0; j < ans[i].params.length; j++){
+                    if (ans[i].valPar[j] != 0 ) {
+                        if (before && ans[i].valPar[j]>=0){
+                            System.out.printf(" + ");
+                        } else {
+                            System.out.printf(" ");
+                        }
+
+                        if (ans[i].valPar[j] != 1){
+                            System.out.printf("%.2f%s", ans[i].valPar[j], ans[i].params[j]);  
+                        } else {
+                            System.out.printf("%s", ans[i].params[j]);
+                        }
+
+                        before = true;
+                    }
+
+                    if (j == ans[i].params.length - 1) {
+                        System.out.printf("\n");
+                    }
+                }
             }
 
         } else {
@@ -126,67 +154,143 @@ public class inputSPL extends printMtrxConsole {
         return result;
     }
 
-    public static double[] infiniteCase(Matrix m) {
-        // int start = (int) 't';
-        // double[] constants = new double[m.cols-1];
-        // String[] constParam = new String[m.cols-1];
-        // char[] parametrics = new char[m.cols-1];
+    public static Param[] infiniteCase(Matrix m) {
+    
+        // check which one need to use param
+        boolean[] occupied = new boolean[m.cols];
+        boolean[] useParam = new boolean[m.cols];
 
-        // for (int j=m.cols-1; j >= 0; j--){
-        //     if (j==m.cols-1){
-        //         parametrics[j] = (char) start;
-        //         start++;
-        //     }
-        // }
+        // initialize with false
+        for (int i=0; i < occupied.length; i++){
+            occupied[i] = false;
+            useParam[i] = false;
+        }
 
-        int start = (int) 't';
+        // checking
+        for (int j=0; j < m.cols-1; j++){
+            int notZero = countNotZero(m, j);
+            if (notZero == 0){
+                useParam[j] = true;
+            } else if (occupied[notZero]){
+                useParam[j] = true;
+            } else {
+                occupied[notZero] = true;
+            }
+        }
 
-        final double mark = -9999.99;
+        // state variable will use
+        Param[] ans = new Param[m.cols-1];
 
-        double[] unik = new double[m.rows];
-        char[] parametrics = new char[m.cols - 1];
-        String[] constParam = new String[m.cols - 1];
+        char[] params = new char[countTrue(useParam)];
 
-        Param[] temp = new Param[m.cols-1];
+        char start = 't';
 
-        for (int i = m.rows - 1; i >= 0; i--) {
-            unik[i] = m.Mtrx[i][m.cols - 1]; // 0
+        // decide params to use
+        for (int i=0; i < params.length; i++){
+            params[i] = start;
+            start = (char) ((int) start + 1);
+        }
 
-            for (int j = i + 1; j <= m.cols - 2; j++) {
-                if (unik[j] != mark){
-                    unik[i] -= unik[j] * m.Mtrx[i][j];
-                    if (temp[j].angka != mark){
-                        temp[i].angka = temp[j].angka * m.Mtrx[i][j];
-                        temp[i].abjad = temp[j].abjad;
-                    }
+        int now = 0;
+        int[] indexParam = new int[params.length];
+        // set default for items
+        for (int i = 0; i < ans.length; i++){
+            double[] temp = new double[params.length];
+            for (int j=0; j < params.length; j++){
+                if (useParam[i] && now == j){
+                    temp[j] = 1;
+                    indexParam[now] = i;
                 } else {
-                    temp[i].angka = 1;
-                    temp[i].abjad = parametrics[j];
+                    temp[j] = 0;
                 }
             }
 
-            unik[i] /= m.Mtrx[i][i];
+            if (useParam[i]){
+                now++;
+            }
 
-            if (Double.isNaN(unik[i])){
-                parametrics[i] = (char) start;
-                unik[i] = mark;
-                start++;
+            ans[i] = new Param(0, params, temp);
+        }
+
+        // sampai di state ini sudah diketahui mana x yang menggunakan parameter dan sudah di assign keberadaanya.
+        
+        for (int i = m.rows-1; i >= 0; i--){
+
+            int j = firstNotZero(m,i);
+            if (j != m.cols-1){
+
+                if (!useParam[j]){
+                    
+                    ans[j].val = m.Mtrx[i][m.cols-1];
+
+                    for (int k=j+1; k < m.cols-1; k++){
+
+                        if (!useParam[k]){
+                            ans[j].val -= (m.Mtrx[i][k] * ans[k].val);
+                            for (int l = 0; l < params.length; l++){
+                                ans[j].valPar[l] -= m.Mtrx[i][k] * ans[k].valPar[l];
+                            }
+                        } else {
+                            int in = findVal(indexParam, k);
+                            ans[j].valPar[in] -= m.Mtrx[i][k];
+                        }
+
+                    }
+
+                    ans[j].val /= m.Mtrx[i][j];
+                    for (int l = 0; l < params.length; l++) {
+                        ans[j].valPar[l] /= m.Mtrx[i][j];
+                    }
+
+                }
+
+            }
+
+        }
+
+        return ans;
+    }
+
+    public static int countNotZero(Matrix m, int cols){
+        int count = 0;
+
+        for (int i = 0; i < m.rows; i++){
+            if (m.Mtrx[i][cols] != 0 && count < m.cols-1){
+                count++;
             }
         }
-        double[] result = new double[unik.length];
-        result = CheckNeg0.check(unik);
 
-        //check print params
-        for (int i=0; i < parametrics.length; i++){
-            System.out.println(temp[i].angka);
-            System.out.println(temp[i].abjad);
-            System.out.println();
+        return count;
+    }
+
+    public static int countTrue(boolean[] ans){
+        int count = 0;
+        
+        for (int i=0; i < ans.length; i++){
+            if (ans[i]){
+                count++;
+            }
         }
 
-        printMtrxConsole.printMatrix(result);
-        System.out.println();
+        return count;
+    }
 
-        return result;
+    public static int firstNotZero (Matrix m, int rows){
+        int index = 0;
+        
+        while (index < m.cols-1 && m.Mtrx[rows][index] == 0){
+            index++;
+        }
+
+        return index;
+    }
+
+    public static int findVal (int[] indexParam, int find){
+        int i = 0;
+        while (i < indexParam.length && indexParam[i] != find ){
+            i++;
+        }
+        return i;
     }
 
     public static void printCramer(double[] ans) {
