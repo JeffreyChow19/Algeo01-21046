@@ -14,10 +14,10 @@ import codes.methods.submethods.menuCheck;
 import codes.ADT.Matrix;
 import codes.ADT.Param;
 
-public class inputSPL {
+public class inputSPL extends printMtrxConsole {
     public static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main() {
         int choice = chooseMethods();
 
         Matrix matrix = createMtrx.main(false);
@@ -72,30 +72,30 @@ public class inputSPL {
     public static void printGauss(Matrix m) {
         int status = SPLCheck.main(m);
 
-        System.out.println();
+        print("\n");
         if (status == 0) {
             /* Solusi Unik */
 
-            System.out.println("SPL memiliki solusi unik");
+            println("SPL memiliki solusi unik");
 
             double[] unik = uniqueCase(m);
         
             // printMtrx.main(m);
+            printMtrx.main(unik);
+            // try {
+            //     // Need to create input filename for pathname
+            //     printMtrxFile.printMatrix(unik);
+            // } catch (IOException ex) {
+            //     System.out.println("Error: "+ex);
+            // }
 
-            try {
-                // Need to create input filename for pathname
-                printMtrxFile.printMatrix(unik, "output_1.txt");
-            } catch (IOException ex) {
-                System.out.println("Error: "+ex);
-            }
-
-            for (int i = 0; i < unik.length; i++) {
-                System.out.printf("x%d = %.2f\n", i + 1, unik[i]);
-            }
+            // for (int i = 0; i < unik.length; i++) {
+            //     System.out.printf("x%d = %.2f\n", i + 1, unik[i]);
+            // }
 
         } else if (status == 1) {
             /* Solusi Banyak */
-            System.out.println("SPL memiliki banyak solusi");
+            println("SPL memiliki banyak solusi");
             double[] banyak = infiniteCase(m);
 
             for (int i = 0; i < banyak.length; i++) {
@@ -104,7 +104,7 @@ public class inputSPL {
 
         } else {
             /* Tidak ada solusi */
-            System.out.println("Tidak ada nilai x yang memenuhi persamaan SPL.");
+            println("Tidak ada nilai x yang memenuhi persamaan SPL.");
         }
     }
 
@@ -190,10 +190,7 @@ public class inputSPL {
     }
 
     public static void printCramer(double[] ans) {
-        System.out.println("\nx value :");
-        for (int i = 0; i < ans.length; i++) {
-            System.out.printf("x%d  = %.2f\n", i + 1, ans[i]);
-        }
+        printMtrx.main(ans);
     }
 
     public static double[] processInv (Matrix m){

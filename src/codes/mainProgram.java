@@ -27,21 +27,21 @@ public class mainProgram extends printMtrxConsole {
 
             switch (choice) {
                 case 1:
-                    inputSPL.main(args);
+                    inputSPL.main();
                     break;
                 case 2:
-                    inputDeterminan.main(args);
+                    inputDeterminan.main();
                     break;
                 case 3:
-                    inputInvers.main(args);
+                    inputInvers.main();
                     break;
                 case 4:
-                    inputPolynom.main(args);
+                    inputPolynom.main();
                     break;
                 case 5:
                     break;
                 case 6:
-                    RegresiLinierBerganda.main(args);
+                    RegresiLinierBerganda.main();
                     break;
                 case 7:
                     running = false;

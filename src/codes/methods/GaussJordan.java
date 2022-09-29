@@ -1,7 +1,5 @@
 package codes.methods;
 import codes.ADT.Matrix;
-import codes.ADT.constructors.printMtrxConsole;
-// import codes.methods.Gauss;
 import codes.ADT.primitives.CheckNeg0;
 
 public class GaussJordan {
@@ -19,7 +17,7 @@ public class GaussJordan {
                     while (!condition){
                         if(c< m.cols-1 && temp.Mtrx[i][c]==0){
                             c++;
-                        }else if(c< m.cols-1 &&temp.Mtrx[i][c]!=0){
+                        }else if(c< m.cols-1 && temp.Mtrx[i][c]!=0){
                             factor = temp.Mtrx[j][c]/temp.Mtrx[i][c];
                             condition = true;
                         }else{
@@ -35,8 +33,6 @@ public class GaussJordan {
                 if(!isEmptyRow){
                     for(int k= m.cols-1; k>=0; k--){
                         temp.Mtrx[j][k] -= (temp.Mtrx[i][k]*factor);
-                        // printMtrxConsole.printMatrix(temp);
-                        // System.out.println();
                     }
                 }
             }
@@ -45,7 +41,6 @@ public class GaussJordan {
             int c = i;
             double factor = 0;
             if(temp.Mtrx[i][c]!=1 && temp.Mtrx[i][c]==0){
-                // double factor=0;
                 if(temp.Mtrx[i][c]==0){
                     boolean condition= false;
                     while(!condition){
@@ -65,17 +60,8 @@ public class GaussJordan {
                 }
                 for(int j =c; j<m.cols; j++){
                     temp.Mtrx[i][j] /= factor;
-                    // printMtrxConsole.printMatrix(temp);
-                    // System.out.println();
                 }  
         }
-        // for(int i =0; i<m.rows; i++){
-        //     for(int j =0; j<m.cols; j++){
-        //         if(temp.Mtrx[i][j]==(-0)){
-        //             temp.Mtrx[i][j]= 0;
-        //         }
-        //     }
-        // }
         Matrix gauss_j_mtrx = new Matrix(m.rows, m.cols);
         gauss_j_mtrx = CheckNeg0.check(temp);
         return gauss_j_mtrx;

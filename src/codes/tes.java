@@ -11,6 +11,6 @@ import codes.ADT.Param;
 
 public class tes {
     public static void main(String[] args) {
-        RegresiLinierBerganda.main(args);
+        RegresiLinierBerganda.main();
     }
 }

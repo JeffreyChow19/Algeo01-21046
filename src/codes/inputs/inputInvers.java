@@ -7,7 +7,7 @@ import codes.methods.InverseGaussJordan;
 import codes.methods.submethods.menuCheck;
 
 public class inputInvers extends inputDeterminan{
-    public static void main(String[] args) {
+    public static void main() {
         int choice = chooseMethods();
 
         Matrix matrix = createMtrx.main(true);

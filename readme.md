@@ -14,8 +14,8 @@ Total Quest :
 Menu 1 : SPL
     - Gauss ✓
     - Gauss-Jordan ✓
-    - Matriks balikkan
-    - Kaidah Cramer
+    - Matriks balikkan ✓
+    - Kaidah Cramer ✓
     
 Menu 2 : Determinant
     - Gauss ✓
@@ -30,3 +30,9 @@ Menu 4 : Interpolasi Polinom
 Menu 5 : Interpolasi Bicubic
 
 Menu 6 : Regresi Linier Berganda
+
+
+Quest Self : 
+1. Fix Inverse Gauss-Jordan
+2. Create Output File ✓
+3. Rename files -> test & output masukkan dalam test (ubah pathname) ✓

@@ -8,7 +8,7 @@ import codes.methods.submethods.menuCheck;
 
 public class inputDeterminan extends printMtrxConsole {
     public static Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args) {
+    public static void main() {
         int choice = chooseMethods();
 
         Matrix matrix = createMtrx.main(true);
@@ -35,14 +35,15 @@ public class inputDeterminan extends printMtrxConsole {
 
     public static void processMethods(int choice, Matrix m){
         double ans;
+        String args = "Determinan";
         switch (choice) {
             case 1:
                 ans = determinant.detGauss(m,true);
-                System.out.printf("Determinan : %.2f\n", ans);
+                printMtrx.main(args, ans);
                 break;
             case 2:
                 ans = determinant.detCofactor(m, m.rows, true);
-                System.out.printf("Determinan : %.2f\n", ans);
+                printMtrx.main(args, ans);
                 break;
             case 3:
                 break;
