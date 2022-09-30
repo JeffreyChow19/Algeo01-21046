@@ -28,6 +28,41 @@ public class printMtrxConsole {
         printf(args + " : %.5f ", x);
     }
 
+    public static void printParam(Param[] args) {
+        for (int i = 0; i < ans.length; i++) {
+            boolean before = false;
+            
+            System.out.printf("X%d = ", i + 1);
+
+            if (ans[i].val != 0){
+                System.out.printf("%.2f", ans[i].val);
+                before = true;
+            }
+
+            for (int j = 0; j < ans[i].params.length; j++){
+                if (ans[i].valPar[j] != 0 ) {
+                    if (before && ans[i].valPar[j]>=0){
+                        print(" + ");
+                    } else {
+                        print(" ");
+                    }
+
+                    if (ans[i].valPar[j] != 1){
+                        System.out.printf("%.2f%s", ans[i].valPar[j], ans[i].params[j]);  
+                    } else {
+                        System.out.printf("%s", ans[i].params[j]);
+                    }
+
+                    before = true;
+                }
+
+                if (j == ans[i].params.length - 1) {
+                    print("\n");
+                }
+            }
+        }
+    }
+
     public static void printFx(double[] ans, double result, double x, String args) {
         print("f(x) = ");
         for (int i = ans.length - 1; i >= 0; i--) {
