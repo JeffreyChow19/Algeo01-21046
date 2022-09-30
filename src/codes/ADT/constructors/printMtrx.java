@@ -92,7 +92,7 @@ public class printMtrx extends printMtrxConsole {
             print("\nOutput file name: ");
             String pathname = scanner.nextLine();
             try {
-                printMtrxFile.printParam(ans);
+                printMtrxFile.printParam(ans, pathname);
             } catch (IOException ex) {
                 println("No such files.");
             }

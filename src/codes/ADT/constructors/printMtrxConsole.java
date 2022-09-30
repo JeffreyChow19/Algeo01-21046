@@ -29,35 +29,35 @@ public class printMtrxConsole {
         printf(args + " : %.5f ", x);
     }
 
-    public static void printParam(Param[] ans) {
-        for (int i = 0; i < ans.length; i++) {
+    public static void printParam(Param[] args) {
+        for (int i = 0; i < args.length; i++) {
             boolean before = false;
             
             System.out.printf("X%d = ", i + 1);
 
-            if (ans[i].val != 0){
-                System.out.printf("%.2f", ans[i].val);
+            if (args[i].val != 0){
+                System.out.printf("%.2f", args[i].val);
                 before = true;
             }
 
-            for (int j = 0; j < ans[i].params.length; j++){
-                if (ans[i].valPar[j] != 0 ) {
-                    if (before && ans[i].valPar[j]>=0){
+            for (int j = 0; j < args[i].params.length; j++){
+                if (args[i].valPar[j] != 0 ) {
+                    if (before && args[i].valPar[j]>=0){
                         print(" + ");
                     } else {
                         print(" ");
                     }
 
-                    if (ans[i].valPar[j] != 1){
-                        System.out.printf("%.2f%s", ans[i].valPar[j], ans[i].params[j]);  
+                    if (args[i].valPar[j] != 1){
+                        System.out.printf("%.2f%s", args[i].valPar[j], args[i].params[j]);  
                     } else {
-                        System.out.printf("%s", ans[i].params[j]);
+                        System.out.printf("%s", args[i].params[j]);
                     }
 
                     before = true;
                 }
 
-                if (j == ans[i].params.length - 1) {
+                if (j == args[i].params.length - 1) {
                     print("\n");
                 }
             }
