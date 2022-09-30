@@ -29,9 +29,9 @@ public class printMtrxFile{
         String content = "";
         for(int i = 0; i < x.length; i++){
             if(i < x.length - 1){
-                content = content.concat("x"+(i+1)+" : "+Double.toString(x[i]) + "\n");
+                content = content.concat("X"+(i+1)+" : "+Double.toString(x[i]) + "\n");
             } else {
-                content = content.concat("x"+(i+1)+" : "+Double.toString(x[i]));
+                content = content.concat("X"+(i+1)+" : "+Double.toString(x[i]));
             }
         }
         // content = Array of string
@@ -55,22 +55,22 @@ public class printMtrxFile{
             String current_power = i + "";
             if (ans[i] >= 0) {
                 if (i == ans.length - 1) {
-                    content = content.concat(ans[i] + "x" + current_power + "");
+                    content = content.concat(ans[i] + "X" + current_power + "");
                 } else {
                     if (i == 0) {
                         content = content.concat("+" + ans[i]);
                     } else {
-                        content = content.concat("+" + ans[i] + "x" + current_power + "");
+                        content = content.concat("+" + ans[i] + "X" + current_power + "");
                     }
                 }
             } else {
                 if (i == ans.length - 1) {
-                    content = content.concat(ans[i] + "x" + current_power + "");
+                    content = content.concat(ans[i] + "X" + current_power + "");
                 } else {
                     if (i == 0) {
                         content = content.concat("" + ans[i]);
                     } else {
-                        content = content.concat(ans[i] + "x" + current_power + "");
+                        content = content.concat(ans[i] + "X" + current_power + "");
                     }
                 }
             }

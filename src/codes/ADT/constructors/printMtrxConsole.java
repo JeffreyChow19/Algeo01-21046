@@ -20,7 +20,7 @@ public class printMtrxConsole {
 
     public static void printMatrix(double[] x) {
         for (int i = 0; i < x.length; i++) {
-            println("x" + (i + 1) + " : " + x[i] + "\n");
+            println("X" + (i + 1) + " : " + x[i] + "\n");
         }
     }
 
@@ -34,22 +34,22 @@ public class printMtrxConsole {
             String current_power = i + "";
             if (ans[i] >= 0) {
                 if (i == ans.length - 1) {
-                    printf("%.5f" + "x" + current_power + "", ans[i]);
+                    printf("%.5f" + "X" + current_power + "", ans[i]);
                 } else {
                     if (i == 0) {
                         printf("+%.5f", ans[i]);
                     } else {
-                        printf("+%.5f" + "x" + current_power + "", ans[i]);
+                        printf("+%.5f" + "X" + current_power + "", ans[i]);
                     }
                 }
             } else {
                 if (i == ans.length - 1) {
-                    printf("%.5f" + "x" + current_power + "", ans[i]);
+                    printf("%.5f" + "X" + current_power + "", ans[i]);
                 } else {
                     if (i == 0) {
                         printf("%.5f", ans[i]);
                     } else {
-                        printf("%.5f" + "x" + current_power + "", ans[i]);
+                        printf("%.5f" + "X" + current_power + "", ans[i]);
                     }
                 }
             }
