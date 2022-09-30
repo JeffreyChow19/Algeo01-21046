@@ -85,6 +85,16 @@ public class printMtrxFile{
         writer.close();
     }
 
+    public static void printParam(Param[] args) {
+
+        String content = "";
+
+        
+        FileWriter writer = new FileWriter(base + pathname);
+        writer.write(content);
+        writer.close();   
+    }
+
     public static void print(String str){
         System.out.print(str);
     }

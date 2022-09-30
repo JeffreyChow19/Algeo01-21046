@@ -2,7 +2,7 @@ package codes.ADT.constructors;
 
 import java.util.Scanner;
 import java.io.IOException;
-import codes.ADT.Matrix;
+import codes.ADT.*;
 import codes.methods.submethods.menuCheck;
 
 public class printMtrx extends printMtrxConsole {
@@ -70,6 +70,29 @@ public class printMtrx extends printMtrxConsole {
             String pathname = scanner.nextLine();
             try {
                 printMtrxFile.printLine(args, ans, pathname);
+            } catch (IOException ex) {
+                println("No such files.");
+            }
+        }
+    }
+
+    public static void main(Param[] ans) {
+        println("Output Types:");
+
+        String[] methods = {
+                "Console",
+                "File txt"
+        };
+
+        int inputType = menuCheck.main(1, 2, methods);
+
+        if (inputType == 1) {
+            printMtrxConsole.printParam(ans);
+        } else {
+            print("\nOutput file name: ");
+            String pathname = scanner.nextLine();
+            try {
+                printMtrxFile.printParam(ans);
             } catch (IOException ex) {
                 println("No such files.");
             }

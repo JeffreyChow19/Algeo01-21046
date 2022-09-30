@@ -81,54 +81,14 @@ public class inputSPL extends printMtrxConsole {
         
             // printMtrx.main(m);
             printMtrx.main(unik);
-            // try {
-            //     // Need to create input filename for pathname
-            //     printMtrxFile.printMatrix(unik);
-            // } catch (IOException ex) {
-            //     System.out.println("Error: "+ex);
-            // }
-
-            // for (int i = 0; i < unik.length; i++) {
-            //     System.out.printf("x%d = %.2f\n", i + 1, unik[i]);
-            // }
-
+            
         } else if (status == 1) {
             /* Solusi Banyak */
             System.out.println("SPL memiliki banyak solusi");
             Param[] ans = infiniteCase(m);
 
-            for (int i = 0; i < ans.length; i++) {
-                boolean before = false;
-                
-                System.out.printf("x%d = ", i + 1);
+            printMtrx.main(ans);
 
-                if (ans[i].val != 0){
-                    System.out.printf("%.2f", ans[i].val);
-                    before = true;
-                }
-
-                for (int j = 0; j < ans[i].params.length; j++){
-                    if (ans[i].valPar[j] != 0 ) {
-                        if (before && ans[i].valPar[j]>=0){
-                            System.out.printf(" + ");
-                        } else {
-                            System.out.printf(" ");
-                        }
-
-                        if (ans[i].valPar[j] != 1){
-                            System.out.printf("%.2f%s", ans[i].valPar[j], ans[i].params[j]);  
-                        } else {
-                            System.out.printf("%s", ans[i].params[j]);
-                        }
-
-                        before = true;
-                    }
-
-                    if (j == ans[i].params.length - 1) {
-                        System.out.printf("\n");
-                    }
-                }
-            }
 
         } else {
             /* Tidak ada solusi */
