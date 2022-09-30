@@ -16,11 +16,6 @@ import codes.ADT.Param;
 
 public class tes {
     public static void main(String[] args) {
-        Matrix m = createMtrx.main(false);
-        // printMtrxConsole.printMatrix(m);
-        System.out.println();
-        
-        inputSPL.infiniteCase(Gauss.gauss(m));
-        // printMtrxConsole.printMatrix(ans);
+        RegresiLinierBerganda.main();
     }
 }

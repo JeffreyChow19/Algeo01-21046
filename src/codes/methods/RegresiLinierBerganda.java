@@ -1,12 +1,13 @@
 package codes.methods;
 
 import codes.ADT.constructors.createMtrx;
+import codes.ADT.constructors.printMtrx;
 import codes.ADT.primitives.CheckNeg0;
 import codes.inputs.inputSPL;
 import codes.ADT.Matrix;
 
 public class RegresiLinierBerganda {
-    public static void main(String[] args) {
+    public static void main() {
         Matrix m = createMtrx.main(false);
 
         Matrix ans = new Matrix(m.cols, m.cols+1);
@@ -31,15 +32,16 @@ public class RegresiLinierBerganda {
 
         double[] result = inputSPL.uniqueCase(ans);
         result = CheckNeg0.check(result);
-
-        System.out.printf("f(x) =");
-        for (int i=0; i < result.length; i++){
-            System.out.printf(" %f b%d ", result[i], i);
-            if (i != result.length-1){
-                System.out.printf("+");
-            } else {
-                System.out.println();
-            }
-        }
+        String args = "no_args";
+        printMtrx.main(result, 0.0, 0.0, args);
+        // System.out.printf("f(x) =");
+        // for (int i=0; i < result.length; i++){
+        //     System.out.printf(" %f b%d ", result[i], i);
+        //     if (i != result.length-1){
+        //         System.out.printf("+");
+        //     } else {
+        //         System.out.println();
+        //     }
+        
     }
 }

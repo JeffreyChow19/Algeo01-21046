@@ -2,11 +2,13 @@ package codes.ADT.constructors;
 
 import java.io.*;
 import java.io.IOException;
+import java.util.Scanner;
 
 import codes.ADT.Matrix;
 
 public class printMtrxFile{
-    public static String base = "../output/";
+    private static String base = "../test/output/";
+    public static Scanner in = new Scanner(System.in);
     public static void printMatrix(Matrix m, String pathname) throws IOException{
         String content = "";
         for(int i = 0; i < m.rows; i++){
@@ -22,21 +24,68 @@ public class printMtrxFile{
         FileWriter writer = new FileWriter(base + pathname);
         writer.write(content);
         writer.close();
-        // System.out.println("Success");
     }
     public static void printMatrix(double[] x, String pathname) throws IOException{
         String content = "";
         for(int i = 0; i < x.length; i++){
             if(i < x.length - 1){
-                content = content.concat("x"+(i+1)+": "+Double.toString(x[i]) + "\n");
+                content = content.concat("X"+(i+1)+" : "+Double.toString(x[i]) + "\n");
             } else {
-                content = content.concat("x"+(i+1)+": "+Double.toString(x[i]));
+                content = content.concat("X"+(i+1)+" : "+Double.toString(x[i]));
             }
         }
-        // content = Matrix of string
+        // content = Array of string
         FileWriter writer = new FileWriter(base + pathname);
         writer.write(content);
         writer.close();
-        // System.out.println("Success");
+    }
+
+    public static void printLine(String args , double data, String pathname) throws IOException{
+        String content = "";
+        content = content.concat(args+" : "+ data);
+        // content = string
+        FileWriter writer = new FileWriter(base + pathname);
+        writer.write(content);
+        writer.close();
+    }
+
+    public static void printFx(String pathname, double[] ans, double result, double x, String args) throws IOException{
+        String content = "f(x) = ";
+        for (int i = ans.length - 1; i >= 0; i--) {
+            String current_power = i + "";
+            if (ans[i] >= 0) {
+                if (i == ans.length - 1) {
+                    content = content.concat(ans[i] + "X" + current_power + "");
+                } else {
+                    if (i == 0) {
+                        content = content.concat("+" + ans[i]);
+                    } else {
+                        content = content.concat("+" + ans[i] + "X" + current_power + "");
+                    }
+                }
+            } else {
+                if (i == ans.length - 1) {
+                    content = content.concat(ans[i] + "X" + current_power + "");
+                } else {
+                    if (i == 0) {
+                        content = content.concat("" + ans[i]);
+                    } else {
+                        content = content.concat(ans[i] + "X" + current_power + "");
+                    }
+                }
+            }
+        }
+        content = content.concat("\n");
+        if (args != "no_args"){
+            content = content.concat(args + " : " + result);
+        }
+
+        FileWriter writer = new FileWriter(base + pathname);
+        writer.write(content);
+        writer.close();
+    }
+
+    public static void print(String str){
+        System.out.print(str);
     }
 }

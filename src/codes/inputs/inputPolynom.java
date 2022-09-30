@@ -6,10 +6,11 @@ import codes.methods.submethods.*;
 import codes.ADT.*;
 import codes.ADT.constructors.*;
 import java.io.IOException;
+import codes.mainProgram;
 
 public class inputPolynom extends printMtrxConsole {
     private static double result;
-    public static void main(String[] args) {
+    public static void main() {
         Matrix matrix;
         double[] ans;
         matrix = main(false);
@@ -23,46 +24,10 @@ public class inputPolynom extends printMtrxConsole {
         } 
         else {
             result = InterpolasiPolinom.polynom(ans, matrix.polynom_x);
-            print("f(x) = ");
-            for (int i = ans.length - 1; i >= 0; i--){
-                String current_power = i+"";
-                if (ans[i] >= 0){
-                if (i == ans.length - 1){
-                    if (i == 1){
-                        current_power = "";
-                    }
-                    printf("%.5f"+"x"+current_power+"",ans[i]);
-                } else {
-                    if (i == 1){
-                        printf("+%.5f"+"x", ans[i]);
-                    }
-                    else if (i == 0){
-                        printf("+%.5f", ans[i]);
-                    } else {
-                    printf("+%.5f"+"x"+current_power+"", ans[i]);
-                    }
-                }
-                } else {
-                    if (i == ans.length - 1){
-                        if (i == 1){
-                            current_power = "";
-                        }
-                        printf("%.5f"+"x"+current_power+"",ans[i]);
-                    } else {
-                        if (i == 1){
-                            printf("%.5f"+"x", ans[i]);
-                        }
-                        else if (i == 0){
-                            printf("%.5f", ans[i]);
-                        } else {
-                        printf("%.5f"+"x"+current_power+"", ans[i]);
-                        }
-                    }
-                }
-            }
+            String args = "Hasil Interpolasi di x = "+matrix.polynom_x+" adalah";
+            printMtrx.main(ans, result, matrix.polynom_x, args);
         }
-        print("\n");
-        printf("Hasil Interpolasi di x = "+matrix.polynom_x+" adalah: %.5f", result);
+        
     }
 
     public static Matrix main(boolean square){
@@ -100,7 +65,7 @@ public class inputPolynom extends printMtrxConsole {
                 // Get Matrix from txt
                 print("File name: ");
                 String pathname = in.nextLine();
-                String base = "../files/";
+                String base = "../test/";
                 m = createMtrxFile.createMatrix(base + pathname);
                 print("Input nilai x untuk taksiran: ");
                 x = in.nextDouble();
@@ -109,6 +74,12 @@ public class inputPolynom extends printMtrxConsole {
                 return m;
             } catch (IOException ex) {
                 println("File not found!");
+                println("\nPress enter key to continue");
+                try {
+                    System.in.read();
+                } catch (Exception e) {}
+                String[] args = {""};
+                mainProgram.main(args);
                 return null;
             }
         }

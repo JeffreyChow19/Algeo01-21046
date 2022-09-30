@@ -20,7 +20,7 @@ public class printMtrx extends printMtrxConsole {
         if (inputType == 1){
             printMtrxConsole.printMatrix(matrix);
         } else {
-            println("Output file name: ");
+            print("\nOutput file name: ");
             String pathname = scanner.nextLine();
             try {
                 printMtrxFile.printMatrix(matrix, pathname);
@@ -47,6 +47,52 @@ public class printMtrx extends printMtrxConsole {
             String pathname = scanner.nextLine();
             try {
                 printMtrxFile.printMatrix(ans, pathname);
+            } catch (IOException ex) {
+                println("No such files.");
+            }
+        }
+    }
+
+    public static void main(String args, double ans) {
+        println("Output Types:");
+
+        String[] methods = {
+                "Console",
+                "File txt"
+        };
+
+        int inputType = menuCheck.main(1, 2, methods);
+
+        if (inputType == 1) {
+            printMtrxConsole.printLine(args, ans);
+        } else {
+            print("\nOutput file name: ");
+            String pathname = scanner.nextLine();
+            try {
+                printMtrxFile.printLine(args, ans, pathname);
+            } catch (IOException ex) {
+                println("No such files.");
+            }
+        }
+    }
+
+    public static void main(double[] ans, double result, double x, String args) {
+        println("Output Types:");
+
+        String[] methods = {
+                "Console",
+                "File txt"
+        };
+
+        int inputType = menuCheck.main(1, 2, methods);
+
+        if (inputType == 1) {
+            printMtrxConsole.printFx(ans, result, x, args);
+        } else {
+            print("\nOutput file name: ");
+            String pathname = scanner.nextLine();
+            try {
+                printMtrxFile.printFx(pathname, ans, result, x, args);
             } catch (IOException ex) {
                 println("No such files.");
             }
