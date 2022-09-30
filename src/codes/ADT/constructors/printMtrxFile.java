@@ -4,7 +4,7 @@ import java.io.*;
 import java.io.IOException;
 import java.util.Scanner;
 
-import codes.ADT.Matrix;
+import codes.ADT.*;
 
 public class printMtrxFile{
     private static String base = "../test/output/";
@@ -85,14 +85,14 @@ public class printMtrxFile{
         writer.close();
     }
 
-    public static void printParam(Param[] args) {
+    public static void printParam(Param[] args) throws IOException {
 
         String content = "";
 
-        
-        FileWriter writer = new FileWriter(base + pathname);
-        writer.write(content);
-        writer.close();   
+
+        // FileWriter writer = new FileWriter(base + pathname);
+        // writer.write(content);
+        // writer.close();   
     }
 
     public static void print(String str){

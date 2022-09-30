@@ -1,6 +1,7 @@
 package codes.ADT.constructors;
 
 import codes.ADT.Matrix;
+import codes.ADT.Param;
 
 
 public class printMtrxConsole {
@@ -28,7 +29,7 @@ public class printMtrxConsole {
         printf(args + " : %.5f ", x);
     }
 
-    public static void printParam(Param[] args) {
+    public static void printParam(Param[] ans) {
         for (int i = 0; i < ans.length; i++) {
             boolean before = false;
             

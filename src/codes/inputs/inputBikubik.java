@@ -1,8 +1,9 @@
 package codes.inputs;
+
 import codes.ADT.*;
 import java.util.Scanner;
 import codes.methods.*;
-import codes.methods.submethods.menuCheck;
+import codes.methods.submethods.*;
 import codes.ADT.constructors.*;
 import java.io.IOException;
 import codes.mainProgram;
@@ -29,9 +30,10 @@ public class inputBikubik {
             System.out.println("Input function arguments");
             System.out.print("x = ");
             double indeks1 = scanner.nextDouble();
+            scanner.nextLine();
             System.out.print("y = ");
             double indeks2 = scanner.nextDouble();
-            scanner.close();
+            scanner.nextLine();
             InterpolasiBicubic.bikubik(matrix, indeks1, indeks2);
         }else{
             try {
@@ -45,18 +47,22 @@ public class inputBikubik {
                 System.out.println("Input function arguments");
                 System.out.print("x = ");
                 double indeks1 = scanner.nextDouble();
+                scanner.nextLine();
                 System.out.print("y = ");
                 double indeks2 = scanner.nextDouble();
-                scanner.close();
+                scanner.nextLine();
                 InterpolasiBicubic.bikubik(matrix, indeks1, indeks2);
+                String args = "";
+                double ans;
+                printMtrx.printLine(args, ans);
             } catch (IOException ex) {
-                // System.out.println("File not found!");
-                // System.out.println("\nPress enter key to continue");
-                // try {
-                //     System.in.read();
-                // } catch (Exception e) {}
-                // String[] args = {""};
-                // mainProgram.main(args);
+                System.out.println("File not found!");
+                System.out.println("\nPress enter key to continue");
+                try {
+                    System.in.read();
+                } catch (Exception e) {}
+                String[] args = {""};
+                mainProgram.main(args);
             }
         }
     }

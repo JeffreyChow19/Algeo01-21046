@@ -39,6 +39,7 @@ public class mainProgram extends printMtrxConsole {
                     inputPolynom.main();
                     break;
                 case 5:
+                    inputBikubik.main();
                     break;
                 case 6:
                     RegresiLinierBerganda.main();

@@ -23,13 +23,6 @@ public class InterpolasiBicubic {
                 c = 0;
             }
         }
-        // for(int i=0; i< rows; i++){
-            //     for(int j= 0; j<cols; j++){
-                //         System.out.printf("%.3f ", matrix_xy.Mtrx[i][j]);
-        //     }
-        //     System.out.println();
-        // }
-        // printMtrxConsole.printMatrix(matrix_xy);
         double [] matrix_y = new double[rows];
         int row_y = 0;
         for(int i=0; i< matrix.rows; i++){
@@ -38,32 +31,6 @@ public class InterpolasiBicubic {
                 row_y++;
             }   
         }
-        // for(int i= 0; i< rows; i++){
-        //     System.out.printf("%.2f\n", matrix_y);
-        // }
-        // Matrix invers_matrix_xy = new Matrix(rows, cols);
-        // // for(int i= 0; i< rows; i++){
-        // //     for(int j =0; j<cols; j++){
-        // //         invers_matrix_xy.Mtrx[i][j] = (InverseCofactor.inverse(matrix_xy)).Mtrx[i][j];
-        // //     }
-        // // }
-        // invers_matrix_xy = InverseCofactor.inverse(matrix_xy);
-        // for(int i=0; i< rows; i++){
-        //     for(int j= 0; j<cols; j++){
-        //         System.out.printf("%.2f ", invers_matrix_xy.Mtrx[i][j]);
-        //     }
-        //     System.out.println();
-        // }
-        // invers_matrix_xy = InverseGaussJordan.inverse(matrix_xy);
-        // printMtrxConsole.printMatrix(invers_matrix_xy);
-        // for(int i=0; i< rows; i++){
-        //     for(int j= 0; j<cols; j++){
-        //         System.out.printf("%.2f ", invers_matrix_xy.Mtrx[i][j]);
-        //     }
-        // }
-        // for(int i= 0; i<rows; i++){
-        //     System.out.printf("%d\n", matrix_y[i]);
-        // }
         Matrix matrix_gauss = new Matrix(rows, cols+1);
         for(int i =0; i< rows; i++){
             for(int j=0; j< cols; j++){
@@ -86,10 +53,7 @@ public class InterpolasiBicubic {
                 k++;
             }
         }
-        // for(int i=0; i<rows; i++){
-        //     System.out.printf("%.2f\n", matrix_a[i]);
-        // }
-        // printMtrxConsole.printMatrix(matrix_a);
+
         double result=0;
         for(int i=0; i<=3; i++){
             for(int j=0; j<=3; j++){
