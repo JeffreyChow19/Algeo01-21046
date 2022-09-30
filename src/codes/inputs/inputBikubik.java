@@ -35,7 +35,8 @@ public class inputBikubik {
             double indeks2 = scanner.nextDouble();
             scanner.nextLine();
             double ans = InterpolasiBicubic.bikubik(matrix, indeks1, indeks2);
-            System.out.printf("f(%.2f, %.2f) = %.2f\n", indeks1, indeks2, ans);
+            String args = "f("+indeks1+","+indeks2+") = ";
+            printMtrx.main(args, ans);
         }else{
             try {
                 // Get Matrix from txt
