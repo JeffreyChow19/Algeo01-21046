@@ -34,7 +34,8 @@ public class inputBikubik {
             System.out.print("y = ");
             double indeks2 = scanner.nextDouble();
             scanner.nextLine();
-            InterpolasiBicubic.bikubik(matrix, indeks1, indeks2);
+            double ans = InterpolasiBicubic.bikubik(matrix, indeks1, indeks2);
+            System.out.printf("f(%.2f, %.2f) = %.2f\n", indeks1, indeks2, ans);
         }else{
             try {
                 // Get Matrix from txt
@@ -51,10 +52,9 @@ public class inputBikubik {
                 System.out.print("y = ");
                 double indeks2 = scanner.nextDouble();
                 scanner.nextLine();
-                InterpolasiBicubic.bikubik(matrix, indeks1, indeks2);
-                String args = "";
-                double ans;
-                printMtrx.printLine(args, ans);
+                String args = "f("+indeks1+","+indeks2+") = ";
+                double ans = InterpolasiBicubic.bikubik(matrix, indeks1, indeks2);
+                printMtrx.main(args, ans);
             } catch (IOException ex) {
                 System.out.println("File not found!");
                 System.out.println("\nPress enter key to continue");
