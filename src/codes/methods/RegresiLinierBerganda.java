@@ -18,18 +18,36 @@ public class RegresiLinierBerganda {
 
                 for (int i = 0; i < m.rows; i++){
                     
-                    if (b==ans.cols-1){
-                        ans.Mtrx[a][b] += m.Mtrx[i][a] * m.Mtrx[i][0];
-                    } else if (b==0){
-                        ans.Mtrx[a][b] += m.Mtrx[i][a];
+                    if (a==0){
+
+                        if (b == ans.cols - 1) {
+                            ans.Mtrx[a][b] += m.Mtrx[i][0];
+                        } else if (b == 0) {
+                            ans.Mtrx[a][b]++;
+                        } else {
+                            ans.Mtrx[a][b] += m.Mtrx[i][b];
+                        }
+
                     } else {
-                        ans.Mtrx[a][b] += m.Mtrx[i][a] * m.Mtrx[i][b];
+
+                        if (b==ans.cols-1){
+                            ans.Mtrx[a][b] += m.Mtrx[i][a] * m.Mtrx[i][0];
+                        } else if (b==0){
+                            ans.Mtrx[a][b] += m.Mtrx[i][a];
+                        } else {
+                            ans.Mtrx[a][b] += m.Mtrx[i][a] * m.Mtrx[i][b];
+                        }
+
                     }
 
                 }
-            }
-        }
 
+                System.out.println(ans.Mtrx[a][b]);
+            }
+            System.out.println();
+        }
+        
+        ans = Gauss.gauss(ans);
         double[] result = inputSPL.uniqueCase(ans);
         result = CheckNeg0.check(result);
         String args = "no_args";
