@@ -1,8 +1,9 @@
 package codes.inputs;
+
 import codes.ADT.*;
 import java.util.Scanner;
 import codes.methods.*;
-import codes.methods.submethods.menuCheck;
+import codes.methods.submethods.*;
 import codes.ADT.constructors.*;
 import java.io.IOException;
 import codes.mainProgram;
@@ -29,10 +30,13 @@ public class inputBikubik {
             System.out.println("Input function arguments");
             System.out.print("x = ");
             double indeks1 = scanner.nextDouble();
+            scanner.nextLine();
             System.out.print("y = ");
             double indeks2 = scanner.nextDouble();
-            scanner.close();
-            InterpolasiBicubic.bikubik(matrix, indeks1, indeks2);
+            scanner.nextLine();
+            double ans = InterpolasiBicubic.bikubik(matrix, indeks1, indeks2);
+            String args = "f("+indeks1+","+indeks2+") = ";
+            printMtrx.main(args, ans);
         }else{
             try {
                 // Get Matrix from txt
@@ -45,18 +49,21 @@ public class inputBikubik {
                 System.out.println("Input function arguments");
                 System.out.print("x = ");
                 double indeks1 = scanner.nextDouble();
+                scanner.nextLine();
                 System.out.print("y = ");
                 double indeks2 = scanner.nextDouble();
-                scanner.close();
-                InterpolasiBicubic.bikubik(matrix, indeks1, indeks2);
+                scanner.nextLine();
+                String args = "f("+indeks1+","+indeks2+") = ";
+                double ans = InterpolasiBicubic.bikubik(matrix, indeks1, indeks2);
+                printMtrx.main(args, ans);
             } catch (IOException ex) {
-                // System.out.println("File not found!");
-                // System.out.println("\nPress enter key to continue");
-                // try {
-                //     System.in.read();
-                // } catch (Exception e) {}
-                // String[] args = {""};
-                // mainProgram.main(args);
+                System.out.println("File not found!");
+                System.out.println("\nPress enter key to continue");
+                try {
+                    System.in.read();
+                } catch (Exception e) {}
+                String[] args = {""};
+                mainProgram.main(args);
             }
         }
     }
