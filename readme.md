@@ -8,9 +8,11 @@ How to compile:
 Note : All class files will be inside the bin folder.
 
 Workflow docs : https://docs.google.com/document/d/1Cm4e3OA9VOaouzi5f2dPRo0dHm0Ew1dOLPS9oBCuAYk/edit
+====================================================================================================
 
-
-Total Quest : 
++++++++++++++
+Total Quest :
++++++++++++++
 Menu 1 : SPL
     - Gauss ✓
     - Gauss-Jordan ✓
@@ -25,14 +27,9 @@ Menu 3 : Matriks balikkan
     - Gauss-Jordan ✓
     - Cofactor ✓
     
-Menu 4 : Interpolasi Polinom
+Menu 4 : Interpolasi Polinom ✓
 
-Menu 5 : Interpolasi Bicubic
+Menu 5 : Interpolasi Bicubic 
 
 Menu 6 : Regresi Linier Berganda
 
-
-Quest Self : 
-1. Fix Inverse Gauss-Jordan
-2. Create Output File ✓
-3. Rename files -> test & output masukkan dalam test (ubah pathname) ✓
