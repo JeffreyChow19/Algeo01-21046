@@ -85,14 +85,43 @@ public class printMtrxFile{
         writer.close();
     }
 
-    public static void printParam(Param[] args) throws IOException {
-
+    public static void printParam(Param[] args, String pathname) throws IOException {
         String content = "";
+        for (int i = 0; i < args.length; i++) {
+            boolean before = false;
 
+            content = content.concat("X"+(i + 1)+" = ");
 
-        // FileWriter writer = new FileWriter(base + pathname);
-        // writer.write(content);
-        // writer.close();   
+            if (args[i].val != 0){
+                content = content.concat("" + args[i].val);
+                before = true;
+            }
+
+            for (int j = 0; j < args[i].params.length; j++){
+                if (args[i].valPar[j] != 0 ) {
+                    if (before && args[i].valPar[j]>=0){
+                        content = content.concat(" + ");
+                    } else {
+                        content = content.concat(" ");
+                    }
+
+                    if (args[i].valPar[j] != 1){
+                        content = content.concat(""+args[i].valPar[j]+""+args[i].params[j]); 
+                    } else {
+                        content = content.concat("" + args[i].params[j]);
+                    }
+
+                    before = true;
+                }
+
+                if (j == args[i].params.length - 1) {
+                    content = content.concat("\n");
+                }
+            }
+        }
+        FileWriter writer = new FileWriter(base + pathname);
+        writer.write(content);
+        writer.close();   
     }
 
     public static void print(String str){
