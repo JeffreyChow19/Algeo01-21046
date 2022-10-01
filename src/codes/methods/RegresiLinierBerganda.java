@@ -52,6 +52,10 @@ public class RegresiLinierBerganda {
         result = CheckNeg0.check(result);
         String args = "no_args";
         printMtrx.main(result, 0.0, 0.0, args);
+
+        
+        
+
         // System.out.printf("f(x) =");
         // for (int i=0; i < result.length; i++){
         //     System.out.printf(" %f b%d ", result[i], i);

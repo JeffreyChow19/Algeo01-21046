@@ -100,7 +100,7 @@ public class printMtrx extends printMtrxConsole {
     }
 
     public static void main(double[] ans, double result, double x, String args) {
-        println("Output Types:");
+        println("\nOutput Types:");
 
         String[] methods = {
                 "Console",
