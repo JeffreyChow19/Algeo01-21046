@@ -93,7 +93,7 @@ public class printMtrxConsole {
         
         print("\n");
         if (args != "no_args"){
-            System.out.printf(args + " : %.5f", result);
+            System.out.printf(args + " = %.5f", result);
         }
     }
 

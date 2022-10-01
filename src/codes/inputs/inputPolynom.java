@@ -24,7 +24,7 @@ public class inputPolynom extends printMtrxConsole {
         } 
         else {
             result = InterpolasiPolinom.polynom(ans, matrix.polynom_x);
-            String args = "Hasil Interpolasi di x = "+matrix.polynom_x+" adalah";
+            String args = "f("+matrix.polynom_x+")";
             printMtrx.main(ans, result, matrix.polynom_x, args);
         }
         
@@ -66,12 +66,18 @@ public class inputPolynom extends printMtrxConsole {
                 print("File name: ");
                 String pathname = in.nextLine();
                 String base = "../test/";
-                m = createMtrxFile.createMatrix(base + pathname);
-                print("Input nilai x untuk taksiran: ");
-                x = in.nextDouble();
-                in.nextLine();
-                m.polynom_x = x;
-                return m;
+                m = createMtrxFile.createMatrixv2(base + pathname);
+                Matrix matrix = new Matrix(m.rows-1, m.cols);
+                // print("Input nilai x untuk taksiran: ");
+                // x = in.nextDouble();
+                // in.nextLine();
+                for (int i = 0; i < m.rows - 1; i++){
+                    for (int j = 0; j < m.cols; j++){
+                        matrix.Mtrx[i][j] = m.Mtrx[i][j];
+                    }
+                }
+                matrix.polynom_x = m.Mtrx[m.rows-1][0];
+                return matrix;
             } catch (IOException ex) {
                 println("File not found!");
                 println("\nPress enter key to continue");

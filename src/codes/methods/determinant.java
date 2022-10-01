@@ -49,20 +49,4 @@ public class determinant {
             return result;
         }
     }
-
-    // This still not fixed
-    public static double detGaussJordan(Matrix m, boolean isSquare) {
-        // Init new matrix
-        Matrix detGaussMtrx = new Matrix(m.rows, m.cols);
-        // Store m to new matrix
-        detGaussMtrx = GaussJordan.jordan(m);
-        // Get the times diagonal of reduced echelon row matrix
-        double result = TimesDiagonal.timesDiagonal(detGaussMtrx, isSquare);
-        if ((Math.round(result*100) / 100) == -0.0){
-            return 0.0;
-        }
-        else {
-            return result;
-        }
-    }
 }

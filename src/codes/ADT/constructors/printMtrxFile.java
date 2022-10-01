@@ -77,7 +77,7 @@ public class printMtrxFile{
         }
         content = content.concat("\n");
         if (args != "no_args"){
-            content = content.concat(args + " : " + result);
+            content = content.concat(args + " = " + result);
         }
 
         FileWriter writer = new FileWriter(base + pathname);
