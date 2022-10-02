@@ -44,17 +44,22 @@ public class inputSPL extends printMtrxConsole {
     }
 
     public static void processMethods(int choice, Matrix matrix) {
-        Matrix squared = MakeSquare.makeSquare(matrix);
-        Matrix inversed = InverseCofactor.inverse(squared);
+        // counter for no inverse
+        boolean hasNoSol = matrix.rows >= matrix.cols;
+        Matrix squared, inversed;
+
+        boolean hasInverse = false;
+
+        if (!hasNoSol){
+            squared = MakeSquare.makeSquare(matrix);
+            inversed = InverseCofactor.inverse(squared);
+            hasInverse = inversed.has_inversed;
+        }
+
         switch (choice) {
             case 1:
                 Matrix ansGauss = Gauss.gauss(matrix);
-<<<<<<< HEAD
                 printGauss(ansGauss, matrix);
-=======
-                // printMtrxConsole.printMatrix(ansGauss);
-                printGauss(ansGauss);
->>>>>>> 31f5469f95a3e78552e47dcd6f55dc2d50acc32f
                 break;
             case 2:
                 Matrix ansJordan = GaussJordan.jordan(matrix);
@@ -62,21 +67,25 @@ public class inputSPL extends printMtrxConsole {
                 printGauss(ansJordan, matrix);
                 break;
             case 3:
-                if (matrix.rows >= matrix.cols || !inversed.has_inversed ){
-                    System.out.println("Solusi dari matriks ini tidak ada atau tidak bisa menggunakan Metode Invers.");
+                if (matrix.rows >= matrix.cols || !hasInverse ){
+                    System.out.println("Solusi dari SPL ini tidak ada atau tidak bisa menggunakan Metode Invers.");
                     System.out.println("Silakan coba pakai metode lain, seperti Gauss/Gauss-Jordan");
 
                 } else {
+                    squared = MakeSquare.makeSquare(matrix);
+                    inversed = InverseCofactor.inverse(squared);
                     double[] ansInv = processInv(inversed, matrix);
                     printCramer(ansInv);
                 }
                 break;
             case 4:
-                if (matrix.rows >= matrix.cols || !inversed.has_inversed) {
-                    System.out.println("Solusi dari matriks ini tidak ada atau tidak bisa menggunakan Metode Cramer.");
+                if (matrix.rows >= matrix.cols || !hasInverse) {
+                    System.out.println("Solusi dari SPL ini tidak ada atau tidak bisa menggunakan Metode Cramer.");
                     System.out.println("Silakan coba pakai metode lain, seperti Gauss/Gauss-Jordan");
 
                 } else {
+                    squared = MakeSquare.makeSquare(matrix);
+                    inversed = InverseCofactor.inverse(squared);
                     double[] ansCramer = Cramer.cramer(matrix);
                     printCramer(ansCramer);
                 }
