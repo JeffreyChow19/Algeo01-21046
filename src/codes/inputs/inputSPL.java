@@ -44,6 +44,8 @@ public class inputSPL extends printMtrxConsole {
     }
 
     public static void processMethods(int choice, Matrix matrix) {
+        Matrix squared = MakeSquare.makeSquare(matrix);
+        Matrix inversed = InverseCofactor.inverse(squared);
         switch (choice) {
             case 1:
                 Matrix ansGauss = Gauss.gauss(matrix);
@@ -54,20 +56,20 @@ public class inputSPL extends printMtrxConsole {
                 printGauss(ansJordan);
                 break;
             case 3:
-                if (matrix.rows >= matrix.cols){
+                if (matrix.rows >= matrix.cols || !inversed.has_inversed ){
                     System.out.println("Solusi dari matriks ini tidak ada atau tidak bisa menggunakan Metode Invers.");
                     System.out.println("Silakan coba pakai metode lain, seperti Gauss/Gauss-Jordan");
-                    System.out.println();
+
                 } else {
-                    double[] ansInv = processInv(matrix);
+                    double[] ansInv = processInv(inversed, matrix);
                     printCramer(ansInv);
                 }
                 break;
             case 4:
-                if (matrix.rows >= matrix.cols) {
-                    System.out.println("Solusi dari matriks ini tidak ada atau tidak bisa menggunakan Metode Invers.");
+                if (matrix.rows >= matrix.cols || !inversed.has_inversed) {
+                    System.out.println("Solusi dari matriks ini tidak ada atau tidak bisa menggunakan Metode Cramer.");
                     System.out.println("Silakan coba pakai metode lain, seperti Gauss/Gauss-Jordan");
-                    System.out.println();
+
                 } else {
                     double[] ansCramer = Cramer.cramer(matrix);
                     printCramer(ansCramer);
@@ -87,7 +89,7 @@ public class inputSPL extends printMtrxConsole {
         if (status == 0) {
             /* Solusi Unik */
 
-            println("SPL memiliki solusi unik");
+            println("SPL memiliki solusi unik\n");
 
             double[] unik = uniqueCase(m);
         
@@ -96,14 +98,15 @@ public class inputSPL extends printMtrxConsole {
             
         } else if (status == 1) {
             /* Solusi Banyak */
-            System.out.println("SPL memiliki banyak solusi");
+            System.out.println("SPL memiliki banyak solusi\n");
+            printMtrxConsole.printMatrix(m);
             Param[] ans = infiniteCase(m);
             printMtrx.main(ans);
 
 
         } else {
             /* Tidak ada solusi */
-            println("Tidak ada nilai x yang memenuhi persamaan SPL.");
+            println("Tidak ada nilai x yang memenuhi persamaan SPL.\n");
         }
     }
 
@@ -126,7 +129,9 @@ public class inputSPL extends printMtrxConsole {
     }
 
     public static Param[] infiniteCase(Matrix m) {
-    
+
+        printMtrxConsole.printMatrix(m);
+
         // check which one need to use param
         boolean[] occupied = new boolean[m.cols];
         boolean[] useParam = new boolean[m.cols];
@@ -268,10 +273,7 @@ public class inputSPL extends printMtrxConsole {
         printMtrx.main(ans);
     }
 
-    public static double[] processInv (Matrix m){
-
-        Matrix squared = MakeSquare.makeSquare(m);
-        Matrix inversed = InverseCofactor.inverse(squared);
+    public static double[] processInv (Matrix inversed, Matrix m){
 
         double[] ans = new double[m.rows];
 
