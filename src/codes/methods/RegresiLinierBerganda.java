@@ -4,6 +4,9 @@ import codes.ADT.constructors.createMtrx;
 import codes.ADT.constructors.printMtrx;
 import codes.ADT.primitives.CheckNeg0;
 import codes.inputs.inputSPL;
+
+import java.util.Scanner;
+
 import codes.ADT.Matrix;
 
 public class RegresiLinierBerganda {
@@ -42,9 +45,8 @@ public class RegresiLinierBerganda {
 
                 }
 
-                System.out.println(ans.Mtrx[a][b]);
             }
-            System.out.println();
+            
         }
         
         ans = Gauss.gauss(ans);
@@ -53,17 +55,16 @@ public class RegresiLinierBerganda {
         String args = "no_args";
         printMtrx.main(result, 0.0, 0.0, args);
 
+        Scanner scanner = new Scanner(System.in);
+        double fx = result[0];
+        System.out.println();
+        for (int i=1; i < result.length; i++){
+            System.out.printf("Masukkan X%d : ", i);
+            fx += (scanner.nextDouble() * result[i]);
+            scanner.nextLine();
+        }
         
-        
-
-        // System.out.printf("f(x) =");
-        // for (int i=0; i < result.length; i++){
-        //     System.out.printf(" %f b%d ", result[i], i);
-        //     if (i != result.length-1){
-        //         System.out.printf("+");
-        //     } else {
-        //         System.out.println();
-        //     }
+        System.out.printf("Taksiran/Estimasi nilai : %.4f\n", fx);
         
     }
 }
