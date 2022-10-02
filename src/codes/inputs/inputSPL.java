@@ -49,11 +49,12 @@ public class inputSPL extends printMtrxConsole {
         switch (choice) {
             case 1:
                 Matrix ansGauss = Gauss.gauss(matrix);
-                printGauss(ansGauss);
+                printGauss(ansGauss, matrix);
                 break;
             case 2:
                 Matrix ansJordan = GaussJordan.jordan(matrix);
-                printGauss(ansJordan);
+
+                printGauss(ansJordan, matrix);
                 break;
             case 3:
                 if (matrix.rows >= matrix.cols || !inversed.has_inversed ){
@@ -82,7 +83,7 @@ public class inputSPL extends printMtrxConsole {
         }
     }
 
-    public static void printGauss(Matrix m) {
+    public static void printGauss(Matrix m, Matrix real) {
         int status = SPLCheck.main(m);
         print("\n");
         if (status == 0) {
@@ -99,7 +100,7 @@ public class inputSPL extends printMtrxConsole {
             /* Solusi Banyak */
             System.out.println("SPL memiliki banyak solusi\n");
             printMtrxConsole.printMatrix(m);
-            Param[] ans = infiniteCase(m);
+            Param[] ans = infiniteCase(m, real);
             printMtrx.main(ans);
 
 
@@ -127,9 +128,9 @@ public class inputSPL extends printMtrxConsole {
         return result;
     }
 
-    public static Param[] infiniteCase(Matrix m) {
+    public static Param[] infiniteCase(Matrix m, Matrix real) {
 
-        printMtrxConsole.printMatrix(m);
+        real = Gauss.gauss(real);
 
         // check which one need to use param
         boolean[] occupied = new boolean[m.cols];
@@ -142,8 +143,8 @@ public class inputSPL extends printMtrxConsole {
         }
 
         // checking
-        for (int j=0; j < m.cols-1; j++){
-            int notZero = countNotZero(m, j);
+        for (int j=0; j < real.cols-1; j++){
+            int notZero = countNotZero(real, j);
             if (notZero == 0){
                 useParam[j] = true;
             } else if (occupied[notZero]){
