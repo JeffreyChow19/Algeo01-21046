@@ -49,7 +49,12 @@ public class inputSPL extends printMtrxConsole {
         switch (choice) {
             case 1:
                 Matrix ansGauss = Gauss.gauss(matrix);
+<<<<<<< HEAD
                 printGauss(ansGauss, matrix);
+=======
+                // printMtrxConsole.printMatrix(ansGauss);
+                printGauss(ansGauss);
+>>>>>>> 31f5469f95a3e78552e47dcd6f55dc2d50acc32f
                 break;
             case 2:
                 Matrix ansJordan = GaussJordan.jordan(matrix);

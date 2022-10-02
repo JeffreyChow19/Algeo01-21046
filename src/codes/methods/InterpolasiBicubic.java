@@ -4,13 +4,13 @@ import codes.ADT.*;
 
 public class InterpolasiBicubic {
     public static double bikubik(Matrix matrix, double indeks1, double indeks2){
-        int rows = matrix.rows*matrix.cols;
-        int cols = matrix.rows*matrix.cols;
+        int rows = ((matrix.rows)-1)*((matrix.cols));
+        int cols = rows;
         Matrix matrix_xy = new Matrix(rows, cols);
         int r=0, c=0;
         // int k = -1;
-        for(int k=0; k<matrix.rows; k++){
-            for(int l= 0; l<matrix.cols; l++){
+        for(int k=0; k<(matrix.rows)-1; k++){
+            for(int l= 0; l<(matrix.cols); l++){
                 for(int i= 0; i<=3; i++){
                     for(int j= 0; j<=3; j++){
                         int x= k-1;
@@ -25,7 +25,7 @@ public class InterpolasiBicubic {
         }
         double [] matrix_y = new double[rows];
         int row_y = 0;
-        for(int i=0; i< matrix.rows; i++){
+        for(int i=0; i< matrix.rows-1; i++){
             for(int j= 0; j<matrix.cols; j++){
                 matrix_y [row_y] = matrix.Mtrx[i][j];
                 row_y++;
@@ -46,8 +46,8 @@ public class InterpolasiBicubic {
         // printMtrxConsole.printMatrix(after_reduction);
 
         int k= 0;
-        Matrix matrix_a = new Matrix(matrix.rows, matrix.cols);
-        for(int i=0; i<matrix.rows; i++){
+        Matrix matrix_a = new Matrix(matrix.rows-1, matrix.cols);
+        for(int i=0; i<matrix.rows-1; i++){
             for(int j=0; j<matrix.cols; j++){
                 matrix_a.Mtrx[i][j] = after_reduction.Mtrx[k][cols];
                 k++;

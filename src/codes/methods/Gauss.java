@@ -1,6 +1,7 @@
 package codes.methods;
 
 import codes.ADT.*;
+import codes.ADT.constructors.printMtrxConsole;
 import codes.ADT.primitives.CheckNeg0;
 
 public class Gauss {
@@ -33,6 +34,8 @@ public class Gauss {
             }
             // Switch row if current row contains more 0 then next row
             switchRows(m, j);
+            // printMtrxConsole.printMatrix(m);
+            // System.out.println("----------------------------------");
         }
         Matrix gaussed_mtrx = new Matrix(m.rows, m.cols);
         gaussed_mtrx = CheckNeg0.check(m);
