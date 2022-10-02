@@ -8,12 +8,7 @@ public class Gauss {
     public static Matrix gauss(Matrix m) {
         // Switch initial Matrix if contains a row of 0
         switchRows(m, 0);
-        printMtrxConsole.printMatrix(m);
-        System.out.println("Switched Rows for 0 counter");
-        // switchFor0TrailsFront(m);
-        printMtrxConsole.printMatrix(m);
         int start_index = firstNotZero(m, 0);
-        System.out.println("Switched Rows for nearest not zero position =" + start_index);
         // Process to echelon row here
         for (int j = 0; j < m.cols; j++) {
             for (int i = j + 1; i < m.rows; i++) {
@@ -23,8 +18,6 @@ public class Gauss {
                     gaussed_mtrx = CheckNeg0.check(m);
                     return gaussed_mtrx;
                 }
-                printMtrxConsole.printMatrix(m);
-                System.out.println("----------------------------------");
                 double pem = m.Mtrx[i][start_index];
                 double pen = m.Mtrx[j][start_index];
                 double factor = 0;
@@ -40,10 +33,6 @@ public class Gauss {
                         m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);
                     }
                 }
-                System.out.println("factor : " + factor);
-                printMtrxConsole.printMatrix(m);
-                System.out.println("----------------------------------");
-                
             }
             start_index++;
             // Switch row if current row contains more 0 then next row
