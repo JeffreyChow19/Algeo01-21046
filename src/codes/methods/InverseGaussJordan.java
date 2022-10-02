@@ -1,6 +1,8 @@
 package codes.methods;
 
 import codes.ADT.*;
+import codes.ADT.constructors.printMtrx;
+import codes.ADT.constructors.printMtrxConsole;
 
 public class InverseGaussJordan extends Gauss {
     public static Matrix inverse(Matrix m) {
@@ -8,7 +10,7 @@ public class InverseGaussJordan extends Gauss {
         for (int k = 0; k < m.rows; k++) {
             inversed_mtrx.Mtrx[k][k] = 1;
         }
-        // Make to echelon row
+        // Switch for row containing more 0
         for (int k = 0; k < m.rows; k++) {
             for (int h = k; h < m.rows; h++) {
                 if (count0(m, k, m.cols - 1) > count0(m, h, m.cols - 1)) {
@@ -24,6 +26,10 @@ public class InverseGaussJordan extends Gauss {
                 if (count0(m, j, m.cols - 1) > count0(m, j + 1, m.cols - 1)) {
                     switchRows(m, j, j + 1);
                     switchRows(inversed_mtrx, j, j + 1);
+                }
+                if (check0RemainingRows(m, j)){
+                    inversed_mtrx.has_inversed = false;
+                    return inversed_mtrx;
                 }
                 double pem = m.Mtrx[i][j];
                 double pen = m.Mtrx[j][j];
@@ -66,8 +72,6 @@ public class InverseGaussJordan extends Gauss {
                 for (int k = m.cols - 1; k >= 0; k--) {
                     m.Mtrx[j][k] -= (m.Mtrx[i][k] * factor);
                     inversed_mtrx.Mtrx[j][k] -= (inversed_mtrx.Mtrx[i][k] * factor);
-                    // printMtrxConsole.printMatrix(temp);
-                    // System.out.println();
                 }
             }
         }
@@ -98,9 +102,11 @@ public class InverseGaussJordan extends Gauss {
                 inversed_mtrx.Mtrx[i][j] /= factor;
             }
         }
+        
         for (int i = 0; i < m.rows; i++) {
             if (count0(m, i) == m.cols) {
                 m.has_inversed = false;
+                inversed_mtrx.has_inversed = false;
                 return m;
             }
         }

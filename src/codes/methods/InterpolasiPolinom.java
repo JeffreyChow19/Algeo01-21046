@@ -3,6 +3,7 @@ package codes.methods;
 import codes.ADT.*;
 import codes.ADT.constructors.printMtrx;
 import codes.ADT.constructors.printMtrxConsole;
+import codes.ADT.primitives.CheckNeg0;
 import codes.inputs.*;
 import codes.methods.submethods.SPLCheck;
 
@@ -31,7 +32,6 @@ public class InterpolasiPolinom extends Gauss {
         
         // raw_mtrx initialized
         Matrix spl = gauss(raw_mtrx); // Make echelon row
-        printMtrxConsole.printMatrix(raw_mtrx);
         double ans[];
         // Check SPL
         if (SPLCheck.main(spl) == 1) {
