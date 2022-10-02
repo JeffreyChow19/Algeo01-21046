@@ -44,34 +44,48 @@ public class inputSPL extends printMtrxConsole {
     }
 
     public static void processMethods(int choice, Matrix matrix) {
-        Matrix squared = MakeSquare.makeSquare(matrix);
-        Matrix inversed = InverseCofactor.inverse(squared);
+        // counter for no inverse
+        boolean hasNoSol = matrix.rows >= matrix.cols;
+        Matrix squared, inversed;
+
+        boolean hasInverse = false;
+
+        if (!hasNoSol){
+            squared = MakeSquare.makeSquare(matrix);
+            inversed = InverseCofactor.inverse(squared);
+            hasInverse = inversed.has_inversed;
+        }
+
         switch (choice) {
             case 1:
                 Matrix ansGauss = Gauss.gauss(matrix);
-                // printMtrxConsole.printMatrix(ansGauss);
-                printGauss(ansGauss);
+                printGauss(ansGauss, matrix);
                 break;
             case 2:
                 Matrix ansJordan = GaussJordan.jordan(matrix);
-                printGauss(ansJordan);
+
+                printGauss(ansJordan, matrix);
                 break;
             case 3:
-                if (matrix.rows >= matrix.cols || !inversed.has_inversed ){
-                    System.out.println("Solusi dari matriks ini tidak ada atau tidak bisa menggunakan Metode Invers.");
+                if (matrix.rows >= matrix.cols || !hasInverse ){
+                    System.out.println("Solusi dari SPL ini tidak ada atau tidak bisa menggunakan Metode Invers.");
                     System.out.println("Silakan coba pakai metode lain, seperti Gauss/Gauss-Jordan");
 
                 } else {
+                    squared = MakeSquare.makeSquare(matrix);
+                    inversed = InverseCofactor.inverse(squared);
                     double[] ansInv = processInv(inversed, matrix);
                     printCramer(ansInv);
                 }
                 break;
             case 4:
-                if (matrix.rows >= matrix.cols || !inversed.has_inversed) {
-                    System.out.println("Solusi dari matriks ini tidak ada atau tidak bisa menggunakan Metode Cramer.");
+                if (matrix.rows >= matrix.cols || !hasInverse) {
+                    System.out.println("Solusi dari SPL ini tidak ada atau tidak bisa menggunakan Metode Cramer.");
                     System.out.println("Silakan coba pakai metode lain, seperti Gauss/Gauss-Jordan");
 
                 } else {
+                    squared = MakeSquare.makeSquare(matrix);
+                    inversed = InverseCofactor.inverse(squared);
                     double[] ansCramer = Cramer.cramer(matrix);
                     printCramer(ansCramer);
                 }
@@ -83,7 +97,7 @@ public class inputSPL extends printMtrxConsole {
         }
     }
 
-    public static void printGauss(Matrix m) {
+    public static void printGauss(Matrix m, Matrix real) {
         int status = SPLCheck.main(m);
         print("\n");
         if (status == 0) {
@@ -100,7 +114,7 @@ public class inputSPL extends printMtrxConsole {
             /* Solusi Banyak */
             System.out.println("SPL memiliki banyak solusi\n");
             printMtrxConsole.printMatrix(m);
-            Param[] ans = infiniteCase(m);
+            Param[] ans = infiniteCase(m, real);
             printMtrx.main(ans);
 
 
@@ -128,9 +142,9 @@ public class inputSPL extends printMtrxConsole {
         return result;
     }
 
-    public static Param[] infiniteCase(Matrix m) {
+    public static Param[] infiniteCase(Matrix m, Matrix real) {
 
-        printMtrxConsole.printMatrix(m);
+        real = Gauss.gauss(real);
 
         // check which one need to use param
         boolean[] occupied = new boolean[m.cols];
@@ -143,8 +157,8 @@ public class inputSPL extends printMtrxConsole {
         }
 
         // checking
-        for (int j=0; j < m.cols-1; j++){
-            int notZero = countNotZero(m, j);
+        for (int j=0; j < real.cols-1; j++){
+            int notZero = countNotZero(real, j);
             if (notZero == 0){
                 useParam[j] = true;
             } else if (occupied[notZero]){
