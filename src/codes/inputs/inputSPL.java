@@ -113,7 +113,6 @@ public class inputSPL extends printMtrxConsole {
         } else if (status == 1) {
             /* Solusi Banyak */
             System.out.println("SPL memiliki banyak solusi\n");
-            printMtrxConsole.printMatrix(m);
             Param[] ans = infiniteCase(m, real);
             printMtrx.main(ans);
 
