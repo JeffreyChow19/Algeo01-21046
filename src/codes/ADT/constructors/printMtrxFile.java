@@ -24,7 +24,7 @@ public class printMtrxFile{
         FileWriter writer = new FileWriter(base + pathname);
         writer.write(content);
         writer.close();
-        print("Successfully added "+ pathname +"to test/output folder.");
+        print("Successfully added "+ pathname +" to test/output folder.");
     }
     public static void printMatrix(double[] x, String pathname) throws IOException{
         String content = "";
@@ -39,7 +39,7 @@ public class printMtrxFile{
         FileWriter writer = new FileWriter(base + pathname);
         writer.write(content);
         writer.close();
-        print("Successfully added "+ pathname +"to test/output folder.");
+        print("Successfully added "+ pathname +" to test/output folder.");
     }
 
     public static void printLine(String args , double data, String pathname) throws IOException{
@@ -49,7 +49,7 @@ public class printMtrxFile{
         FileWriter writer = new FileWriter(base + pathname);
         writer.write(content);
         writer.close();
-        print("Successfully added "+ pathname +"to test/output folder.");
+        print("Successfully added "+ pathname +" to test/output folder.");
     }
 
     public static void printFx(String pathname, double[] ans, double result, double x, String args) throws IOException{
@@ -86,7 +86,36 @@ public class printMtrxFile{
         FileWriter writer = new FileWriter(base + pathname);
         writer.write(content);
         writer.close();
-        print("Successfully added "+ pathname +"to test/output folder.");
+        print("Successfully added "+ pathname +" to test/output folder.");
+    }
+
+    public static void printFxV2(String pathname, double[] ans, double result, double x, String args) throws IOException{
+        String content = "f(x) = ";
+        for (int i = 0; i < ans.length; i++) {
+            String current_power = i + "";
+            if (ans[i] >= 0) {
+                if (i == 0) {
+                    content = content.concat(ans[i] + "");
+                } else {
+                    content = content.concat("+" + ans[i] + "X" + current_power + "");
+                }
+            } else {
+                if (i == 0) {
+                    content = content.concat(ans[i] + "");
+                } else {
+                    content = content.concat(ans[i] + "X" + current_power + "");
+                }
+            }
+        }
+        content = content.concat("\n");
+        if (args != "no_args"){
+            content = content.concat(args + " = " + result);
+        }
+
+        FileWriter writer = new FileWriter(base + pathname);
+        writer.write(content);
+        writer.close();
+        print("Successfully added "+ pathname +" to test/output folder.");
     }
 
     public static void printParam(Param[] args, String pathname) throws IOException {
@@ -126,7 +155,7 @@ public class printMtrxFile{
         FileWriter writer = new FileWriter(base + pathname);
         writer.write(content);
         writer.close();   
-        print("Successfully added "+ pathname +"to test/output folder.");
+        print("Successfully added "+ pathname +" to test/output folder.");
     }
 
     public static void print(String str){

@@ -97,6 +97,31 @@ public class printMtrxConsole {
         }
     }
 
+    public static void printFxV2(double[] ans, double result, double x, String args) {
+        print("f(x) = ");
+        for (int i = 0; i < ans.length; i++) {
+            String current_power = i + "";
+            if (ans[i] >= 0) {
+                if (i == 0) {
+                    printf("%.5f", ans[i]);
+                } else {
+                    printf("+%.5f" + "X" + current_power + "", ans[i]);
+                }
+            } else {
+                if (i == 0) {
+                    printf("%.5f", ans[i]);
+                } else {
+                    printf("%.5f" + "X" + current_power + "", ans[i]);
+                }
+            }
+        }
+        
+        print("\n");
+        if (args != "no_args"){
+            System.out.printf(args + " = %.5f", result);
+        }
+    }
+
     public static void printf(String format, Object args) {
         System.out.printf(format, args);
     }

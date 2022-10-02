@@ -53,7 +53,7 @@ public class RegresiLinierBerganda {
         double[] result = inputSPL.uniqueCase(ans);
         result = CheckNeg0.check(result);
         String args = "no_args";
-        printMtrx.main(result, 0.0, 0.0, args);
+        printMtrx.mainV2(result, 0.0, 0.0, args);
 
         Scanner scanner = new Scanner(System.in);
         double fx = result[0];

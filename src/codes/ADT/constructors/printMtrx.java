@@ -121,4 +121,27 @@ public class printMtrx extends printMtrxConsole {
             }
         }
     }
+
+    public static void mainV2(double[] ans, double result, double x, String args) {
+        println("\nOutput Types:");
+
+        String[] methods = {
+                "Console",
+                "File txt"
+        };
+
+        int inputType = menuCheck.main(1, 2, methods);
+
+        if (inputType == 1) {
+            printMtrxConsole.printFxV2(ans, result, x, args);
+        } else {
+            print("\nOutput file name: ");
+            String pathname = scanner.nextLine();
+            try {
+                printMtrxFile.printFxV2(pathname, ans, result, x, args);
+            } catch (IOException ex) {
+                println("No such files.");
+            }
+        }
+    }
 }
