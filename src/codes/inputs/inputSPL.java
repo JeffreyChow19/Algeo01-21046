@@ -54,12 +54,24 @@ public class inputSPL extends printMtrxConsole {
                 printGauss(ansJordan);
                 break;
             case 3:
-                double[] ansInv = processInv(matrix);
-                printCramer(ansInv);
+                if (matrix.rows >= matrix.cols){
+                    System.out.println("Solusi dari matriks ini tidak ada atau tidak bisa menggunakan Metode Invers.");
+                    System.out.println("Silakan coba pakai metode lain, seperti Gauss/Gauss-Jordan");
+                    System.out.println();
+                } else {
+                    double[] ansInv = processInv(matrix);
+                    printCramer(ansInv);
+                }
                 break;
             case 4:
-                double[] ansCramer = Cramer.cramer(matrix);
-                printCramer(ansCramer);
+                if (matrix.rows >= matrix.cols) {
+                    System.out.println("Solusi dari matriks ini tidak ada atau tidak bisa menggunakan Metode Invers.");
+                    System.out.println("Silakan coba pakai metode lain, seperti Gauss/Gauss-Jordan");
+                    System.out.println();
+                } else {
+                    double[] ansCramer = Cramer.cramer(matrix);
+                    printCramer(ansCramer);
+                }
                 break;
             case 5:
                 break;
@@ -70,7 +82,6 @@ public class inputSPL extends printMtrxConsole {
 
     public static void printGauss(Matrix m) {
         int status = SPLCheck.main(m);
-
         print("\n");
         if (status == 0) {
             /* Solusi Unik */
@@ -257,6 +268,7 @@ public class inputSPL extends printMtrxConsole {
     }
 
     public static double[] processInv (Matrix m){
+
         Matrix squared = MakeSquare.makeSquare(m);
         Matrix inversed = InverseCofactor.inverse(squared);
 
