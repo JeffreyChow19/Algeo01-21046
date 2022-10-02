@@ -31,7 +31,6 @@ public class testProgram {
         // m = InverseGaussJordan.inverse(m);
         // printMtrxConsole.printMatrix(m);
         // System.out.println("passed here");
-
         // inputBikubik.main();
         // matrix = Transpose.transpose(matrix);
         // Matrix matrix2 = new Matrix(m.rows, m.cols);

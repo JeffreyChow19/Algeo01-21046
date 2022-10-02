@@ -1,6 +1,7 @@
 package codes.methods;
 
 import codes.ADT.*;
+import codes.ADT.constructors.*;;
 
 public class InterpolasiBicubic {
     public static double bikubik(Matrix matrix, double indeks1, double indeks2){
@@ -42,7 +43,8 @@ public class InterpolasiBicubic {
         }
         // printMtrxConsole.printMatrix(matrix_gauss);
         Matrix after_reduction = new Matrix(rows, cols+1);
-        after_reduction = GaussJordan.jordan(matrix_gauss);
+        // after_reduction = Gauss.gauss(matrix_gauss);
+        after_reduction = GaussJordan.jordan(matrix_gauss);  
         // printMtrxConsole.printMatrix(after_reduction);
 
         int k= 0;

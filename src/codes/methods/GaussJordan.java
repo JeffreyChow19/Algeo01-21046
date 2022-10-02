@@ -15,9 +15,9 @@ public class GaussJordan {
                 if(temp.Mtrx[i][c]==0){
                     boolean condition = false;
                     while (!condition){
-                        if(c< m.cols-1 && temp.Mtrx[i][c]==0){
+                        if(c< m.cols-1 && Double.isInfinite(1/temp.Mtrx[i][c])){
                             c++;
-                        }else if(c< m.cols-1 && temp.Mtrx[i][c]!=0){
+                        }else if(c< m.cols-1 && !Double.isInfinite(1/temp.Mtrx[i][c])){
                             factor = temp.Mtrx[j][c]/temp.Mtrx[i][c];
                             condition = true;
                         }else{
@@ -40,13 +40,13 @@ public class GaussJordan {
         for(int i = 0; i<m.rows; i++){
             int c = i;
             double factor = 0;
-            if(temp.Mtrx[i][c]!=1 && temp.Mtrx[i][c]==0){
+            if(temp.Mtrx[i][c]!=1 && Double.isInfinite(1/temp.Mtrx[i][c])){
                 if(temp.Mtrx[i][c]==0){
                     boolean condition= false;
                     while(!condition){
-                        if(c< m.cols-1 && temp.Mtrx[i][c]==0){
+                        if(c< m.cols-1 && Double.isInfinite(1/temp.Mtrx[i][c])){
                             c++;
-                        }else if(c< m.cols-1 &&temp.Mtrx[i][c]!=0){
+                        }else if(c< m.cols-1 && !Double.isInfinite(1/temp.Mtrx[i][c])){
                             factor = temp.Mtrx[i][c];
                             condition = true;
                         }else{
