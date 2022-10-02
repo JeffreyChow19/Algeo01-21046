@@ -1,18 +1,14 @@
 # This is Methods Folder
 
-this directory is dedicated to methods such as:
-
-| No  | Method        | Status      |
-| --- | ------------- | ----------- |
-| 1.  | Gauss         | Completed   |
-| 2.  | Gauss Jordan  | Completed   |
-| 3.  | Invers        | Completed   |
-| 4.  | Cramer        | Completed   |
+dir : src/codes/methods
 
 Contains:
-1. Cramer.java
-2. Gauss.java
-3. GaussJordan.java
-4. GaussVoid.java
-5. InverseCofactor.java
-6. InverseGaussJordan.java
+1. `Cramer.java`
+2. `Gauss.java`
+3. `GaussJordan.java`
+4. `determinant.java`
+5. `InverseCofactor.java`
+6. `InverseGaussJordan.java`
+7. `InterpolasiBicubic.java`
+8. `InterpolasiPolinom.java`
+9. `RegresiLinierBerganda.java`

@@ -1,14 +1,11 @@
-# This is Input Folder
+# This is Inputs Folder
 
-this folder is dedicated to process inputs before transfered to methods.
+dir : src/codes/inputs
 
 Contains:
-1. inputSPL.java
-2. InterpolasiBicubic.java
-3. InterpolasiPolinom.java
-4. RegresiLinierBerganda.java
+1. `inputSPL.java`
+2. `inputDeterminan.java`
+3. `inputInvers.java`
+4. `inputPolynom.java`
+5. `inputBikubik.java`
 
-Quest:
-1. Interpolasi Bicubic
-2. Interpolasi Polinom
-3. Regresi Linier Berganda

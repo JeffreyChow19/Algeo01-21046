@@ -24,6 +24,7 @@ public class printMtrxFile{
         FileWriter writer = new FileWriter(base + pathname);
         writer.write(content);
         writer.close();
+        print("Successfully added "+ pathname +"to test/output folder.");
     }
     public static void printMatrix(double[] x, String pathname) throws IOException{
         String content = "";
@@ -38,6 +39,7 @@ public class printMtrxFile{
         FileWriter writer = new FileWriter(base + pathname);
         writer.write(content);
         writer.close();
+        print("Successfully added "+ pathname +"to test/output folder.");
     }
 
     public static void printLine(String args , double data, String pathname) throws IOException{
@@ -47,6 +49,7 @@ public class printMtrxFile{
         FileWriter writer = new FileWriter(base + pathname);
         writer.write(content);
         writer.close();
+        print("Successfully added "+ pathname +"to test/output folder.");
     }
 
     public static void printFx(String pathname, double[] ans, double result, double x, String args) throws IOException{
@@ -83,6 +86,7 @@ public class printMtrxFile{
         FileWriter writer = new FileWriter(base + pathname);
         writer.write(content);
         writer.close();
+        print("Successfully added "+ pathname +"to test/output folder.");
     }
 
     public static void printParam(Param[] args, String pathname) throws IOException {
@@ -122,6 +126,7 @@ public class printMtrxFile{
         FileWriter writer = new FileWriter(base + pathname);
         writer.write(content);
         writer.close();   
+        print("Successfully added "+ pathname +"to test/output folder.");
     }
 
     public static void print(String str){
