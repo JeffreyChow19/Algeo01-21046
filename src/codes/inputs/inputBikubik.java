@@ -27,11 +27,11 @@ public class inputBikubik {
                     matrix.Mtrx[i][j]= scanner.nextDouble();
                 }
             }
-            System.out.println("Input function arguments");
-            System.out.print("x = ");
+            // System.out.println("Input function arguments");
+            // System.out.print("x = ");
             double indeks1 = scanner.nextDouble();
             scanner.nextLine();
-            System.out.print("y = ");
+            // System.out.print("y = ");
             double indeks2 = scanner.nextDouble();
             scanner.nextLine();
             double ans = InterpolasiBicubic.bikubik(matrix, indeks1, indeks2);
@@ -46,11 +46,11 @@ public class inputBikubik {
                 String pathname = scanner.nextLine();
                 String base = "../test/";
                 matrix = createMtrxFile.createMatrix(base + pathname);
-                System.out.println("Input function arguments");
-                System.out.print("x = ");
+                // System.out.println("Input function arguments");
+                // System.out.print("x = ");
                 double indeks1 = scanner.nextDouble();
                 scanner.nextLine();
-                System.out.print("y = ");
+                // System.out.print("y = ");
                 double indeks2 = scanner.nextDouble();
                 scanner.nextLine();
                 String args = "f("+indeks1+","+indeks2+") = ";
