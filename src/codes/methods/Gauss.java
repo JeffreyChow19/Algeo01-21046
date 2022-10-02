@@ -33,6 +33,7 @@ public class Gauss {
                         m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);
                     }
                 }
+                
             }
             start_index++;
             // Switch row if current row contains more 0 then next row
