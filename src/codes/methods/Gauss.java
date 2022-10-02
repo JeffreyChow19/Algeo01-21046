@@ -8,8 +8,9 @@ public class Gauss {
     public static Matrix gauss(Matrix m) {
         // Switch initial Matrix if contains a row of 0
         switchRows(m, 0);
+        int start_index = firstNotZero(m, 0);
         // Process to echelon row here
-        for (int j = 0; j < m.rows; j++) {
+        for (int j = 0; j < m.cols; j++) {
             for (int i = j + 1; i < m.rows; i++) {
                 // Check for remaning rows to tackle NaN
                 if (check0RemainingRows(m, j)){
@@ -17,25 +18,27 @@ public class Gauss {
                     gaussed_mtrx = CheckNeg0.check(m);
                     return gaussed_mtrx;
                 }
-                double pem = m.Mtrx[i][j];
-                double pen = m.Mtrx[j][j];
-                double factor;
+                double pem = m.Mtrx[i][start_index];
+                double pen = m.Mtrx[j][start_index];
+                double factor = 0;
                 if (Double.isInfinite(1 / pen)) {
-                    factor = 1;
+                    if (!Double.isInfinite(1 / pem)){
+                        factor = 1;
+                    }
                 } else {
                     factor = pem / pen;
                 }
-                if (Double.isNaN(pem / pen)) {
-                    factor = m.Mtrx[i][j + 1] / m.Mtrx[j][j + 1];
+                if (factor != 0){
+                    for (int k = 0; k < m.cols; k++) {
+                        m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);
+                    }
                 }
-                for (int k = 0; k < m.cols; k++) {
-                    m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);
-                }
+                
             }
+            start_index++;
             // Switch row if current row contains more 0 then next row
             switchRows(m, j);
-            // printMtrxConsole.printMatrix(m);
-            // System.out.println("----------------------------------");
+            
         }
         Matrix gaussed_mtrx = new Matrix(m.rows, m.cols);
         gaussed_mtrx = CheckNeg0.check(m);
@@ -89,5 +92,26 @@ public class Gauss {
                 }
             }
         }
+    }
+
+    public static void switchFor0TrailsFront(Matrix m) {
+        for (int k = 0; k < m.rows; k++) {
+            for (int h = k; h < m.rows; h++) {
+                if (firstNotZero(m, k) > firstNotZero(m, h)) {
+                    switchRows(m, k, h);
+                    m.sign++;
+                }
+            }
+        }
+    }
+
+    public static int firstNotZero(Matrix m, int choosen_row) {
+        int i;
+        for (i = 0; i < m.cols; i++){
+            if (!Double.isInfinite(1/m.Mtrx[choosen_row][i])){
+                break;
+            }
+        }
+        return i;
     }
 }
