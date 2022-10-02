@@ -7,6 +7,7 @@ import java.util.Scanner;
 import codes.ADT.Matrix;
 // import codes.ADT.constructor.Transpose;
 import codes.ADT.constructors.*;
+import codes.inputs.inputBikubik;
 // import codes.ADT.primitives.*;
 import codes.methods.*;
 // import codes.inputs.*;
@@ -27,7 +28,6 @@ public class testProgram {
         // m = InverseGaussJordan.inverse(m);
         // printMtrxConsole.printMatrix(m);
         // System.out.println("passed here");
-
         // inputBikubik.main();
         // matrix = Transpose.transpose(matrix);
         // Matrix matrix2 = new Matrix(m.rows, m.cols);

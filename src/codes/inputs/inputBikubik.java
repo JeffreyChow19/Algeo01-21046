@@ -17,8 +17,9 @@ public class inputBikubik {
         int inputType = menuCheck.main(1, 2, methods);
         if(inputType == 1){
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Matrix size: ");
-            int size_matrix = scanner.nextInt();
+            // System.out.print("Matrix size: ");
+            // int size_matrix = scanner.nextInt();
+            int size_matrix = 4;
             Matrix matrix = new Matrix(size_matrix+1, size_matrix);
             System.out.println("Input your matrix: ");
             int i, j;
