@@ -70,7 +70,6 @@ public class inputSPL extends printMtrxConsole {
 
     public static void printGauss(Matrix m) {
         int status = SPLCheck.main(m);
-
         print("\n");
         if (status == 0) {
             /* Solusi Unik */
