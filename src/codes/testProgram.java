@@ -7,20 +7,36 @@ import java.util.Scanner;
 import codes.ADT.Matrix;
 // import codes.ADT.constructor.Transpose;
 import codes.ADT.constructors.*;
-import codes.inputs.inputBikubik;
+import codes.inputs.inputSPL;
 // import codes.ADT.primitives.*;
 import codes.methods.*;
 // import codes.inputs.*;
 
 public class testProgram {
-    public static Matrix m;
+    
     public static void main(String[] args) {
         try {
-            m = createMtrxFile.createMatrix("test3.txt");
+            Matrix m;
+            m = createMtrxFile.createMatrix("spl8.txt");
+            // Matrix new_matrix = new Matrix(m.rows, m.cols);
+            Matrix new_matrix = Gauss.gauss(m);
+            
+            // printMtrxConsole.printMatrix(m);
+            printMtrxConsole.printMatrix(new_matrix);
+            int i;
+            for (i = 0; i < m.rows; i++){
+                if(Gauss.check0RemainingRows(m, i)){
+                    i--;
+                    break;
+                }
+            }
+            System.out.println("available row : " + i);
+            // double[] unik = inputSPL.uniqueCase(new_matrix);
+            // printMtrxConsole.printMatrix(unik);
         } catch (IOException ex){
             System.out.println("filename not found!");
         }
-
+        
         // m = InverseCofactor.inverse(m);
         // InterpolasiBicubic.bikubik(m, 0.5, 0.5);
         // Matrix m2 = Gauss.gauss(m);

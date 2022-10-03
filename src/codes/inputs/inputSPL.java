@@ -63,7 +63,6 @@ public class inputSPL extends printMtrxConsole {
                 break;
             case 2:
                 Matrix ansJordan = GaussJordan.jordan(matrix);
-
                 printGauss(ansJordan, matrix);
                 break;
             case 3:
@@ -104,7 +103,6 @@ public class inputSPL extends printMtrxConsole {
             /* Solusi Unik */
 
             println("SPL memiliki solusi unik\n");
-
             double[] unik = uniqueCase(m);
         
             // printMtrx.main(m);
@@ -113,7 +111,6 @@ public class inputSPL extends printMtrxConsole {
         } else if (status == 1) {
             /* Solusi Banyak */
             System.out.println("SPL memiliki banyak solusi\n");
-            printMtrxConsole.printMatrix(m);
             Param[] ans = infiniteCase(m, real);
             printMtrx.main(ans);
 
@@ -124,11 +121,102 @@ public class inputSPL extends printMtrxConsole {
         }
     }
 
+    public static void printGauss2(Matrix m, Matrix real) {
+        // int status = SPLCheck.main(m);
+        // print("\n");
+        
+            /* Solusi Unik */
+
+        // println("SPL memiliki solusi unik\n");
+        if (!isNone(m)){
+            try {
+                double[] unik = uniqueCase(m);
+                if (hasNaN(unik)) {
+                    Param[] infiniteCase = infiniteCase(m, real);
+                    System.out.println("SPL memiliki solusi banyak.\n");
+                    printMtrxConsole.printParam(infiniteCase);
+                } else {
+                    System.out.println("SPL memiliki solusi unik.\n");
+                    printMtrxConsole.printMatrix(unik);
+                }
+
+            } catch (Exception e) {
+                Param[] infiniteCase = infiniteCase(m, real);
+                System.out.println("SPL memiliki solusi banyak.\n");
+                printMtrxConsole.printParam(infiniteCase);
+            }
+        } else {
+            System.out.println("SPL tidak memiliki solusi.\n");
+        }
+        
+
+
+        // printMtrx.main(m);
+        // printMtrx.main(unik);
+
+
+
+        // if (status == 1) {
+        //     /* Solusi Banyak */
+        //     System.out.println("SPL memiliki banyak solusi\n");
+        //     printMtrxConsole.printMatrix(m);
+        //     Param[] ans = infiniteCase(m, real);
+        //     printMtrx.main(ans);
+
+        // } else {
+        //     /* Tidak ada solusi */
+        //     println("Tidak ada nilai x yang memenuhi persamaan SPL.\n");
+        // }
+    }
+    
+    public static boolean isNone(Matrix m) {
+        boolean def = false;
+
+        int i = 0;
+        while (!def && i < m.rows) {
+            int j = 0;
+            boolean temp = true;
+            while (j < m.cols - 1 && temp) {
+                temp = (m.Mtrx[i][j] == 0 && m.Mtrx[i][m.cols - 1] != 0);
+                j++;
+            }
+
+            def = temp;
+            i++;
+        }
+
+        return def;
+    }
+
+    public static boolean hasNaN (double[] unik){
+        for (int i = 0; i < unik.length; i++){
+            Double check = unik[i];
+            if (check.isNaN()){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static double[] uniqueCase(Matrix m) {
+        // cari remaining rows
+        
+        int activeRow = 0;
+        for (int k = 0; k < m.rows; k++){
+            if (Gauss.count0(m, k, m.cols-1) != m.cols){
+                activeRow++;
+            } else {
+                break;
+            }
+        }
 
-        double[] unik = new double[m.rows];
+        activeRow--;
+        
+        System.out.println(activeRow);
 
-        for (int i = m.rows - 1; i >= 0; i--) {
+        double[] unik = new double[activeRow+1];
+
+        for (int i = activeRow; i >= 0; i--) {
             unik[i] = m.Mtrx[i][m.cols - 1];
 
             for (int j = i + 1; j <= m.cols - 2; j++) {
@@ -142,6 +230,7 @@ public class inputSPL extends printMtrxConsole {
         return result;
     }
 
+    
     public static Param[] infiniteCase(Matrix m, Matrix real) {
 
         real = Gauss.gauss(real);
