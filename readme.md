@@ -2,14 +2,22 @@
 Tugas Besar 1 IF 2123 Aljabar Linier dan Geometri
 
 ## How to Run?
-### MANUAL:
+### MANUAL VIA TERMINAL:
 1. Go to src : `cd src`
 2. Compile in bin : `javac -d ../bin ./codes/*.java` 
 3. `cd..`
 4. Go to bin : `cd bin`
 5. Run in bin : `java codes.mainProgram`
+Suggestion : It is better to recompile due to the difference of Java version
 
-Note : All class files will be inside the bin folder.
+### JAR FILE
+1. Go to lib : `cd lib`
+2. Run in lib : `java -jar "Tubes 1.jar"`
+
+Note : 
+- All class files will be inside the bin folder.
+
+
 
 ## Project Structure
 ```bash

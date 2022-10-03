@@ -1,4 +1,4 @@
-# This is Inputs Folder
+# This is `Inputs` Folder
 
 dir : `src/codes/inputs`
 
