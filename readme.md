@@ -1,5 +1,11 @@
-# Matrix Calculator - IF 2123
+# Matrix Calculator - IF2123
 Tugas Besar 1 IF 2123 Aljabar Linier dan Geometri
+Implemented by `Noogler`:
+1. 13521046 Jeffrey Chow
+2. 13521054 Wilson Tansil
+3. 13521102 Jimly Firdaus
+
+<br>
 
 ## How to Run?
 ### MANUAL VIA TERMINAL:
@@ -8,12 +14,14 @@ Tugas Besar 1 IF 2123 Aljabar Linier dan Geometri
 3. `cd..`
 4. Go to bin : `cd bin`
 5. Run in bin : `java codes.mainProgram`
+<br>
 Suggestion : It is better to recompile due to the difference of Java version
 
 ### JAR FILE
 1. Go to lib : `cd lib`
 2. Run in lib : `java -jar "Tubes 1.jar"`
 
+<br>
 Note : 
 - All class files will be inside the bin folder.
 
