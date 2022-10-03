@@ -41,7 +41,7 @@ public class inputBikubik {
             // double indeks2 = scanner.nextDouble();
             // scanner.nextLine();
             double ans = InterpolasiBicubic.bikubik(matrix, matrix.Mtrx[size_matrix][0], matrix.Mtrx[size_matrix][1]);
-            String args = "f("+matrix.Mtrx[size_matrix][0]+","+matrix.Mtrx[size_matrix][1]+") = ";
+            String args = "f("+matrix.Mtrx[size_matrix][0]+","+matrix.Mtrx[size_matrix][1]+")";
             printMtrx.main(args, ans);
         }else{
             try {
@@ -59,7 +59,7 @@ public class inputBikubik {
                 // // System.out.print("y = ");
                 // double indeks2 = scanner.nextDouble();
                 // scanner.nextLine();
-                String args = "f("+matrix.Mtrx[matrix.rows-1][0]+","+matrix.Mtrx[matrix.rows-1][1]+") = ";
+                String args = "f("+matrix.Mtrx[matrix.rows-1][0]+","+matrix.Mtrx[matrix.rows-1][1]+")";
                 double ans = InterpolasiBicubic.bikubik(matrix, matrix.Mtrx[matrix.rows-1][0], matrix.Mtrx[matrix.rows-1][1]);
                 printMtrx.main(args, ans);
             } catch (IOException ex) {

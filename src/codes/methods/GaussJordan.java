@@ -10,7 +10,7 @@ public class GaussJordan {
             int above_row = i-1;
             for(int j= above_row; j>=0; j--){
                 double factor=0;
-                int c = i;
+                int c = 0;
                 boolean isEmptyRow = false;
                 if(temp.Mtrx[i][c]==0){
                     boolean condition = false;
@@ -38,7 +38,7 @@ public class GaussJordan {
             }
         }
         for(int i = 0; i<m.rows; i++){
-            int c = i;
+            int c = 0;
             double factor = 0;
             if(temp.Mtrx[i][c]!=1 && Double.isInfinite(1/temp.Mtrx[i][c])){
                 if(temp.Mtrx[i][c]==0){

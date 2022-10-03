@@ -17,12 +17,14 @@ public class testProgram {
     public static void main(String[] args) {
         try {
             Matrix m;
-            m = createMtrxFile.createMatrix("spl8.txt");
+            m = createMtrxFile.createMatrix("test2.txt");
             // Matrix new_matrix = new Matrix(m.rows, m.cols);
             Matrix new_matrix = Gauss.gauss(m);
             
-            // printMtrxConsole.printMatrix(m);
+            
             printMtrxConsole.printMatrix(new_matrix);
+            System.out.println();
+            printMtrxConsole.printMatrix(GaussJordan.jordan(new_matrix));
             int i;
             for (i = 0; i < m.rows; i++){
                 if(Gauss.check0RemainingRows(m, i)){
