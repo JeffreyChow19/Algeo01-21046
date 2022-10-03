@@ -1,6 +1,7 @@
 package codes.inputs;
 
 import java.util.Scanner;
+
 import codes.ADT.constructors.*;
 import codes.ADT.primitives.MakeSquare;
 import codes.methods.Cramer;

@@ -1,9 +1,10 @@
 package codes.inputs;
 
+import java.util.Scanner;
+
 import codes.mainProgram;
 import codes.ADT.Matrix;
 import codes.ADT.constructors.*;
-import java.util.Scanner;
 import codes.methods.determinant;
 import codes.methods.submethods.menuCheck;
 

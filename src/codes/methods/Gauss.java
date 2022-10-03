@@ -5,12 +5,9 @@ import codes.ADT.primitives.CheckNeg0;
 
 public class Gauss {
     public static Matrix gauss(Matrix m) {
-        // Matrix gaussed_mtrx = CopyMtrx.copyMtrx(m);
         // Switch initial Matrix if contains a row of 0
         switchRows(m, 0);
-        // switchFor0TrailsFront(m);
         int start_index = firstNotZero(m, 0);
-        // int copy_start_index = start_index;
         // Process to echelon row here
         boolean finish_process = false;
         int j = 0;
