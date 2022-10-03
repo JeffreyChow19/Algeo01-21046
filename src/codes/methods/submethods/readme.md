@@ -1,6 +1,6 @@
 # This is SubMethods Folder
 
-dir : codes/codes/methods/submethods
+dir : `src/codes/methods/submethods`
 
 Contains : 
 1. `menuCheck.java`

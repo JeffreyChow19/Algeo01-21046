@@ -1,6 +1,6 @@
 # This is Source Code Folder
 
-dir : src/codes
+dir : `src`
 
 Contains : 
-1. `mainProgram.java`
+1. `codes` folder 
