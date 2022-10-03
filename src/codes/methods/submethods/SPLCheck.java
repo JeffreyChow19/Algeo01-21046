@@ -32,10 +32,6 @@ public class SPLCheck {
             i++;
         }
 
-        // if (m.rows + 1 != m.cols){
-        //     def = true;
-        // }
-
         return def;
     } 
 

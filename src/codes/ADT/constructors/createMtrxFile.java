@@ -9,7 +9,7 @@ import codes.ADT.Matrix;
 public class createMtrxFile {
     public static Matrix createMatrix(String pathname) throws IOException {
         // Path for input text files
-        // Must be inside the `files` folder
+        // Must be inside the `test` folder
         String base = "../test/";
         FileReader file_input = new FileReader(base + pathname);
         // Concat All text content to content String
@@ -88,7 +88,7 @@ public class createMtrxFile {
     }
     public static Matrix createMatrixv2(String pathname) throws IOException {
         // Path for input text files
-        // Must be inside the `files` folder
+        // Must be inside the `test` folder
         String base = "../test/";
         FileReader file_input = new FileReader(base + pathname);
         // Concat All text content to content String

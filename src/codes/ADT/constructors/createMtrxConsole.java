@@ -3,7 +3,6 @@ package codes.ADT.constructors;
 import java.util.Scanner;
 import codes.ADT.Matrix;
 
-// Module : create Matriks, printMatriks
 public class createMtrxConsole {
     public static Scanner in = new Scanner(System.in);
     public static Matrix createMatrix(boolean square) {

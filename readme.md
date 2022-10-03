@@ -1,4 +1,8 @@
-## How to compile:
+# Matrix Calculator - IF 2123
+Tugas Besar 1 IF 2123 Aljabar Linier dan Geometri
+
+## How to Run?
+### MANUAL:
 1. Go to src : `cd src`
 2. Compile in bin : `javac -d ../bin ./codes/*.java` 
 3. `cd..`
@@ -13,33 +17,5 @@ Workflow docs : https://docs.google.com/document/d/1Cm4e3OA9VOaouzi5f2dPRo0dHm0E
 <br>
 <br>
 
-## Total Quest :
 
-Menu 1 : SPL
-    <br>
-    - Gauss ✓
-    <br>
-    - Gauss-Jordan ✓
-    <br>
-    - Matriks balikkan ✓
-    <br>
-    - Kaidah Cramer ✓
-    
-Menu 2 : Determinant
-    <br>
-    - Gauss ✓
-    <br>
-    - Matriks balikkan  (cofactor) ✓
-    
-Menu 3 : Matriks balikkan
-    <br>
-    - Gauss-Jordan ✓
-    <br>
-    - Cofactor ✓
-    
-Menu 4 : Interpolasi Polinom ✓
-
-Menu 5 : Interpolasi Bicubic 
-
-Menu 6 : Regresi Linier Berganda
 

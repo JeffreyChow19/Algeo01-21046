@@ -1,11 +1,12 @@
 package codes.inputs;
 
 import java.util.*;
+import java.io.IOException;
+
 import codes.methods.*;
 import codes.methods.submethods.*;
 import codes.ADT.*;
 import codes.ADT.constructors.*;
-import java.io.IOException;
 import codes.mainProgram;
 
 public class inputPolynom extends printMtrxConsole {
@@ -68,9 +69,6 @@ public class inputPolynom extends printMtrxConsole {
                 String base = "../test/";
                 m = createMtrxFile.createMatrixv2(base + pathname);
                 Matrix matrix = new Matrix(m.rows-1, m.cols);
-                // print("Input nilai x untuk taksiran: ");
-                // x = in.nextDouble();
-                // in.nextLine();
                 for (int i = 0; i < m.rows - 1; i++){
                     for (int j = 0; j < m.cols; j++){
                         matrix.Mtrx[i][j] = m.Mtrx[i][j];

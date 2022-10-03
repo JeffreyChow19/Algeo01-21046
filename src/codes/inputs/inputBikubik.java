@@ -1,11 +1,12 @@
 package codes.inputs;
 
-import codes.ADT.*;
+import java.io.IOException;
 import java.util.Scanner;
+
+import codes.ADT.*;
 import codes.methods.*;
 import codes.methods.submethods.*;
 import codes.ADT.constructors.*;
-import java.io.IOException;
 import codes.mainProgram;
 
 public class inputBikubik {
@@ -45,13 +46,6 @@ public class inputBikubik {
                 String pathname = scanner.nextLine();
                 String base = "../test/";
                 matrix = createMtrxFile.createMatrixv2(base + pathname);
-                // System.out.println("Input function arguments");
-                // System.out.print("x = ");
-                // double indeks1 = scanner.nextDouble();
-                // scanner.nextLine();
-                // // System.out.print("y = ");
-                // double indeks2 = scanner.nextDouble();
-                // scanner.nextLine();
                 String args = "f("+matrix.Mtrx[matrix.rows-1][0]+","+matrix.Mtrx[matrix.rows-1][1]+")";
                 double ans = InterpolasiBicubic.bikubik(matrix, matrix.Mtrx[matrix.rows-1][0], matrix.Mtrx[matrix.rows-1][1]);
                 printMtrx.main(args, ans);
