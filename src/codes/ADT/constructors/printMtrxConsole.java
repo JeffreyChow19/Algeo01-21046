@@ -13,7 +13,7 @@ public class printMtrxConsole {
                 if (matrix.Mtrx[i][j] <= (-0.0) && matrix.Mtrx[i][j] >= -0.00009) {
                     matrix.Mtrx[i][j] = 0;
                 }
-                printf("%7.2f", matrix.Mtrx[i][j]);
+                printf("%10.7f", matrix.Mtrx[i][j]);
             }
             print("\n");
         }

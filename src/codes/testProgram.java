@@ -17,7 +17,7 @@ public class testProgram {
     public static void main(String[] args) {
         try {
             Matrix m;
-            m = createMtrxFile.createMatrix("test2.txt");
+            m = createMtrxFile.createMatrix("spl410.txt");
             // Matrix new_matrix = new Matrix(m.rows, m.cols);
             Matrix new_matrix = Gauss.gauss(m);
             
