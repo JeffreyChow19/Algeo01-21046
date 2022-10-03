@@ -2,7 +2,6 @@ package codes.methods;
 
 import codes.ADT.constructors.createMtrx;
 import codes.ADT.constructors.printMtrx;
-import codes.ADT.constructors.printMtrxConsole;
 import codes.ADT.primitives.CheckNeg0;
 import codes.inputs.inputSPL;
 

@@ -32,13 +32,12 @@ public class inputSPL extends printMtrxConsole {
                 "Metode eliminasi Gauss-Jordan",
                 "Metode matriks balikan",
                 "Kaidah Cramer",
-                "Return to Menu"
         };
 
         System.out.println("\nMethods");
         System.out.println("=======\n");
 
-        int choice = menuCheck.main(1, 5, methods);
+        int choice = menuCheck.main(1, 4, methods);
 
         return choice;
     }
@@ -89,9 +88,6 @@ public class inputSPL extends printMtrxConsole {
                     printCramer(ansCramer);
                 }
                 break;
-            case 5:
-                String[] argsMain = { "" };
-                mainProgram.main(argsMain);
             default:
                 break;
         }

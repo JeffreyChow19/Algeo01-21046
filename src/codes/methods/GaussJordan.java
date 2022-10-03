@@ -1,9 +1,7 @@
 package codes.methods;
 
 import codes.ADT.Matrix;
-import codes.ADT.constructors.printMtrx;
 import codes.ADT.constructors.printMtrxConsole;
-import codes.ADT.primitives.CheckNeg0;
 
 public class GaussJordan {
     public static Matrix jordan (Matrix m){
@@ -48,39 +46,8 @@ public class GaussJordan {
                 }
                 printMtrxConsole.printMatrix(temp);
                 System.out.println();
-                // printMtrxConsole.printMatrix(temp);
-                // System.out.println();
             }
         }
-        // for(int i = 0; i<m.rows; i++){
-        //     int c = 0;
-        //     double factor = 0;
-        //     if(temp.Mtrx[i][c]!=1 && Double.isInfinite(1/temp.Mtrx[i][c])){
-        //         if(temp.Mtrx[i][c]==0){
-        //             boolean condition= false;
-        //             while(!condition){
-        //                 if(c< m.cols-1 && Double.isInfinite(1/temp.Mtrx[i][c])){
-        //                     c++;
-        //                 }else if(c< m.cols-1 && !Double.isInfinite(1/temp.Mtrx[i][c])){
-        //                     factor = temp.Mtrx[i][c];
-        //                     condition = true;
-        //                 }else{
-        //                     factor= 1;
-        //                     condition= true;
-        //                 }
-        //             }
-        //         }
-        //     }else{
-        //             factor = temp.Mtrx[i][c];
-        //         }
-        //     for(int j =c; j<m.cols; j++){
-        //         temp.Mtrx[i][j] /= factor;
-        //     }
-        //     printMtrxConsole.printMatrix(temp);
-        //     System.out.println();
-        // }
-        // Matrix gauss_j_mtrx = new Matrix(m.rows, m.cols);
-        // gauss_j_mtrx = CheckNeg0.check(temp);
         return temp;    
     }
 }
