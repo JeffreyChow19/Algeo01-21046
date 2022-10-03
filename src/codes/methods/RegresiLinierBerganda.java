@@ -48,8 +48,6 @@ public class RegresiLinierBerganda {
             }
             
         }
-
-        printMtrxConsole.printMatrix(ans);
         
         ans = Gauss.gauss(ans);
         double[] result = inputSPL.uniqueCase(ans);
