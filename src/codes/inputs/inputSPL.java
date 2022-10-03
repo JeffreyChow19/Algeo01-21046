@@ -96,32 +96,32 @@ public class inputSPL extends printMtrxConsole {
         }
     }
 
-    public static void printGauss(Matrix m, Matrix real) {
-        int status = SPLCheck.main(m);
-        print("\n");
-        if (status == 0) {
-            /* Solusi Unik */
+    // public static void printGauss(Matrix m, Matrix real) {
+    //     int status = SPLCheck.main(m);
+    //     print("\n");
+    //     if (status == 0) {
+    //         /* Solusi Unik */
 
-            println("SPL memiliki solusi unik\n");
-            double[] unik = uniqueCase(m);
+    //         println("SPL memiliki solusi unik\n");
+    //         double[] unik = uniqueCase(m);
         
-            // printMtrx.main(m);
-            printMtrx.main(unik);
+    //         // printMtrx.main(m);
+    //         printMtrx.main(unik);
             
-        } else if (status == 1) {
-            /* Solusi Banyak */
-            System.out.println("SPL memiliki banyak solusi\n");
-            Param[] ans = infiniteCase(m, real);
-            printMtrx.main(ans);
+    //     } else if (status == 1) {
+    //         /* Solusi Banyak */
+    //         System.out.println("SPL memiliki banyak solusi\n");
+    //         Param[] ans = infiniteCase(m, real);
+    //         printMtrx.main(ans);
 
 
-        } else {
-            /* Tidak ada solusi */
-            println("Tidak ada nilai x yang memenuhi persamaan SPL.\n");
-        }
-    }
+    //     } else {
+    //         /* Tidak ada solusi */
+    //         println("Tidak ada nilai x yang memenuhi persamaan SPL.\n");
+    //     }
+    // }
 
-    public static void printGauss2(Matrix m, Matrix real) {
+    public static void printGauss(Matrix m, Matrix real) {
         // int status = SPLCheck.main(m);
         // print("\n");
         
@@ -211,8 +211,6 @@ public class inputSPL extends printMtrxConsole {
         }
 
         activeRow--;
-        
-        System.out.println(activeRow);
 
         double[] unik = new double[activeRow+1];
 
