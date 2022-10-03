@@ -121,11 +121,45 @@ public class inputSPL extends printMtrxConsole {
         }
     }
 
+    public static void printGauss2(Matrix m, Matrix real) {
+        // int status = SPLCheck.main(m);
+        // print("\n");
+        
+            /* Solusi Unik */
+
+            println("SPL memiliki solusi unik\n");
+
+            double[] unik = uniqueCase(m);
+
+            // printMtrx.main(m);
+            printMtrx.main(unik);
+
+        // if (status == 1) {
+        //     /* Solusi Banyak */
+        //     System.out.println("SPL memiliki banyak solusi\n");
+        //     printMtrxConsole.printMatrix(m);
+        //     Param[] ans = infiniteCase(m, real);
+        //     printMtrx.main(ans);
+
+        // } else {
+        //     /* Tidak ada solusi */
+        //     println("Tidak ada nilai x yang memenuhi persamaan SPL.\n");
+        // }
+    }
+
     public static double[] uniqueCase(Matrix m) {
+        // cari remaining rows
+        int k;
+        for (k = 0; k < m.rows; k++){
+            if (Gauss.check0RemainingRows(m, k)){
+                break;
+            } 
+        }
+        k--;
 
         double[] unik = new double[m.rows];
 
-        for (int i = m.rows - 1; i >= 0; i--) {
+        for (int i = k; i >= 0; i--) {
             unik[i] = m.Mtrx[i][m.cols - 1];
 
             for (int j = i + 1; j <= m.cols - 2; j++) {
