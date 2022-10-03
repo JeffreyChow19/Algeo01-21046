@@ -13,13 +13,24 @@ import codes.methods.*;
 // import codes.inputs.*;
 
 public class testProgram {
-    public static Matrix m;
+    
     public static void main(String[] args) {
         try {
-            m = createMtrxFile.createMatrix("spl5.txt");
+            Matrix m;
+            m = createMtrxFile.createMatrix("spl8.txt");
+            // Matrix new_matrix = new Matrix(m.rows, m.cols);
             Matrix new_matrix = Gauss.gauss(m);
+            
+            // printMtrxConsole.printMatrix(m);
             printMtrxConsole.printMatrix(new_matrix);
-            inputSPL.printGauss2(new_matrix, m);
+            int i;
+            for (i = 0; i < m.rows; i++){
+                if(Gauss.check0RemainingRows(m, i)){
+                    i--;
+                    break;
+                }
+            }
+            System.out.println("available row : " + i);
             // double[] unik = inputSPL.uniqueCase(new_matrix);
             // printMtrxConsole.printMatrix(unik);
         } catch (IOException ex){

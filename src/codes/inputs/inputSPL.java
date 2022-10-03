@@ -63,7 +63,6 @@ public class inputSPL extends printMtrxConsole {
                 break;
             case 2:
                 Matrix ansJordan = GaussJordan.jordan(matrix);
-
                 printGauss(ansJordan, matrix);
                 break;
             case 3:
@@ -104,7 +103,6 @@ public class inputSPL extends printMtrxConsole {
             /* Solusi Unik */
 
             println("SPL memiliki solusi unik\n");
-
             double[] unik = uniqueCase(m);
         
             // printMtrx.main(m);
