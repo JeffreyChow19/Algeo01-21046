@@ -1,9 +1,7 @@
 package codes.methods;
 
 import codes.ADT.*;
-import codes.ADT.constructors.printMtrxConsole;
 import codes.ADT.primitives.CheckNeg0;
-import codes.ADT.primitives.CopyMtrx;
 
 public class Gauss {
     public static Matrix gauss(Matrix m) {

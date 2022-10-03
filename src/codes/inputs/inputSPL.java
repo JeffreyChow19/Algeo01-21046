@@ -8,10 +8,10 @@ import codes.methods.Gauss;
 import codes.methods.GaussJordan;
 import codes.ADT.primitives.*;
 import codes.methods.InverseCofactor;
-import codes.methods.submethods.SPLCheck;
 import codes.methods.submethods.menuCheck;
 import codes.ADT.Matrix;
 import codes.ADT.Param;
+import codes.mainProgram;
 
 public class inputSPL extends printMtrxConsole {
     public static Scanner scanner = new Scanner(System.in);
@@ -90,7 +90,8 @@ public class inputSPL extends printMtrxConsole {
                 }
                 break;
             case 5:
-                break;
+                String[] argsMain = { "" };
+                mainProgram.main(argsMain);
             default:
                 break;
         }
@@ -128,6 +129,7 @@ public class inputSPL extends printMtrxConsole {
             /* Solusi Unik */
 
         // println("SPL memiliki solusi unik\n");
+        // printMtrxConsole.printMatrix(m);
         if (!isNone(m)){
             try {
                 double[] unik = uniqueCase(m);

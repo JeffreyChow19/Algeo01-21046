@@ -1,5 +1,6 @@
 package codes.inputs;
 
+import codes.mainProgram;
 import codes.ADT.Matrix;
 import codes.ADT.constructors.*;
 import java.util.Scanner;
@@ -46,7 +47,8 @@ public class inputDeterminan extends printMtrxConsole {
                 printMtrx.main(args, ans);
                 break;
             case 3:
-                break;
+                String[] argsMain = {""};
+                mainProgram.main(argsMain);
             default:
                 break;
         }
