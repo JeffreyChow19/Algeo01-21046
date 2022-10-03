@@ -19,10 +19,6 @@ src
 └───codes
     │   mainProgram.java
     │   readme.md
-    │   tes.java
-    │   tes2.java
-    │   test.java
-    │   testProgram.java
     │
     ├───ADT
     │   │   Matrix.java
