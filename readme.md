@@ -10,13 +10,8 @@ Tugas Besar 1 IF 2123 Aljabar Linier dan Geometri
 5. Run in bin : `java codes.mainProgram`
 
 Note : All class files will be inside the bin folder.
-<br>
 
-Workflow docs : https://docs.google.com/document/d/1Cm4e3OA9VOaouzi5f2dPRo0dHm0Ew1dOLPS9oBCuAYk/edit
-====================================================================================================
-<br>
-<br>
-
+## Project Structure
 ```bash
 src
 │   readme.md
