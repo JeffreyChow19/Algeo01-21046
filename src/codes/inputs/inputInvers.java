@@ -17,7 +17,6 @@ public class inputInvers extends inputDeterminan{
     }
 
     public static int chooseMethods() {
-        // Scanner scanner = new Scanner(System.in);
 
         String[] methods = {
                 "Metode eliminasi Gauss-Jordan",
@@ -58,8 +57,6 @@ public class inputInvers extends inputDeterminan{
                 mainProgram.main(argsMain);
             default:
                 break;
-        }
-         
-            
+        }      
     }
 }

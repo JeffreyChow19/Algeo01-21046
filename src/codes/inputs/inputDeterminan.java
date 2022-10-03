@@ -18,7 +18,6 @@ public class inputDeterminan extends printMtrxConsole {
     }
     
     public static int chooseMethods() {
-        // Scanner scanner = new Scanner(System.in);
 
         String[] methods = {
                 "Metode eliminasi Gauss",

@@ -14,11 +14,11 @@ public class inputBikubik {
             "Console",
             "File txt"
         };
+
         int inputType = menuCheck.main(1, 2, methods);
+
         if(inputType == 1){
             Scanner scanner = new Scanner(System.in);
-            // System.out.print("Matrix size: ");
-            // int size_matrix = scanner.nextInt();
             int size_matrix = 4;
             Matrix matrix = new Matrix(size_matrix+1, size_matrix);
             System.out.println("Input your matrix: ");
@@ -33,17 +33,10 @@ public class inputBikubik {
                     }
                 }
             }
-            // System.out.println("Input function arguments");
-            // System.out.print("x = ");
-            // double indeks1 = scanner.nextDouble();
-            // scanner.nextLine();
-            // System.out.print("y = ");
-            // double indeks2 = scanner.nextDouble();
-            // scanner.nextLine();
             double ans = InterpolasiBicubic.bikubik(matrix, matrix.Mtrx[size_matrix][0], matrix.Mtrx[size_matrix][1]);
             String args = "f("+matrix.Mtrx[size_matrix][0]+","+matrix.Mtrx[size_matrix][1]+")";
             printMtrx.main(args, ans);
-        }else{
+        } else {
             try {
                 // Get Matrix from txt
                 Matrix matrix;

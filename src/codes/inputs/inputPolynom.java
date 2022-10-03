@@ -90,15 +90,4 @@ public class inputPolynom extends printMtrxConsole {
             }
         }
     }
-    // public static String superscript(String str) {
-    //     str = str.replaceAll("2", "\u00b2");
-    //     str = str.replaceAll("3", "\u00b3");
-    //     str = str.replaceAll("4", "\u2074");
-    //     str = str.replaceAll("5", "\u2075");
-    //     str = str.replaceAll("6", "\u2076");
-    //     str = str.replaceAll("7", "\u2077");
-    //     str = str.replaceAll("8", "\u2078");
-    //     str = str.replaceAll("9", "\u2079");         
-    //     return str;
-    // }
-    }
+}

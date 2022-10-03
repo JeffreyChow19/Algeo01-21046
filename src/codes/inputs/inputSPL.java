@@ -25,8 +25,7 @@ public class inputSPL extends printMtrxConsole {
     }
 
     public static int chooseMethods() {
-        // Scanner scanner = new Scanner(System.in);
-
+        
         String[] methods = {
                 "Metode eliminasi Gauss",
                 "Metode eliminasi Gauss-Jordan",
@@ -97,39 +96,9 @@ public class inputSPL extends printMtrxConsole {
         }
     }
 
-    // public static void printGauss(Matrix m, Matrix real) {
-    //     int status = SPLCheck.main(m);
-    //     print("\n");
-    //     if (status == 0) {
-    //         /* Solusi Unik */
-
-    //         println("SPL memiliki solusi unik\n");
-    //         double[] unik = uniqueCase(m);
-        
-    //         // printMtrx.main(m);
-    //         printMtrx.main(unik);
-            
-    //     } else if (status == 1) {
-    //         /* Solusi Banyak */
-    //         System.out.println("SPL memiliki banyak solusi\n");
-    //         Param[] ans = infiniteCase(m, real);
-    //         printMtrx.main(ans);
-
-
-    //     } else {
-    //         /* Tidak ada solusi */
-    //         println("Tidak ada nilai x yang memenuhi persamaan SPL.\n");
-    //     }
-    // }
-
     public static void printGauss(Matrix m, Matrix real) {
-        // int status = SPLCheck.main(m);
-        // print("\n");
         
-            /* Solusi Unik */
-
-        // println("SPL memiliki solusi unik\n");
-        // printMtrxConsole.printMatrix(m);
+        System.out.println();
         if (!isNone(m)){
             try {
                 double[] unik = uniqueCase(m);
@@ -151,24 +120,6 @@ public class inputSPL extends printMtrxConsole {
             System.out.println("SPL tidak memiliki solusi.\n");
         }
         
-
-
-        // printMtrx.main(m);
-        // printMtrx.main(unik);
-
-
-
-        // if (status == 1) {
-        //     /* Solusi Banyak */
-        //     System.out.println("SPL memiliki banyak solusi\n");
-        //     printMtrxConsole.printMatrix(m);
-        //     Param[] ans = infiniteCase(m, real);
-        //     printMtrx.main(ans);
-
-        // } else {
-        //     /* Tidak ada solusi */
-        //     println("Tidak ada nilai x yang memenuhi persamaan SPL.\n");
-        // }
     }
     
     public static boolean isNone(Matrix m) {
@@ -201,8 +152,8 @@ public class inputSPL extends printMtrxConsole {
     }
 
     public static double[] uniqueCase(Matrix m) {
-        // cari remaining rows
         
+        // cari remaining rows
         int activeRow = 0;
         for (int k = 0; k < m.rows; k++){
             if (Gauss.count0(m, k, m.cols-1) != m.cols){
