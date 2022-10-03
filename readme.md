@@ -16,6 +16,67 @@ Workflow docs : https://docs.google.com/document/d/1Cm4e3OA9VOaouzi5f2dPRo0dHm0E
 ====================================================================================================
 <br>
 <br>
-
+```bash
+src
+│   readme.md
+│
+└───codes
+    │   mainProgram.java
+    │   readme.md
+    │   tes.java
+    │   tes2.java
+    │   test.java
+    │   testProgram.java
+    │
+    ├───ADT
+    │   │   Matrix.java
+    │   │   Param.java
+    │   │   readme.md
+    │   │
+    │   ├───constructors
+    │   │       createMtrx.java
+    │   │       createMtrxConsole.java
+    │   │       createMtrxFile.java
+    │   │       printMtrx.java
+    │   │       printMtrxConsole.java
+    │   │       printMtrxFile.java
+    │   │       readme.md
+    │   │
+    │   └───primitives
+    │           CheckNeg0.java
+    │           CopyMtrx.java
+    │           GetCofactor.java
+    │           IsSquare.java
+    │           MakeSquare.java
+    │           readme.md
+    │           SwitchCol.java
+    │           TimesDiagonal.java
+    │           Transpose.java
+    │
+    ├───inputs
+    │       inputBikubik.java
+    │       inputDeterminan.java
+    │       inputInvers.java
+    │       inputPolynom.java
+    │       inputSPL.java
+    │       readme.md
+    │
+    └───methods
+        │   Cramer.java
+        │   determinant.java
+        │   Gauss.java
+        │   GaussJordan.java
+        │   InterpolasiBicubic.java
+        │   InterpolasiPolinom.java
+        │   InverseCofactor.java
+        │   InverseGaussJordan.java
+        │   readme.md
+        │   RegresiLinierBerganda.java
+        │
+        └───submethods
+                menuCheck.java
+                readme.md
+                SPLCheck.java
+```
 
 
