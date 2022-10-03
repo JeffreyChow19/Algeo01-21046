@@ -18,8 +18,10 @@ public class testProgram {
         try {
             m = createMtrxFile.createMatrix("spl5.txt");
             Matrix new_matrix = Gauss.gauss(m);
-            double[] unik = inputSPL.uniqueCase(new_matrix);
-            printMtrxConsole.printMatrix(unik);
+            printMtrxConsole.printMatrix(new_matrix);
+            inputSPL.printGauss2(new_matrix, m);
+            // double[] unik = inputSPL.uniqueCase(new_matrix);
+            // printMtrxConsole.printMatrix(unik);
         } catch (IOException ex){
             System.out.println("filename not found!");
         }
