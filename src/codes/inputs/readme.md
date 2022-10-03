@@ -1,6 +1,6 @@
-# This is Inputs Folder
+# This is `Inputs` Folder
 
-dir : src/codes/inputs
+dir : `src/codes/inputs`
 
 Contains:
 1. `inputSPL.java`

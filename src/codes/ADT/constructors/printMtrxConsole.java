@@ -3,7 +3,6 @@ package codes.ADT.constructors;
 import codes.ADT.Matrix;
 import codes.ADT.Param;
 
-
 public class printMtrxConsole {
     public static void printMatrix(Matrix matrix) {
         int i, j;

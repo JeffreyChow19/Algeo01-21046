@@ -1,6 +1,7 @@
 package codes.inputs;
 
 import java.util.Scanner;
+
 import codes.ADT.constructors.*;
 import codes.ADT.primitives.MakeSquare;
 import codes.methods.Cramer;
@@ -8,10 +9,10 @@ import codes.methods.Gauss;
 import codes.methods.GaussJordan;
 import codes.ADT.primitives.*;
 import codes.methods.InverseCofactor;
-import codes.methods.submethods.SPLCheck;
 import codes.methods.submethods.menuCheck;
 import codes.ADT.Matrix;
 import codes.ADT.Param;
+import codes.mainProgram;
 
 public class inputSPL extends printMtrxConsole {
     public static Scanner scanner = new Scanner(System.in);
@@ -25,8 +26,7 @@ public class inputSPL extends printMtrxConsole {
     }
 
     public static int chooseMethods() {
-        // Scanner scanner = new Scanner(System.in);
-
+        
         String[] methods = {
                 "Metode eliminasi Gauss",
                 "Metode eliminasi Gauss-Jordan",
@@ -90,44 +90,16 @@ public class inputSPL extends printMtrxConsole {
                 }
                 break;
             case 5:
-                break;
+                String[] argsMain = { "" };
+                mainProgram.main(argsMain);
             default:
                 break;
         }
     }
 
     public static void printGauss(Matrix m, Matrix real) {
-        int status = SPLCheck.main(m);
-        print("\n");
-        if (status == 0) {
-            /* Solusi Unik */
-
-            println("SPL memiliki solusi unik\n");
-            double[] unik = uniqueCase(m);
         
-            // printMtrx.main(m);
-            printMtrx.main(unik);
-            
-        } else if (status == 1) {
-            /* Solusi Banyak */
-            System.out.println("SPL memiliki banyak solusi\n");
-            Param[] ans = infiniteCase(m, real);
-            printMtrx.main(ans);
-
-
-        } else {
-            /* Tidak ada solusi */
-            println("Tidak ada nilai x yang memenuhi persamaan SPL.\n");
-        }
-    }
-
-    public static void printGauss2(Matrix m, Matrix real) {
-        // int status = SPLCheck.main(m);
-        // print("\n");
-        
-            /* Solusi Unik */
-
-        // println("SPL memiliki solusi unik\n");
+        System.out.println();
         if (!isNone(m)){
             try {
                 double[] unik = uniqueCase(m);
@@ -149,24 +121,6 @@ public class inputSPL extends printMtrxConsole {
             System.out.println("SPL tidak memiliki solusi.\n");
         }
         
-
-
-        // printMtrx.main(m);
-        // printMtrx.main(unik);
-
-
-
-        // if (status == 1) {
-        //     /* Solusi Banyak */
-        //     System.out.println("SPL memiliki banyak solusi\n");
-        //     printMtrxConsole.printMatrix(m);
-        //     Param[] ans = infiniteCase(m, real);
-        //     printMtrx.main(ans);
-
-        // } else {
-        //     /* Tidak ada solusi */
-        //     println("Tidak ada nilai x yang memenuhi persamaan SPL.\n");
-        // }
     }
     
     public static boolean isNone(Matrix m) {
@@ -199,8 +153,8 @@ public class inputSPL extends printMtrxConsole {
     }
 
     public static double[] uniqueCase(Matrix m) {
-        // cari remaining rows
         
+        // cari remaining rows
         int activeRow = 0;
         for (int k = 0; k < m.rows; k++){
             if (Gauss.count0(m, k, m.cols-1) != m.cols){
@@ -211,8 +165,6 @@ public class inputSPL extends printMtrxConsole {
         }
 
         activeRow--;
-        
-        System.out.println(activeRow);
 
         double[] unik = new double[activeRow+1];
 

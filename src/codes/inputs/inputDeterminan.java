@@ -1,8 +1,10 @@
 package codes.inputs;
 
+import java.util.Scanner;
+
+import codes.mainProgram;
 import codes.ADT.Matrix;
 import codes.ADT.constructors.*;
-import java.util.Scanner;
 import codes.methods.determinant;
 import codes.methods.submethods.menuCheck;
 
@@ -17,7 +19,6 @@ public class inputDeterminan extends printMtrxConsole {
     }
     
     public static int chooseMethods() {
-        // Scanner scanner = new Scanner(System.in);
 
         String[] methods = {
                 "Metode eliminasi Gauss",
@@ -46,7 +47,8 @@ public class inputDeterminan extends printMtrxConsole {
                 printMtrx.main(args, ans);
                 break;
             case 3:
-                break;
+                String[] argsMain = {""};
+                mainProgram.main(argsMain);
             default:
                 break;
         }

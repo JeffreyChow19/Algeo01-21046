@@ -1,6 +1,6 @@
 # This is Primitives Folder
 
-dir : src/codes/ADT/primitives
+dir : `src/codes/ADT/primitives`
 
 Contains :
 1. `CheckNeg0.java` 

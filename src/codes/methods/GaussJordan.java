@@ -1,4 +1,5 @@
 package codes.methods;
+
 import codes.ADT.Matrix;
 import codes.ADT.constructors.printMtrx;
 import codes.ADT.constructors.printMtrxConsole;

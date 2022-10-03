@@ -1,45 +1,88 @@
-## How to compile:
+# Matrix Calculator - IF2123
+Tugas Besar 1 IF2123 Aljabar Linier dan Geometri
+
+Implemented by `Noogler`:
+1. 13521046 Jeffrey Chow
+2. 13521054 Wilson Tansil
+3. 13521102 Jimly Firdaus
+
+## How to Run?
+### MANUAL VIA TERMINAL:
 1. Go to src : `cd src`
 2. Compile in bin : `javac -d ../bin ./codes/*.java` 
 3. `cd..`
 4. Go to bin : `cd bin`
 5. Run in bin : `java codes.mainProgram`
 
+Suggestion : It is better to recompile due to the difference of Java version
+
+### JAR FILE
+1. Go to lib : `cd lib`
+2. Run in lib : `java -jar "Tubes 1.jar"`
+
+<br>
 Note : All class files will be inside the bin folder.
-<br>
 
-Workflow docs : https://docs.google.com/document/d/1Cm4e3OA9VOaouzi5f2dPRo0dHm0Ew1dOLPS9oBCuAYk/edit
-====================================================================================================
-<br>
-<br>
 
-## Total Quest :
 
-Menu 1 : SPL
-    <br>
-    - Gauss ✓
-    <br>
-    - Gauss-Jordan ✓
-    <br>
-    - Matriks balikkan ✓
-    <br>
-    - Kaidah Cramer ✓
-    
-Menu 2 : Determinant
-    <br>
-    - Gauss ✓
-    <br>
-    - Matriks balikkan  (cofactor) ✓
-    
-Menu 3 : Matriks balikkan
-    <br>
-    - Gauss-Jordan ✓
-    <br>
-    - Cofactor ✓
-    
-Menu 4 : Interpolasi Polinom ✓
+## Project Structure
+```bash
+src
+│   readme.md
+│
+└───codes
+    │   mainProgram.java
+    │   readme.md
+    │
+    ├───ADT
+    │   │   Matrix.java
+    │   │   Param.java
+    │   │   readme.md
+    │   │
+    │   ├───constructors
+    │   │       createMtrx.java
+    │   │       createMtrxConsole.java
+    │   │       createMtrxFile.java
+    │   │       printMtrx.java
+    │   │       printMtrxConsole.java
+    │   │       printMtrxFile.java
+    │   │       readme.md
+    │   │
+    │   └───primitives
+    │           CheckNeg0.java
+    │           CopyMtrx.java
+    │           GetCofactor.java
+    │           IsSquare.java
+    │           MakeSquare.java
+    │           readme.md
+    │           SwitchCol.java
+    │           TimesDiagonal.java
+    │           Transpose.java
+    │
+    ├───inputs
+    │       inputBikubik.java
+    │       inputDeterminan.java
+    │       inputInvers.java
+    │       inputPolynom.java
+    │       inputSPL.java
+    │       readme.md
+    │
+    └───methods
+        │   Cramer.java
+        │   determinant.java
+        │   Gauss.java
+        │   GaussJordan.java
+        │   InterpolasiBicubic.java
+        │   InterpolasiPolinom.java
+        │   InverseCofactor.java
+        │   InverseGaussJordan.java
+        │   readme.md
+        │   RegresiLinierBerganda.java
+        │
+        └───submethods
+                menuCheck.java
+                readme.md
+                SPLCheck.java
+```
 
-Menu 5 : Interpolasi Bicubic 
-
-Menu 6 : Regresi Linier Berganda
 

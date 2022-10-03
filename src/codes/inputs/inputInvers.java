@@ -5,6 +5,7 @@ import codes.ADT.constructors.*;
 import codes.methods.InverseCofactor;
 import codes.methods.InverseGaussJordan;
 import codes.methods.submethods.menuCheck;
+import codes.mainProgram;
 
 public class inputInvers extends inputDeterminan{
     public static void main() {
@@ -16,7 +17,6 @@ public class inputInvers extends inputDeterminan{
     }
 
     public static int chooseMethods() {
-        // Scanner scanner = new Scanner(System.in);
 
         String[] methods = {
                 "Metode eliminasi Gauss-Jordan",
@@ -53,11 +53,10 @@ public class inputInvers extends inputDeterminan{
                 }
                 break;
             case 3:
-                break;
+                String[] argsMain = { "" };
+                mainProgram.main(argsMain);
             default:
                 break;
-        }
-         
-            
+        }      
     }
 }

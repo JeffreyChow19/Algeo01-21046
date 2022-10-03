@@ -1,11 +1,12 @@
 package codes.inputs;
 
 import java.util.*;
+import java.io.IOException;
+
 import codes.methods.*;
 import codes.methods.submethods.*;
 import codes.ADT.*;
 import codes.ADT.constructors.*;
-import java.io.IOException;
 import codes.mainProgram;
 
 public class inputPolynom extends printMtrxConsole {
@@ -68,9 +69,6 @@ public class inputPolynom extends printMtrxConsole {
                 String base = "../test/";
                 m = createMtrxFile.createMatrixv2(base + pathname);
                 Matrix matrix = new Matrix(m.rows-1, m.cols);
-                // print("Input nilai x untuk taksiran: ");
-                // x = in.nextDouble();
-                // in.nextLine();
                 for (int i = 0; i < m.rows - 1; i++){
                     for (int j = 0; j < m.cols; j++){
                         matrix.Mtrx[i][j] = m.Mtrx[i][j];
@@ -90,15 +88,4 @@ public class inputPolynom extends printMtrxConsole {
             }
         }
     }
-    // public static String superscript(String str) {
-    //     str = str.replaceAll("2", "\u00b2");
-    //     str = str.replaceAll("3", "\u00b3");
-    //     str = str.replaceAll("4", "\u2074");
-    //     str = str.replaceAll("5", "\u2075");
-    //     str = str.replaceAll("6", "\u2076");
-    //     str = str.replaceAll("7", "\u2077");
-    //     str = str.replaceAll("8", "\u2078");
-    //     str = str.replaceAll("9", "\u2079");         
-    //     return str;
-    // }
-    }
+}
