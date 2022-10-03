@@ -3,46 +3,75 @@ package codes.methods;
 import codes.ADT.*;
 import codes.ADT.constructors.printMtrxConsole;
 import codes.ADT.primitives.CheckNeg0;
+import codes.ADT.primitives.CopyMtrx;
 
 public class Gauss {
     public static Matrix gauss(Matrix m) {
+        // Matrix gaussed_mtrx = CopyMtrx.copyMtrx(m);
         // Switch initial Matrix if contains a row of 0
         switchRows(m, 0);
+        // switchFor0TrailsFront(m);
         int start_index = firstNotZero(m, 0);
+        // int copy_start_index = start_index;
         // Process to echelon row here
-        for (int j = 0; j < m.cols; j++) {
-            for (int i = j + 1; i < m.rows; i++) {
-                // Check for remaning rows to tackle NaN
-                if (check0RemainingRows(m, j)){
-                    Matrix gaussed_mtrx = new Matrix(m.rows, m.cols);
-                    gaussed_mtrx = CheckNeg0.check(m);
-                    return gaussed_mtrx;
-                }
-                double pem = m.Mtrx[i][start_index];
-                double pen = m.Mtrx[j][start_index];
-                double factor = 0;
-                if (Double.isInfinite(1 / pen)) {
-                    if (!Double.isInfinite(1 / pem)){
-                        factor = 1;
+        boolean finish_process = false;
+        int j = 0;
+        int i;
+        int min = m.cols <= m.rows ? m.cols : m.rows;
+        make_echelon:
+            while (j < min && !finish_process) {
+                i = j + 1;
+                while (i < min && !finish_process) {
+                    // Check for remaning rows to tackle NaN
+                    if (check0RemainingRows(m, j)){
+                        Matrix gaussed_mtrx = new Matrix(m.rows, m.cols);
+                        gaussed_mtrx = CheckNeg0.check(m);
+                        finish_process = true;
+                        return gaussed_mtrx;
+                    } else {
+                    double pem = m.Mtrx[i][start_index];
+                    double pen = m.Mtrx[j][start_index];
+                    double factor = 0;
+                    if (Double.isInfinite(1 / pen)) {
+                        if (!Double.isInfinite(1 / pem)){
+                            factor = 1;
+                        }
+                    } else {
+                        factor = pem / pen;
                     }
-                } else {
-                    factor = pem / pen;
-                }
-                if (factor != 0){
-                    for (int k = 0; k < m.cols; k++) {
-                        m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);
+                    if (factor != 0){
+                        for (int k = 0; k < m.cols; k++) {
+                            m.Mtrx[i][k] -= ((factor) * m.Mtrx[j][k]);
+                        }
                     }
+                    }
+                    i++;
                 }
-                
+                start_index++;
+                // Switch row if current row contains more 0 then next row
+                switchRows(m, j);
+                if (isNotFinalEchelon(m) && j == m.cols - 1){
+                    j = 0;
+                    start_index = firstNotZero(m, 0);
+                    continue make_echelon;
+                }
+                j++;
             }
-            start_index++;
-            // Switch row if current row contains more 0 then next row
-            switchRows(m, j);
             
+            Matrix gaussed_mtrx = new Matrix(m.rows, m.cols);
+            gaussed_mtrx = CheckNeg0.check(m);
+            return gaussed_mtrx;
+    }
+
+    public static boolean isNotFinalEchelon(Matrix m) {
+        int j = 0;
+        for (int i = 0; i < m.rows - 1 && j < m.cols ; i++){
+            if (!Double.isInfinite(1/m.Mtrx[i][j]) && !Double.isInfinite(1/m.Mtrx[i+1][j])){
+                return true;
+            }
+            j++;
         }
-        Matrix gaussed_mtrx = new Matrix(m.rows, m.cols);
-        gaussed_mtrx = CheckNeg0.check(m);
-        return gaussed_mtrx;
+        return false;
     }
 
     public static int count0(Matrix m, int row, int limit) {
