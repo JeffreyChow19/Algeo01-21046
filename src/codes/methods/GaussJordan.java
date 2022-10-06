@@ -1,7 +1,9 @@
 package codes.methods;
 
 import codes.ADT.Matrix;
+import codes.ADT.constructors.printMtrx;
 import codes.ADT.constructors.printMtrxConsole;
+import codes.ADT.primitives.CheckNeg0;
 
 public class GaussJordan {
     public static Matrix jordan (Matrix m){
@@ -44,7 +46,6 @@ public class GaussJordan {
                         temp.Mtrx[j][k] -= (temp.Mtrx[i][k]*factor);
                     }
                 }
-<<<<<<< HEAD
                 // printMtrxConsole.printMatrix(temp);
                 // System.out.println();
                 // printMtrxConsole.printMatrix(temp);
@@ -80,12 +81,6 @@ public class GaussJordan {
         }
         Matrix gauss_j_mtrx = new Matrix(m.rows, m.cols);
         gauss_j_mtrx = CheckNeg0.check(temp);
-=======
-                printMtrxConsole.printMatrix(temp);
-                System.out.println();
-            }
-        }
->>>>>>> 99f25eeedf46f1d738612fe5dbc4c4c99f07c829
         return temp;    
     }
 }
