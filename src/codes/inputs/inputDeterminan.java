@@ -23,13 +23,12 @@ public class inputDeterminan extends printMtrxConsole {
         String[] methods = {
                 "Metode eliminasi Gauss",
                 "Metode Cofactor",
-                "Return to Menu"
         };
 
         println("\nMethods");
         println("=======\n");
 
-        int choice = menuCheck.main(1, 3, methods);
+        int choice = menuCheck.main(1, 2, methods);
 
         return choice;
     }
@@ -46,9 +45,6 @@ public class inputDeterminan extends printMtrxConsole {
                 ans = determinant.detCofactor(m, m.rows, true);
                 printMtrx.main(args, ans);
                 break;
-            case 3:
-                String[] argsMain = {""};
-                mainProgram.main(argsMain);
             default:
                 break;
         }

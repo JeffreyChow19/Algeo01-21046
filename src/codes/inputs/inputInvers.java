@@ -21,13 +21,12 @@ public class inputInvers extends inputDeterminan{
         String[] methods = {
                 "Metode eliminasi Gauss-Jordan",
                 "Metode Cofactor",
-                "Return to Menu"
         };
 
         System.out.println("\nMethods");
         System.out.println("=======\n");
 
-        int choice = menuCheck.main(1, 3, methods);
+        int choice = menuCheck.main(1, 2, methods);
 
         return choice;
     }
@@ -52,9 +51,6 @@ public class inputInvers extends inputDeterminan{
                     System.out.println("Matrix has no inverse");
                 }
                 break;
-            case 3:
-                String[] argsMain = { "" };
-                mainProgram.main(argsMain);
             default:
                 break;
         }      
