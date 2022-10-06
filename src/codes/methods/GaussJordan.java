@@ -23,10 +23,10 @@ public class GaussJordan {
                         }else if(c< m.cols-1 && !Double.isInfinite(1/temp.Mtrx[i][c])){
                             factor = temp.Mtrx[j][c]/temp.Mtrx[i][c];
                             condition = true;
-                            System.out.printf("%d\n", c);
-                            System.out.printf("%.2f\n", temp.Mtrx[j][c]);
-                            System.out.printf("%.2f\n", temp.Mtrx[i][c]);
-                            System.out.printf("%.2f\n", factor);
+                            // System.out.printf("%d\n", c);
+                            // System.out.printf("%.2f\n", temp.Mtrx[j][c]);
+                            // System.out.printf("%.2f\n", temp.Mtrx[i][c]);
+                            // System.out.printf("%.2f\n", factor);
                         }else{
                             above_row -=1;
                             isEmptyRow = true;
@@ -36,10 +36,10 @@ public class GaussJordan {
                 }
                 else{
                     factor = temp.Mtrx[j][c]/temp.Mtrx[i][c];
-                    System.out.printf("%d\n", c);
-                    System.out.printf("%.2f\n", temp.Mtrx[j][c]);
-                    System.out.printf("%.2f\n", temp.Mtrx[i][c]);
-                    System.out.printf("%.2f\n", factor);
+                    // System.out.printf("%d\n", c);
+                    // System.out.printf("%.2f\n", temp.Mtrx[j][c]);
+                    // System.out.printf("%.2f\n", temp.Mtrx[i][c]);
+                    // System.out.printf("%.2f\n", factor);
                 }
                 if(!isEmptyRow){
                     for(int k= m.cols-1; k>=0; k--){
